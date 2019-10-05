@@ -1,0 +1,11 @@
+.container_username,
+.container_password {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.LoginForm {
+  margin-top: 100px;
+  padding-top: 70px;
+}
