@@ -39,12 +39,13 @@ const AuthApiService = {
   },
   // Requests to backend to execute createJWT and send payload again.
   // This is triggered in set intervals.
+  // check desktop version
   postRefreshToken(user) {
     return fetch(`${config.API_ENDPOINT}/auth/register`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
-        authorization: `Bearer ${TokenService.getAuthToken()}`
+        authorization: `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>

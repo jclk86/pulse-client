@@ -2,12 +2,12 @@ import React, {Component} from "react"
 import {NavLink, withRouter} from "react-router-dom"
 // need to proptypes
 
-class InventoryListItem extends Component {
+class ArticleListItem extends Component {
 
 
   render() {
     const {article} = this.props
-    return( // changethe template string 
+    return( // change the template string 
     <NavLink role="navigation" to={`/articles/:article_id`}>
       <div className="container_article_item">
         <h2 className="article_title">{article.title}</h2>
@@ -17,4 +17,4 @@ class InventoryListItem extends Component {
   }
 }
 
-export default withRouter(InventoryListItem)
+export default withRouter(ArticleListItem)
