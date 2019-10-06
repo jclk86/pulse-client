@@ -1,4 +1,6 @@
 import config from "../config";
+import TokenService from "../Services/token-service";
+import IdleService from "./idle-service";
 
 const AuthApiService = {
   postLogin({ username, password }) {
@@ -8,9 +10,21 @@ const AuthApiService = {
         "content-type": "application/json"
       },
       body: JSON.stringify({ username, password })
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    })
+      .then(res =>
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken);
+        IdleService.registerIdleTimerResets();
+        TokenService.queueCallbackBeforeExpiry(() => {
+          AuthApiService.postRefreshToken();
+        });
+        return res;
+      })
+      .catch(err => {
+        console.error(err);
+      });
   },
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/user`, {
@@ -22,6 +36,30 @@ const AuthApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  // Requests to backend to execute createJWT and send payload again.
+  // This is triggered in set intervals.
+  postRefreshToken(user) {
+    return fetch(`${config.API_ENDPOINT}/auth/register`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res =>
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken);
+        TokenService.queueCallbackBeforeExpiry(() => {
+          AuthApiService.postRefreshToken();
+        });
+        return res;
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 };
 
