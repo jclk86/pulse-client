@@ -13,7 +13,7 @@ class LoginPage extends Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/register";
+    const destination = (location.state || {}).from || "/";
     history.push(destination);
   };
   render() {
