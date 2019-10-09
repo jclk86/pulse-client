@@ -22,6 +22,7 @@ export default ArticleContext;
 export class ArticleProvider extends Component {
   state = {
     article: nullArticle,
+    comments: [],
     error: null
   };
 
@@ -52,7 +53,7 @@ export class ArticleProvider extends Component {
   };
 
   render() {
-    const value = {
+    const contextValue = {
       article: this.state.article,
       comments: this.state.comments,
       error: this.state.error,
@@ -64,7 +65,7 @@ export class ArticleProvider extends Component {
       addComment: this.addComment
     };
     return (
-      <ArticleContext.Provider value={value}>
+      <ArticleContext.Provider value={contextValue}>
         {this.props.children}
       </ArticleContext.Provider>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../../images/travelist_logo.png";
 import "./Utils.css";
 
@@ -26,11 +27,25 @@ export function Input({ className, ...props }) {
 }
 
 export function FormLabel({ className, ...props }) {
-  return <label className={["Label", className].join(" ")} {...props}></label>;
+  return (
+    <label className={["FormLabel", className].join(" ")} {...props}></label>
+  );
 }
 
 export function Button({ className, ...props }) {
   return (
     <button className={["Button", className].join(" ")} {...props}></button>
+  );
+}
+
+export function CreatePostButton({ className, ...props }) {
+  return (
+    <NavLink to={"/create_post"}>
+      <button
+        className={["CreatePostButton", className].join(" ")}
+        {...props}
+        type="button"
+      ></button>
+    </NavLink>
   );
 }

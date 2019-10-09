@@ -29,7 +29,7 @@ export class ArticleListProvider extends Component {
   };
 
   render() {
-    const value = {
+    const contextValue = {
       articleList: this.state.articleList,
       setArticleList: this.setArticleList,
       error: this.state.error,
@@ -37,7 +37,7 @@ export class ArticleListProvider extends Component {
       clearError: this.clearError
     };
     return (
-      <ArticleListContext.Provider value={value}>
+      <ArticleListContext.Provider value={contextValue}>
         {this.props.children}
       </ArticleListContext.Provider>
     );

@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Logo } from "../Utils/Utils";
+import TokenService from "../../Services/token-service";
+import IdleService from "../../Services/idle-service";
 import "./Header.css";
 
 class Header extends Component {
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+  };
   render() {
     return (
       <div className="header">
@@ -11,7 +18,12 @@ class Header extends Component {
           <Logo></Logo>
         </div>
         <div className="navbar_links">
-          <NavLink to="/login" className="navbar_link_login">
+          <NavLink
+            to="/login"
+            role="navigation"
+            onClick={this.handleLogoutClick}
+            className="navbar_link_login"
+          >
             Logout
           </NavLink>
           <NavLink to="/signup" className="navbar_link_signup">

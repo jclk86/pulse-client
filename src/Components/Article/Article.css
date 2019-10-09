@@ -1,0 +1,11 @@
+.container_image {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.container_article {
+  max-width: 800px;
+  margin: 100px auto;
+  padding-bottom: 50px;
+  border: 1px solid blue;
+}
