@@ -34,7 +34,7 @@ class ArticleListPage extends Component {
             ></ArticleListItem>
           ))}
         </div>
-        <div className="container_create_post_button">
+        <div className="container_create_post_btn">
           <CreatePostButton>CREATE POST</CreatePostButton>
         </div>
       </div>

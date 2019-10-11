@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
+import { Button } from "../../Components/Utils/Utils";
 import Article from "../../Components/Article/Article";
 import ArticleContext from "../../Context/ArticleContext";
 import ArticleApiService from "../../Services/article-api-service";
@@ -28,6 +29,13 @@ class ArticlePage extends Component {
           <h2>Comments Section</h2>
         </div>
         <Comment comments={comments}></Comment>
+        <div className="container_article_page_btn">
+          <NavLink to="/articles">
+            <Button role="navigation" type="button">
+              Return
+            </Button>
+          </NavLink>
+        </div>
       </div>
     );
   }
