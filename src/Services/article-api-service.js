@@ -32,6 +32,41 @@ const ArticleApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  postArticle(newArticle) {
+    return fetch(`${config.API_ENDPOINT}/articles`, {
+      method: "POST",
+      body: JSON.stringify(newArticle),
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+  updateArticle(updatedArticle, article_id) {
+    return fetch(`${config.API_ENDPOINT}/articles/${article_id}`, {
+      method: "PATCH",
+      body: JSON.stringify(updatedArticle),
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => (!res.ok ? Promise.reject(res) : res));
+  },
+  deleteArticle(article_id) {
+    return fetch(`${config.API_ENDPOINT}/articles/${article_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => {
+      if (!res.ok) {
+        return res.json().then(error => Promise.reject(error));
+      }
+    });
   }
 };
 

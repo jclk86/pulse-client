@@ -24,7 +24,7 @@ class LoginForm extends Component {
     })
       .then(res => {
         const tokenDecoded = TokenService.readJwtToken(res);
-        console.log(tokenDecoded);
+
         username.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);

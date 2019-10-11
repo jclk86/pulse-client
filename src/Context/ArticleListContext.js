@@ -3,6 +3,7 @@ import React, { Component } from "react";
 const ArticleListContext = React.createContext({
   articleList: [],
   error: null,
+  addArticle: () => {},
   setError: () => {},
   clearError: () => {},
   setArticleList: () => {}
@@ -19,6 +20,10 @@ export class ArticleListProvider extends Component {
     this.setState({ articleList });
   };
 
+  addArticle = article => {
+    this.setState({ inventoryList: [...this.state.articleList, article] });
+  };
+
   setError = error => {
     console.error(error);
     this.setState({ error });
@@ -31,6 +36,7 @@ export class ArticleListProvider extends Component {
   render() {
     const contextValue = {
       articleList: this.state.articleList,
+      addArticle: this.addArticle,
       setArticleList: this.setArticleList,
       error: this.state.error,
       setError: this.setError,

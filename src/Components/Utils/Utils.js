@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/travelist_logo.png";
+import TokenService from "../../Services/token-service";
 import "./Utils.css";
 
 export function Logo({ className, ...props }) {
@@ -26,9 +27,31 @@ export function Input({ className, ...props }) {
   return <input className={["Input", className].join(" ")} {...props}></input>;
 }
 
+export function Textarea({ className, ...props }) {
+  return <textarea className={["Textarea", className].join(" ")} {...props} />;
+}
+
+export function Select({ className, ...props }) {
+  return (
+    <select
+      name="tag"
+      className={["Select", className].join(" ")}
+      {...props}
+    ></select>
+  );
+}
+
 export function FormLabel({ className, ...props }) {
   return (
     <label className={["FormLabel", className].join(" ")} {...props}></label>
+  );
+}
+
+export function Required({ className, ...props }) {
+  return (
+    <span className={["Required", className].join(" ")} {...props}>
+      &#42;
+    </span>
   );
 }
 
@@ -40,7 +63,7 @@ export function Button({ className, ...props }) {
 
 export function CreatePostButton({ className, ...props }) {
   return (
-    <NavLink to={"/create_post"}>
+    <NavLink to={TokenService.getAuthToken() ? "/add_article" : "/login"}>
       <button
         className={["CreatePostButton", className].join(" ")}
         {...props}

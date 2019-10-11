@@ -18,17 +18,29 @@ class Header extends Component {
           <Logo></Logo>
         </div>
         <div className="navbar_links">
-          <NavLink
-            to="/login"
-            role="navigation"
-            onClick={this.handleLogoutClick}
-            className="navbar_link_login"
-          >
-            Logout
-          </NavLink>
-          <NavLink to="/signup" className="navbar_link_signup">
-            Sign Up
-          </NavLink>
+          {TokenService.getAuthToken() ? (
+            <NavLink
+              to="/login"
+              role="navigation"
+              onClick={this.handleLogoutClick}
+              className="navbar_link_login"
+            >
+              Logout
+            </NavLink>
+          ) : (
+            <div className="container_header_top_right_links">
+              <NavLink
+                to="/login"
+                role="navigation"
+                className="navbar_link_login"
+              >
+                Login
+              </NavLink>
+              <NavLink to="/signup" className="navbar_link_signup">
+                Sign Up
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     );

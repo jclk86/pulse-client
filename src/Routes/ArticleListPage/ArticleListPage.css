@@ -1,4 +1,5 @@
 .flex_container {
   display: flex;
   justify-content: center;
+  background-color: rgb(174, 174, 251);
 }
