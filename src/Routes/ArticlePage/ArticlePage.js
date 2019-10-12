@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import { Button } from "../../Components/Utils/Utils";
 import Article from "../../Components/Article/Article";
+import AddCommentForm from "../../Components/AddCommentForm/AddCommentForm"
 import ArticleContext from "../../Context/ArticleContext";
 import ArticleApiService from "../../Services/article-api-service";
 import Comment from "../../Components/Comment/Comment";
@@ -21,7 +22,7 @@ class ArticlePage extends Component {
   }
   render() {
     const { article, comments } = this.context;
-
+    const { article_id } = this.props.match.params;
     return (
       <div className="SECTION">
         <Article article={article}></Article>
@@ -29,6 +30,7 @@ class ArticlePage extends Component {
           <h2>Comments Section</h2>
         </div>
         <Comment comments={comments}></Comment>
+        <AddCommentForm article_id={article_id}></AddCommentForm>
         <div className="container_article_page_btn">
           <NavLink to="/articles">
             <Button role="navigation" type="button">
