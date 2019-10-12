@@ -67,6 +67,9 @@ class AddArticleForm extends Component {
     ArticleApiService.postArticle(newArticle)
       .then(this.context.addArticle(newArticle))
       .then(() => {
+        this.setState({title: {value: "", touched: false}})
+        this.setState({content: {value: "", touched: false}})
+        this.setState({tag: {value: "", touched: false}})
         this.props.history.push(`/articles`);
       });
   };
