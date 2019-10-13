@@ -24,6 +24,16 @@ const CommentService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  updateComment(updatedComment, comment_id) {
+    return fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
+      method: "PATCH",
+      body: JSON.stringify(updatedComment),
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => (!res.ok ? Promise.reject(res) : res));
   }
 };
 

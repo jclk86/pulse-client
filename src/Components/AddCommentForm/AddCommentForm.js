@@ -35,7 +35,7 @@ class AddCommentForm extends Component {
     <form className="AddCommentForm" onSubmit={event => this.handleSubmit(event)}>
       <label htmlFor="AddCommentForm_comment_title"
           className="label_add_comment_form">Add Comment</label>
-      <textarea type="text" placeholder="Tell us your thoughts!" name="comment" onChange={e => this.updateComment(e.target.value)}></textarea>
+      <textarea type="text" placeholder="Tell us your thoughts!" name="comment" onChange={e => this.updateComment(e.target.value)} value={this.state.comment.value}></textarea>
       <button type="submit">Submit</button>
     </form>)
   }

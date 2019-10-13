@@ -1,34 +1,53 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Form } from "../Utils/Utils";
-import ArticleContext from "../../Context/ArticleContext";
-import CommentService from "../../Services/comment-api-service";
+import React, { Component } from "react"
+import {withRouter} from "react-router-dom";
+import {Form } from "../Utils/Utils"
+import ArticleContext from "../../Context/ArticleContext"
+import CommentService from "../../Services/comment-api-service"
 
 // if button clicked, replace comment block with edit form
 class EditCommentForm extends Component {
   static contextType = ArticleContext;
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      article_id: this.props.article_id,
-      comment: { value: "", touched: false }
-    };
+      comment: { value:"", touched: false}
+    }
   }
 
   componentDidMount() {
-    console.log(this.props.article_id);
+    this.setState({comment: { value: this.props.comment.content, touched: true}})
+  }
+
+  updateComment = (comment) => {
+    this.setState({comment: {value: comment, touched: true}})
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const { comment } = this.state
+    const {article_id} = this.props.match.params
+    const comment_id = this.props.comment.id
+    const updatedComment = {
+      content: comment.value
+    }
+
+    CommentService.updateComment(updatedComment, comment_id).then(() => {
+      this.setState({comment: {value: "", touched: false}})
+      this.props.goForward(`/articles/${article_id}`);
+      this.props.handleEditClick()
+    })
   }
 
   render() {
+    console.log(this.props)
     return (
-      <Form>
-        <textarea
-          type="text"
-          placeholder="Tell us your thoughts!"
-          name="comment"
-        ></textarea>
-      </Form>
-    );
+      <form className="EditCommentForm" onSubmit={event => this.handleSubmit(event)}>
+      <label htmlFor="EditCommentForm_comment_title"
+          className="label_edit_comment_form">Add Comment</label>
+      <textarea type="text" placeholder="Tell us your thoughts!" name="comment" onChange={e => this.updateComment(e.target.value)} value={this.state.comment.value}></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    )
   }
 }
 

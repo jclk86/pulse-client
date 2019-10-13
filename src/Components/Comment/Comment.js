@@ -15,7 +15,7 @@ class Comment extends Component {
   }
 
   handleEditClick = () => {
-    this.setState({ isEditing: true });
+    this.setState({ isEditing: !this.state.isEditing });
   };
 
   render() {
@@ -24,16 +24,16 @@ class Comment extends Component {
       : null;
     const user_id = token ? token.user_id : null;
     const { comment } = this.props;
-    console.log(comment);
+    console.log(`token: ${user_id} and comment user id: ${comment.user.id}`)
     return (
       <li className="list_comment_item" key={comment.id}>
         {this.state.isEditing ? (
-          <EditCommentForm comment={comment}></EditCommentForm>
+          <EditCommentForm comment={comment} handleEditClick={this.handleEditClick}></EditCommentForm>
         ) : (
           <div className="container_comment_content">
             <span>{comment.user.username} says...</span>{" "}
             <p>{comment.content}</p>
-            {user_id === comment.user.user_id ? (
+            {user_id === comment.user.id ? (
               <div className="container_comment_btn hide">
                 <button
                   type="button"

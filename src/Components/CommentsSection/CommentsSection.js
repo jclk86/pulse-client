@@ -11,6 +11,7 @@ class CommentsSection extends Component {
 
   render() {
     const { comments } = this.props;
+    console.log(comments)
     return (
       <div className="container_comments">
         <ul>
