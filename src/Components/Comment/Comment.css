@@ -3,3 +3,11 @@
   margin: 0 auto;
   max-width: 800px;
 }
+
+.hide {
+  display: none;
+}
+
+.list_comment_item:hover .hide {
+  display: block;
+}
