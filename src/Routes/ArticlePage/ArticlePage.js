@@ -32,7 +32,6 @@ class ArticlePage extends Component {
   // }
   render() {
     const { article, comments } = this.context;
-
     const { article_id } = this.props.match.params;
 
     return (

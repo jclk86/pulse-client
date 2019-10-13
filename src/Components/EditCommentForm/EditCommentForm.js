@@ -35,12 +35,11 @@ class EditCommentForm extends Component {
     const { article_id } = this.props.match.params;
     const comment_id = this.props.comment.id;
     const updatedComment = {
-      id: comment.id,
       content: comment.value
     };
 
     CommentService.updateComment(updatedComment, comment_id).then(comment => {
-      this.context.updateComment(comment);
+      this.context.updateComment(updatedComment);
       this.setState({ comment: { value: "", touched: false } });
       this.props.handleEditClick();
       this.props.history.push(`/articles/${article_id}`);
