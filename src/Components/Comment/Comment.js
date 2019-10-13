@@ -24,11 +24,14 @@ class Comment extends Component {
       : null;
     const user_id = token ? token.user_id : null;
     const { comment } = this.props;
-    console.log(`token: ${user_id} and comment user id: ${comment.user.id}`)
+    console.log(`token: ${user_id} and comment user id: ${comment.user.id}`);
     return (
       <li className="list_comment_item" key={comment.id}>
         {this.state.isEditing ? (
-          <EditCommentForm comment={comment} handleEditClick={this.handleEditClick}></EditCommentForm>
+          <EditCommentForm
+            comment={comment}
+            handleEditClick={this.handleEditClick}
+          ></EditCommentForm>
         ) : (
           <div className="container_comment_content">
             <span>{comment.user.username} says...</span>{" "}

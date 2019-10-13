@@ -12,35 +12,27 @@ class ArticlePage extends Component {
     match: { params: {} }
   };
   static contextType = ArticleContext;
-  constructor(props) {
-    super(props)
-    this.state = {
-      comments: []
-    }
-  }
+
   componentDidMount() {
     const { article_id } = this.props.match.params; //append catches
     ArticleApiService.getArticleById(article_id).then(this.context.setArticle);
-    ArticleApiService.getCommentsForArticle(article_id).then((comments) => {
-      this.context.setComments(comments)
-      this.setState({comments: comments})
-    }
-      
+    ArticleApiService.getCommentsForArticle(article_id).then(
+      this.context.setComments
     );
   }
 
   // componentDidUpdate(props) {
   //   if(this.state.comments !== this.context.comments) {
-  //     const { article_id } = this.props.match.params; 
+  //     const { article_id } = this.props.match.params;
   //   ArticleApiService.getCommentsForArticle(article_id).then(
   //     this.context.setComments
   //   );
   //   }
-    
+
   // }
   render() {
-    const { article } = this.context;
-    const {comments } = this.state
+    const { article, comments } = this.context;
+
     const { article_id } = this.props.match.params;
 
     return (
