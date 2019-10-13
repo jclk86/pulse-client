@@ -39,9 +39,8 @@ class EditCommentForm extends Component {
 
     CommentService.updateComment(updatedComment, comment_id).then(() => {
       this.setState({comment: {value: "", touched: false}})
-      this.props.history.push(`/articles/${article_id}`);
       this.props.handleEditClick()
-      
+      this.props.history.push(`/articles/${article_id}`);
     })
   }
 
@@ -49,7 +48,7 @@ class EditCommentForm extends Component {
     return (
       <form className="EditCommentForm" onSubmit={event => this.handleSubmit(event)}>
         <label htmlFor="EditCommentForm_comment_title"
-            className="label_edit_comment_form">Add Comment</label>
+            className="label_edit_comment_form">Edit Comment</label>
         <textarea type="text" placeholder="Tell us your thoughts!" name="comment" onChange={e => this.updateComment(e.target.value)} value={this.state.comment.value}></textarea>
         <button type="submit">Submit</button>
     </form>
