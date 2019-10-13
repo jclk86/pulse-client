@@ -5,7 +5,7 @@ import Article from "../../Components/Article/Article";
 import AddCommentForm from "../../Components/AddCommentForm/AddCommentForm";
 import ArticleContext from "../../Context/ArticleContext";
 import ArticleApiService from "../../Services/article-api-service";
-import Comment from "../../Components/Comment/Comment";
+import CommentsSection from "../../Components/CommentsSection/CommentsSection";
 
 class ArticlePage extends Component {
   static defaultProps = {
@@ -23,6 +23,7 @@ class ArticlePage extends Component {
   render() {
     const { article, comments } = this.context;
     const { article_id } = this.props.match.params;
+
     return (
       <div className="SECTION">
         <div className="container_article_page_btn">
@@ -36,7 +37,7 @@ class ArticlePage extends Component {
         <div className="container_header_comments">
           <h2>Comments Section</h2>
         </div>
-        <Comment comments={comments}></Comment>
+        <CommentsSection comments={comments}></CommentsSection>
         <AddCommentForm article_id={article_id}></AddCommentForm>
       </div>
     );

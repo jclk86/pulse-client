@@ -6,35 +6,40 @@ import CommentService from "../../Services/comment-api-service";
 import "./Comment.css";
 
 class Comment extends Component {
+  // isEditing here for locaState
   constructor(props) {
     super(props);
-    this.state = { activeIndex: null };
+    this.state = {
+      isEditing: false
+    };
   }
 
-  handleEditClick(index) {
-    let activeIndex = this.state.activeIndex === index ? null : index;
-    this.setState({ activeIndex });
-  }
+  handleEditClick = () => {
+    this.setState({ isEditing: true });
+  };
 
-  // add conditional below for edit button to post form on click and if user is the right user
-  // hide button unless on hover
-  // sort by date. Do not change date on edit.
-  // key === getbyid? comment id?
-  renderComments = (comments = []) => {
+  render() {
     const token = TokenService.hasAuthToken()
       ? TokenService.readJwtToken()
-      : "";
-    const user_id = token ? token.user_id : "";
-
-    return comments.map((comment, index) => {
-      return (
-        <li className="list_comment_item" id={index} key={comment.id}>
+      : null;
+    const user_id = token ? token.user_id : null;
+    const { comment } = this.props;
+    console.log(comment);
+    return (
+      <li className="list_comment_item" key={comment.id}>
+        {this.state.isEditing ? (
+          <EditCommentForm comment={comment}></EditCommentForm>
+        ) : (
           <div className="container_comment_content">
             <span>{comment.user.username} says...</span>{" "}
             <p>{comment.content}</p>
             {user_id === comment.user.user_id ? (
               <div className="container_comment_btn hide">
-                <button type="button" className="edit_comment_btn">
+                <button
+                  type="button"
+                  className="edit_comment_btn"
+                  onClick={this.handleEditClick}
+                >
                   Edit
                 </button>
                 <button type="button" className="delete_comment_btn">
@@ -43,24 +48,8 @@ class Comment extends Component {
               </div>
             ) : null}
           </div>
-        </li>
-      );
-    });
-  };
-  render() {
-    // conditional edit button needed below
-    const { comments } = this.props;
-    console.log(comments);
-    return (
-      <div className="container_comments">
-        <ul>
-          {this.props.comments === [] ? (
-            this.renderComments(comments)
-          ) : (
-            <p> Add a comment!</p>
-          )}
-        </ul>
-      </div>
+        )}
+      </li>
     );
   }
 }
