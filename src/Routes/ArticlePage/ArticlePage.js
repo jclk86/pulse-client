@@ -12,7 +12,7 @@ class ArticlePage extends Component {
     match: { params: {} }
   };
   static contextType = ArticleContext;
-
+  // a state for comments and then it will detect an edit
   componentDidMount() {
     const { article_id } = this.props.match.params; //append catches
     ArticleApiService.getArticleById(article_id).then(this.context.setArticle);

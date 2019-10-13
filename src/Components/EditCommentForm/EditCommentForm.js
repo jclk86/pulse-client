@@ -24,9 +24,9 @@ class EditCommentForm extends Component {
     this.setState({comment: { value: this.props.comment.content, touched: true}})
   }
 
-  // updateComment = (comment) => {
-  //   this.setState({comment: {value: comment, touched: true}})
-  // }
+  updateComment = (comment) => {
+    this.setState({comment: {value: comment, touched: true}})
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -41,6 +41,7 @@ class EditCommentForm extends Component {
       this.setState({comment: {value: "", touched: false}})
       this.props.history.push(`/articles/${article_id}`);
       this.props.handleEditClick()
+      
     })
   }
 

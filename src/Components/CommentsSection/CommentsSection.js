@@ -3,6 +3,9 @@ import { withRouter } from "react-router-dom";
 import Comment from "../Comment/Comment";
 
 class CommentsSection extends Component {
+  static defaultProps = {
+    comments: []
+  }
   renderComments = comments => {
     return comments.map(comment => {
       return <Comment comment={comment} key={comment.id}></Comment>;
