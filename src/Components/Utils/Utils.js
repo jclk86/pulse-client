@@ -72,3 +72,13 @@ export function CreatePostButton({ className, ...props }) {
     </NavLink>
   );
 }
+
+export function DateFormatter(date) {
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  };
+  return new Date(date).toLocaleString("en-US", options);
+}

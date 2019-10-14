@@ -13,22 +13,38 @@ class RegistrationForm extends Component {
     this.state = {
       error: null,
       password: { value: "", touched: false },
-      email: { value: "", touched: false }
+      email: { value: "", touched: false },
+      username: { value: "", touched: false },
+      fullname: { value: "", touched: false }
     };
   }
 
+  updateFullname = fullname => {
+    this.setState({ fullname: { value: fullname, touched: true } });
+  };
+
+  updateUsername = username => {
+    this.setState({ username: { value: username, touched: true } });
+  };
+
   updatePassword = password => {
-    this.setState({ password: { value: "", touched: false } });
+    this.setState({ password: { value: password, touched: true } });
   };
 
   updateEmail = email => {
-    this.setState({ email: { value: "", touched: false } });
+    this.setState({ email: { value: email, touched: true } });
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const { fullname, username, password, email } = event.target;
-    this.setState({ error: null, password: password, email: email });
+    this.setState({
+      error: null,
+      password: password,
+      email: email,
+      username: username,
+      fullname: fullname
+    });
 
     AuthApiService.postUser({
       fullname: fullname.value,
@@ -50,7 +66,7 @@ class RegistrationForm extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} id="registration_form">
         <div className="fullname">
           <label
             htmlFor="RegistrationForm__fullname"
@@ -63,6 +79,7 @@ class RegistrationForm extends Component {
             type="text"
             required
             id="RegistrationForm__fullname"
+            onChange={e => this.updateFullname(e.target.value)}
           />
         </div>
         <div className="user_name">
@@ -77,6 +94,7 @@ class RegistrationForm extends Component {
             type="text"
             required
             id="RegistrationForm__username"
+            onChange={e => this.updateUsername(e.target.value)}
           />
         </div>
         <div className="password">
@@ -109,7 +127,9 @@ class RegistrationForm extends Component {
           />
         </div>
         <div className="register_btn_container">
-          <button type="submit">Submit</button>
+          <button id="submit_btn" type="submit">
+            Submit
+          </button>
         </div>
         <div className="login_link">
           <p className="message_redirect">

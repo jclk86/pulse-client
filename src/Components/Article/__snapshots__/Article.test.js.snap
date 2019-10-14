@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Component renders Article component without issues 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(Article)
+      article={
+        Object {
+          "article_id": 1,
+          "article_tag": "News",
+          "author": Object {
+            "username": "Pop123",
+          },
+          "content": "test content",
+          "date_created": 2019-10-14T21:11:57.859Z,
+          "title": "test article",
+        }
+      }
+    >
+      <Article
+        article={
+          Object {
+            "article_id": 1,
+            "article_tag": "News",
+            "author": Object {
+              "username": "Pop123",
+            },
+            "content": "test content",
+            "date_created": 2019-10-14T21:11:57.859Z,
+            "title": "test article",
+          }
+        }
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
+      >
+        <div
+          className="container_article"
+        >
+          <div
+            className="container_image"
+          >
+            IMAGE SECTION
+          </div>
+          <h2>
+            test article
+          </h2>
+          <p>
+            Monday, October 14, 2019
+          </p>
+          <p>
+            <span>
+              By
+            </span>
+             
+            Pop123
+          </p>
+          <p>
+            test content
+          </p>
+          <NavLink
+            to="/articles/undefined/edit_article"
+          >
+            <Link
+              aria-current={null}
+              to={
+                Object {
+                  "hash": "",
+                  "pathname": "/articles/undefined/edit_article",
+                  "search": "",
+                  "state": null,
+                }
+              }
+            >
+              <LinkAnchor
+                aria-current={null}
+                href="/articles/undefined/edit_article"
+                navigate={[Function]}
+              >
+                <a
+                  aria-current={null}
+                  href="/articles/undefined/edit_article"
+                  onClick={[Function]}
+                >
+                  <Button
+                    type="button"
+                  >
+                    <button
+                      className="Button "
+                      type="button"
+                    >
+                      Edit Post
+                    </button>
+                  </Button>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </NavLink>
+        </div>
+      </Article>
+    </withRouter(Article)>
+  </Router>
+</BrowserRouter>
+`;

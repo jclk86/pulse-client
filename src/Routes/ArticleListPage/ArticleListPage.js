@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ArticleListItem from "../../Components/ArticleListItem/ArticleListItem.js";
+import ArticleListItem from "../../Components/ArticleListItem/ArticleListItem";
 import { withRouter } from "react-router-dom";
 import ArticleListContext from "../../Context/ArticleListContext";
 import ArticleApiService from "../../Services/article-api-service";

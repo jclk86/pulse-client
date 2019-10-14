@@ -4,6 +4,7 @@ import TokenService from "../../Services/token-service";
 import EditCommentForm from "../EditCommentForm/EditCommentForm";
 import CommentService from "../../Services/comment-api-service";
 import ArticleContext from "../../Context/ArticleContext";
+import { DateFormatter } from "../Utils/Utils";
 import "./Comment.css";
 
 class Comment extends Component {
@@ -32,7 +33,7 @@ class Comment extends Component {
       : null;
     const user_id = token ? token.user_id : null;
     const { comment } = this.props;
-    console.log(`token: ${user_id} and comment user id: ${comment.user.id}`);
+
     return (
       <li className="list_comment_item" key={comment.id}>
         {this.state.isEditing ? (
@@ -43,6 +44,7 @@ class Comment extends Component {
         ) : (
           <div className="container_comment_content">
             <span>{comment.user.username} says...</span>{" "}
+            <p>{DateFormatter(comment.date_created)}</p>
             <p>{comment.content}</p>
             {user_id === comment.user.id ? (
               <div className="container_comment_btn hide">

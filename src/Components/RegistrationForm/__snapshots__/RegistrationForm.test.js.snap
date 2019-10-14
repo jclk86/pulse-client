@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form Component renders registration form without issues 1`] = `
+<Form
+  id="registration_form"
+  onSubmit={[Function]}
+>
+  <div
+    className="fullname"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__fullname"
+    >
+      Fullname
+    </label>
+    <input
+      id="RegistrationForm__fullname"
+      name="fullname"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="user_name"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__username"
+    >
+      Username
+    </label>
+    <input
+      id="RegistrationForm__username"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="password"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__password"
+    >
+      Password
+    </label>
+    <input
+      id="RegistrationForm__password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+    />
+  </div>
+  <div
+    className="email"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__email"
+    >
+      Email
+    </label>
+     
+    <input
+      id="RegistrationForm__email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="register_btn_container"
+  >
+    <button
+      id="submit_btn"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+  <div
+    className="login_link"
+  >
+    <p
+      className="message_redirect"
+    >
+      Already a user?
+       
+      <NavLink
+        className="btn_login_link"
+        role="navigation"
+        to="/login"
+      >
+        Login
+      </NavLink>
+    </p>
+  </div>
+</Form>
+`;
