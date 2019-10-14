@@ -34,6 +34,19 @@ const CommentService = {
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
     }).then(res => (!res.ok ? Promise.reject(res) : res));
+  },
+  deleteComment(comment_id) {
+    return fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => {
+      if (!res.ok) {
+        return res.json().then(error => Promise.reject(error));
+      }
+    });
   }
 };
 

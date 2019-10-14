@@ -15,34 +15,42 @@ class EditCommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: { value: "", touched: false }
+      content: { value: "", touched: false }
     };
   }
 
   componentDidMount() {
     this.setState({
-      comment: { value: this.props.comment.content, touched: true }
+      content: { value: this.props.comment.content, touched: true }
     });
   }
 
-  updateComment = comment => {
-    this.setState({ comment: { value: comment, touched: true } });
+  updateContent = content => {
+    this.setState({ content: { value: content, touched: true } });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { comment } = this.state;
-    const { article_id } = this.props.match.params;
-    const comment_id = this.props.comment.id;
+    const { content } = this.state;
+    const { comment } = this.props;
+
     const updatedComment = {
-      content: comment.value
+      id: comment.id,
+      article_id: comment.article_id,
+      content: content.value,
+      date_created: comment.date_created,
+      user: {
+        id: comment.user.id,
+        fullname: comment.fullname,
+        username: comment.user.username,
+        date_modified: new Date()
+      }
     };
 
-    CommentService.updateComment(updatedComment, comment_id).then(comment => {
+    CommentService.updateComment(updatedComment, comment.id).then(comment => {
       this.context.updateComment(updatedComment);
       this.setState({ comment: { value: "", touched: false } });
       this.props.handleEditClick();
-      this.props.history.push(`/articles/${article_id}`);
     });
   };
 
@@ -62,8 +70,8 @@ class EditCommentForm extends Component {
           type="text"
           placeholder="Tell us your thoughts!"
           name="comment"
-          onChange={e => this.updateComment(e.target.value)}
-          value={this.state.comment.value}
+          onChange={e => this.updateContent(e.target.value)}
+          value={this.state.content.value}
         ></textarea>
         <button type="submit">Submit</button>
       </form>

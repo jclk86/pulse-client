@@ -3,10 +3,10 @@ import { withRouter } from "react-router-dom";
 import TokenService from "../../Services/token-service";
 import EditCommentForm from "../EditCommentForm/EditCommentForm";
 import CommentService from "../../Services/comment-api-service";
+import ArticleContext from "../../Context/ArticleContext";
 import "./Comment.css";
 
 class Comment extends Component {
-  // isEditing here for locaState
   constructor(props) {
     super(props);
     this.state = {
@@ -14,8 +14,16 @@ class Comment extends Component {
     };
   }
 
+  static contextType = ArticleContext;
+
   handleEditClick = () => {
     this.setState({ isEditing: !this.state.isEditing });
+  };
+
+  handleDeleteClick = comment_id => {
+    CommentService.deleteComment(comment_id).then(() =>
+      this.context.deleteComment(comment_id)
+    );
   };
 
   render() {
@@ -45,7 +53,11 @@ class Comment extends Component {
                 >
                   Edit
                 </button>
-                <button type="button" className="delete_comment_btn">
+                <button
+                  type="button"
+                  className="delete_comment_btn"
+                  onClick={() => this.handleDeleteClick(comment.id)}
+                >
                   Delete
                 </button>
               </div>

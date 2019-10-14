@@ -21,15 +21,6 @@ class ArticlePage extends Component {
     );
   }
 
-  // componentDidUpdate(props) {
-  //   if(this.state.comments !== this.context.comments) {
-  //     const { article_id } = this.props.match.params;
-  //   ArticleApiService.getCommentsForArticle(article_id).then(
-  //     this.context.setComments
-  //   );
-  //   }
-
-  // }
   render() {
     const { article, comments } = this.context;
     const { article_id } = this.props.match.params;

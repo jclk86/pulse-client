@@ -15,7 +15,8 @@ const ArticleContext = React.createContext({
   clearArticle: () => {},
   setComments: () => {},
   addComment: () => {},
-  updateComment: () => {}
+  updateComment: () => {},
+  deleteComment: () => {}
 });
 
 export default ArticleContext;
@@ -40,8 +41,17 @@ export class ArticleProvider extends Component {
     this.setState({ article });
   };
 
+  clearArticle = () => {
+    this.setArticle(nullArticle);
+    this.setComments([]);
+  };
+
   setComments = comments => {
     this.setState({ comments });
+  };
+
+  addComment = comment => {
+    this.setComments([...this.state.comments, comment]);
   };
 
   updateComment = updatedComment => {
@@ -52,15 +62,13 @@ export class ArticleProvider extends Component {
     });
   };
 
-  clearArticle = () => {
-    this.setArticle(nullArticle);
-    this.setComments([]);
+  deleteComment = deletedCommentId => {
+    this.setState({
+      comments: this.state.comments.filter(
+        comment => comment.id !== deletedCommentId
+      )
+    });
   };
-
-  addComment = comment => {
-    this.setComments([...this.state.comments, comment]);
-  };
-
   render() {
     const contextValue = {
       article: this.state.article,
@@ -72,7 +80,8 @@ export class ArticleProvider extends Component {
       setComments: this.setComments,
       clearArticle: this.clearArticle,
       addComment: this.addComment,
-      updateComment: this.updateComment
+      updateComment: this.updateComment,
+      deleteComment: this.deleteComment
     };
     return (
       <ArticleContext.Provider value={contextValue}>
