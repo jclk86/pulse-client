@@ -12,6 +12,8 @@ import ArticleListContext from "../../Context/ArticleListContext";
 import "./AddArticleForm.css";
 import TokenService from "../../Services/token-service";
 import ArticleApiService from "../../Services/article-api-service";
+import TagApiService from "../../Services/tag-api-service";
+import { renderTags } from "../Utils/Utils";
 
 class AddArticleForm extends Component {
   static contextType = ArticleListContext;
@@ -26,6 +28,10 @@ class AddArticleForm extends Component {
         value: "",
         touched: false
       },
+      image_url: {
+        value: "",
+        touched: false
+      },
       tag: {
         value: "",
         touched: false
@@ -33,8 +39,16 @@ class AddArticleForm extends Component {
     };
   }
 
+  componentDidMount() {
+    TagApiService.getAllTags().then(this.context.setTagList);
+  }
+
   updateTitle = title => {
     this.setState({ title: { value: title, touched: true } });
+  };
+
+  updateImage_Url = image_url => {
+    this.setState({ image_url: { value: image_url, touched: true } });
   };
 
   updateContent = content => {
@@ -45,21 +59,13 @@ class AddArticleForm extends Component {
     this.setState({ tag: { value: tag, touched: true } });
   };
 
-  renderCategories = () => {
-    const tags = ["News", "Interview", "Guide", "Diary", "Random", "Advice"];
-    return tags.map(tag => (
-      <option value={tag} key={tag}>
-        {tag}
-      </option>
-    ));
-  };
-
   handleSubmit = event => {
     event.preventDefault();
-    const { title, content, tag } = this.state;
+    const { title, image_url, content, tag } = this.state;
     // const token = TokenService.readJwtToken();
     const newArticle = {
       title: title.value,
+      image_url: image_url.value,
       content: content.value,
       article_tag: tag.value
     };
@@ -68,6 +74,7 @@ class AddArticleForm extends Component {
       .then(this.context.addArticle(newArticle))
       .then(() => {
         this.setState({ title: { value: "", touched: false } });
+        this.setState({ image_url: { value: "", touched: false } });
         this.setState({ content: { value: "", touched: false } });
         this.setState({ tag: { value: "", touched: false } });
         this.props.history.push(`/articles`);
@@ -75,8 +82,7 @@ class AddArticleForm extends Component {
   };
 
   render() {
-    // implement category tag
-    const { tag } = this.state;
+    const { tagList } = this.context;
 
     return (
       <Form
@@ -90,7 +96,7 @@ class AddArticleForm extends Component {
               <option key="no-val" value="">
                 Select a category
               </option>
-              {this.renderCategories()}
+              {renderTags(tagList)}
             </Select>
           </div>
         </div>
@@ -104,6 +110,17 @@ class AddArticleForm extends Component {
           name="title"
           id="AddArticleForm_article_title"
           onChange={e => this.updateTitle(e.target.value)}
+        ></Input>
+        <FormLabel
+          htmlFor="AddArticleForm_article_image_url"
+          className="label_add_article_form"
+        ></FormLabel>
+        <Input
+          type="text"
+          placeholder="image url"
+          name="image_url"
+          id="AddArticleForm_article_image_url"
+          onChange={e => this.updateImage_Url(e.target.value)}
         ></Input>
         <FormLabel
           htmlFor="AddArticleForm_article_content"

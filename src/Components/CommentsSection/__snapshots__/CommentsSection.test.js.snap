@@ -31,6 +31,7 @@ exports[`CommentsSection renders CommentSection without issues 1`] = `
         "date_created": "2019-10-14T21:49:20.570Z",
         "id": 1,
         "user": Object {
+          "id": 1,
           "username": "Pop123",
         },
       }

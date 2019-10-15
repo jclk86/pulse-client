@@ -58,6 +58,11 @@ class App extends Component {
           <Route exact path={"/articles"} component={ArticleListPage}></Route>
           <Route
             exact
+            path={"/articles/tag/:tag_name"}
+            component={ArticleListPage}
+          ></Route>
+          <Route
+            exact
             path={"/articles/:article_id"}
             component={ArticlePage}
           ></Route>

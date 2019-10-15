@@ -2,6 +2,16 @@ import config from "../config";
 import TokenService from "./token-service";
 
 const CommentService = {
+  getAllComments() {
+    return fetch(`${config.API_ENDPOINT}/comments`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
   getCommentById(comment_id) {
     return fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
       method: "GET",

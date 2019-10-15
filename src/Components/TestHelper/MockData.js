@@ -22,6 +22,7 @@ export const mockComment = {
   date_created: "2019-10-14T21:49:20.570Z",
   article_id: 1,
   user: {
+    id: 1,
     username: mockArticle.author.username
   }
 };

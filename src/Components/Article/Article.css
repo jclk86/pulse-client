@@ -1,6 +1,10 @@
-.container_image {
+.container_article_image {
   max-width: 600px;
   margin: 50px auto;
+}
+
+.article_image {
+  width: 100%;
 }
 
 .container_article {

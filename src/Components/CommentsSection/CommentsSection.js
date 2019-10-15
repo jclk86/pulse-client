@@ -5,7 +5,7 @@ import Comment from "../Comment/Comment";
 class CommentsSection extends Component {
   static defaultProps = {
     comments: []
-  }
+  };
   renderComments = comments => {
     return comments.map(comment => {
       return <Comment comment={comment} key={comment.id}></Comment>;
@@ -14,7 +14,7 @@ class CommentsSection extends Component {
 
   render() {
     const { comments } = this.props;
-    console.log(comments)
+    console.log(comments);
     return (
       <div className="container_comments">
         <ul>
@@ -29,4 +29,5 @@ class CommentsSection extends Component {
   }
 }
 
+CommentsSection.propTypes = {};
 export default withRouter(CommentsSection);

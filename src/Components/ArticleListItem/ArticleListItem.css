@@ -1,0 +1,8 @@
+.container_article_list_item {
+  max-width: 200px;
+  border: 1px solid black;
+}
+
+.article_list_item_image {
+  width: 100%;
+}

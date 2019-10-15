@@ -10,7 +10,9 @@ import {
   Button
 } from "../Utils/Utils";
 import ArticleApiService from "../../Services/article-api-service";
+import TagApiService from "../../Services/tag-api-service";
 import TokenService from "../../Services/token-service";
+import { renderTags } from "../Utils/Utils";
 
 class EditArticleForm extends Component {
   static contextType = ArticleContext;
@@ -25,10 +27,15 @@ class EditArticleForm extends Component {
         value: "",
         touched: false
       },
+      image_url: {
+        value: "",
+        touched: false
+      },
       tag: {
         value: "",
         touched: false
-      }
+      },
+      tagsList: []
     };
   }
 
@@ -41,14 +48,22 @@ class EditArticleForm extends Component {
       .then(article => {
         this.setState({
           title: { value: article.title, touched: true },
+          image_url: { value: article.image_url, touched: true },
           content: { value: article.content, touched: true },
           tag: { value: article.article_tag, touched: true }
         });
       });
+    TagApiService.getAllTags().then(tags => {
+      this.setState({ tagsList: tags });
+    });
   }
 
   updateTitle = title => {
     this.setState({ title: { value: title, touched: true } });
+  };
+
+  updateImage_Url = image_url => {
+    this.setState({ image_url: { value: image_url, touched: true } });
   };
 
   updateContent = content => {
@@ -69,12 +84,13 @@ class EditArticleForm extends Component {
     event.preventDefault();
 
     const { article_id } = this.props.match.params;
-    const { title, content, tag } = this.state;
+    const { title, image_url, content, tag } = this.state;
     const token = TokenService.readJwtToken();
 
     const updatedArticle = {
       author_id: token.user_id,
       title: title.value,
+      image_url: image_url.value,
       content: content.value,
       article_tag: tag.value
     };
@@ -84,18 +100,9 @@ class EditArticleForm extends Component {
     });
   };
 
-  renderCategories = () => {
-    const tags = ["News", "Interview", "Guide", "Diary", "Random", "Advice"];
-    return tags.map(tag => (
-      <option value={tag} key={tag}>
-        {tag}
-      </option>
-    ));
-  };
-
   render() {
     const { article_id } = this.props.match.params;
-    const { title, content, tag } = this.state;
+    const { title, image_url, content, tag, tagsList } = this.state;
     return (
       <Form
         className="EditArticleForm"
@@ -109,8 +116,7 @@ class EditArticleForm extends Component {
               name="tag"
               onChange={e => this.updateTag(e.target.value)}
             >
-              <option key="no-val" value=""></option>
-              {this.renderCategories()}
+              {renderTags(tagsList)}
             </Select>
           </div>
         </div>
@@ -125,6 +131,18 @@ class EditArticleForm extends Component {
           name="title"
           id="EditArticleForm_article_title"
           onChange={e => this.updateTitle(e.target.value)}
+        ></Input>
+        <FormLabel
+          htmlFor="EditArticleForm_article_image_url"
+          className="label_add_article_form"
+        ></FormLabel>
+        <Input
+          value={image_url.value}
+          type="text"
+          placeholder="image url"
+          name="image_url"
+          id="EditArticleForm_article_image_url"
+          onChange={e => this.updateImage_Url(e.target.value)}
         ></Input>
         <FormLabel
           htmlFor="EditArticleForm_article_content"

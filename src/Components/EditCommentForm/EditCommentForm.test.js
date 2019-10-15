@@ -37,17 +37,16 @@ describe(`EditCommentForm`, () => {
     const onSubmit = sinon.spy();
     const wrapper = mount(
       <BrowserRouter>
-        <EditCommentForm onSubmit={onSubmit}></EditCommentForm>
+        <EditCommentForm
+          onSubmit={onSubmit}
+          comment={mockComment}
+        ></EditCommentForm>
       </BrowserRouter>
     );
 
     wrapper.find(".EditCommentForm").simulate("submit", {
       target: {
-        content: mockComment.content,
-        article_id: mockComment.article_id,
-        user: {
-          id: 1
-        }
+        content: mockComment.content
       },
       preventDefault: () => {}
     });

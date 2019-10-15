@@ -32,6 +32,7 @@ exports[`Comment Component renders Comment component without issues 1`] = `
           "date_created": "2019-10-14T21:49:20.570Z",
           "id": 1,
           "user": Object {
+            "id": 1,
             "username": "Pop123",
           },
         }
@@ -45,6 +46,7 @@ exports[`Comment Component renders Comment component without issues 1`] = `
             "date_created": "2019-10-14T21:49:20.570Z",
             "id": 1,
             "user": Object {
+              "id": 1,
               "username": "Pop123",
             },
           }
@@ -104,24 +106,6 @@ exports[`Comment Component renders Comment component without issues 1`] = `
             <p>
               test comment content
             </p>
-            <div
-              className="container_comment_btn hide"
-            >
-              <button
-                className="edit_comment_btn"
-                onClick={[Function]}
-                type="button"
-              >
-                Edit
-              </button>
-              <button
-                className="delete_comment_btn"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
           </div>
         </li>
       </Comment>

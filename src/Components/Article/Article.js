@@ -15,7 +15,13 @@ class Article extends Component {
     const token = TokenService.readJwtToken();
     return (
       <div className="container_article">
-        <div className="container_image">IMAGE SECTION</div>
+        <div className="container_article_image">
+          <img
+            src={article.image_url}
+            alt="user-posted"
+            className="article_image"
+          ></img>
+        </div>
         <h2>{article.title}</h2>
         <p>{DateFormatter(article.date_created)}</p>
         <p>

@@ -75,10 +75,17 @@ export function CreatePostButton({ className, ...props }) {
 
 export function DateFormatter(date) {
   const options = {
-    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"
   };
   return new Date(date).toLocaleString("en-US", options);
+}
+
+export function renderTags(tagList) {
+  return tagList.map(tag => (
+    <option value={tag.name} key={tag.name}>
+      {tag.name}
+    </option>
+  ));
 }

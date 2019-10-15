@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders Header component without issues 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="container_logo"
+  >
+    <Logo />
+  </div>
+  <div
+    className="navbar_links"
+  >
+    <div
+      className="container_header_top_right_links"
+    >
+      <NavLink
+        className="navbar_link_login"
+        role="navigation"
+        to="/login"
+      >
+        Login
+      </NavLink>
+      <NavLink
+        className="navbar_link_signup"
+        to="/signup"
+      >
+        Sign Up
+      </NavLink>
+    </div>
+  </div>
+</div>
+`;
