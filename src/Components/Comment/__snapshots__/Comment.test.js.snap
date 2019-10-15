@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment Component renders Comment component without issues 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(Comment)
+      comment={
+        Object {
+          "article_id": 1,
+          "content": "test comment content",
+          "date_created": "2019-10-14T21:49:20.570Z",
+          "id": 1,
+          "user": Object {
+            "username": "Pop123",
+          },
+        }
+      }
+    >
+      <Comment
+        comment={
+          Object {
+            "article_id": 1,
+            "content": "test comment content",
+            "date_created": "2019-10-14T21:49:20.570Z",
+            "id": 1,
+            "user": Object {
+              "username": "Pop123",
+            },
+          }
+        }
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
+      >
+        <li
+          className="list_comment_item"
+          key="1"
+        >
+          <div
+            className="container_comment_content"
+          >
+            <span>
+              Pop123
+               says...
+            </span>
+             
+            <p>
+              Monday, October 14, 2019
+            </p>
+            <p>
+              test comment content
+            </p>
+            <div
+              className="container_comment_btn hide"
+            >
+              <button
+                className="edit_comment_btn"
+                onClick={[Function]}
+                type="button"
+              >
+                Edit
+              </button>
+              <button
+                className="delete_comment_btn"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </Comment>
+    </withRouter(Comment)>
+  </Router>
+</BrowserRouter>
+`;

@@ -27,13 +27,13 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
     <withRouter(ArticleListItem)
       article={
         Object {
-          "article_id": 1,
           "article_tag": "News",
           "author": Object {
             "username": "Pop123",
           },
           "content": "test content",
-          "date_created": 2019-10-14T21:11:57.924Z,
+          "date_created": "2019-10-14T21:49:20.570Z",
+          "id": 1,
           "title": "test article",
         }
       }
@@ -41,13 +41,13 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
       <ArticleListItem
         article={
           Object {
-            "article_id": 1,
             "article_tag": "News",
             "author": Object {
               "username": "Pop123",
             },
             "content": "test content",
-            "date_created": 2019-10-14T21:11:57.924Z,
+            "date_created": "2019-10-14T21:49:20.570Z",
+            "id": 1,
             "title": "test article",
           }
         }
@@ -90,7 +90,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
       >
         <NavLink
           role="navigation"
-          to="/articles/undefined"
+          to="/articles/1"
         >
           <Link
             aria-current={null}
@@ -98,7 +98,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
             to={
               Object {
                 "hash": "",
-                "pathname": "/articles/undefined",
+                "pathname": "/articles/1",
                 "search": "",
                 "state": null,
               }
@@ -106,13 +106,13 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
           >
             <LinkAnchor
               aria-current={null}
-              href="/articles/undefined"
+              href="/articles/1"
               navigate={[Function]}
               role="navigation"
             >
               <a
                 aria-current={null}
-                href="/articles/undefined"
+                href="/articles/1"
                 onClick={[Function]}
                 role="navigation"
               >

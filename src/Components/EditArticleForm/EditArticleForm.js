@@ -79,11 +79,9 @@ class EditArticleForm extends Component {
       article_tag: tag.value
     };
 
-    ArticleApiService.updateArticle(updatedArticle, article_id).then(
-      article => {
-        this.props.history.push(`/articles/${article_id}`);
-      }
-    );
+    ArticleApiService.updateArticle(updatedArticle, article_id).then(() => {
+      this.props.history.push(`/articles/${article_id}`);
+    });
   };
 
   renderCategories = () => {

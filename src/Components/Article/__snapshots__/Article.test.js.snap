@@ -27,13 +27,13 @@ exports[`Article Component renders Article component without issues 1`] = `
     <withRouter(Article)
       article={
         Object {
-          "article_id": 1,
           "article_tag": "News",
           "author": Object {
             "username": "Pop123",
           },
           "content": "test content",
-          "date_created": 2019-10-14T21:11:57.859Z,
+          "date_created": "2019-10-14T21:49:20.570Z",
+          "id": 1,
           "title": "test article",
         }
       }
@@ -41,13 +41,13 @@ exports[`Article Component renders Article component without issues 1`] = `
       <Article
         article={
           Object {
-            "article_id": 1,
             "article_tag": "News",
             "author": Object {
               "username": "Pop123",
             },
             "content": "test content",
-            "date_created": 2019-10-14T21:11:57.859Z,
+            "date_created": "2019-10-14T21:49:20.570Z",
+            "id": 1,
             "title": "test article",
           }
         }
@@ -113,14 +113,14 @@ exports[`Article Component renders Article component without issues 1`] = `
             test content
           </p>
           <NavLink
-            to="/articles/undefined/edit_article"
+            to="/articles/1/edit_article"
           >
             <Link
               aria-current={null}
               to={
                 Object {
                   "hash": "",
-                  "pathname": "/articles/undefined/edit_article",
+                  "pathname": "/articles/1/edit_article",
                   "search": "",
                   "state": null,
                 }
@@ -128,12 +128,12 @@ exports[`Article Component renders Article component without issues 1`] = `
             >
               <LinkAnchor
                 aria-current={null}
-                href="/articles/undefined/edit_article"
+                href="/articles/1/edit_article"
                 navigate={[Function]}
               >
                 <a
                   aria-current={null}
-                  href="/articles/undefined/edit_article"
+                  href="/articles/1/edit_article"
                   onClick={[Function]}
                 >
                   <Button

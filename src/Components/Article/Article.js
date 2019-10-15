@@ -13,8 +13,6 @@ class Article extends Component {
   render() {
     const { article } = this.props;
     const token = TokenService.readJwtToken();
-    console.log(token.user_id);
-    console.log(article.date_created);
     return (
       <div className="container_article">
         <div className="container_image">IMAGE SECTION</div>

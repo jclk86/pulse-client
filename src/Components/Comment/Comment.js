@@ -5,6 +5,7 @@ import EditCommentForm from "../EditCommentForm/EditCommentForm";
 import CommentService from "../../Services/comment-api-service";
 import ArticleContext from "../../Context/ArticleContext";
 import { DateFormatter } from "../Utils/Utils";
+import PropTypes from "prop-types";
 import "./Comment.css";
 
 class Comment extends Component {
@@ -28,10 +29,7 @@ class Comment extends Component {
   };
 
   render() {
-    const token = TokenService.hasAuthToken()
-      ? TokenService.readJwtToken()
-      : null;
-    const user_id = token ? token.user_id : null;
+    const token = TokenService.readJwtToken();
     const { comment } = this.props;
 
     return (
@@ -46,7 +44,7 @@ class Comment extends Component {
             <span>{comment.user.username} says...</span>{" "}
             <p>{DateFormatter(comment.date_created)}</p>
             <p>{comment.content}</p>
-            {user_id === comment.user.id ? (
+            {token.user_id === comment.user.id ? (
               <div className="container_comment_btn hide">
                 <button
                   type="button"
@@ -70,5 +68,14 @@ class Comment extends Component {
     );
   }
 }
+
+Comment.propTypes = {
+  comment: PropTypes.shape({
+    content: PropTypes.string,
+    user: PropTypes.shape({
+      id: PropTypes.number
+    })
+  })
+};
 
 export default withRouter(Comment);

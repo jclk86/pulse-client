@@ -4,7 +4,7 @@ import { mount, shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import AddArticleForm from "./AddArticleForm";
 import AuthApiService from "../../Services/auth-api-service";
-import { mockUser } from "../TestHelper/MockData";
+import { mockUser, mockArticle } from "../TestHelper/MockData";
 import sinon from "sinon";
 
 describe(`AddArticleForm Component`, () => {
@@ -23,11 +23,6 @@ describe(`AddArticleForm Component`, () => {
   });
 
   it("submits AddArticleForm", () => {
-    const mockArticle = {
-      title: "test article",
-      content: "test content",
-      article_tag: "News"
-    };
     const onSubmit = sinon.spy();
     const wrapper = mount(
       <BrowserRouter>
