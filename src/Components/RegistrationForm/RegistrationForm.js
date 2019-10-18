@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Form } from "../Utils/Utils";
 import AuthApiService from "../../Services/auth-api-service";
+import GeolocationApiService from "../../Services/geolocation-api-service";
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -15,8 +16,17 @@ class RegistrationForm extends Component {
       password: { value: "", touched: false },
       email: { value: "", touched: false },
       username: { value: "", touched: false },
-      fullname: { value: "", touched: false }
+      fullname: { value: "", touched: false },
+      profile: { value: "", touched: false },
+      image_url: { value: "", touched: false },
+      location: null
     };
+  }
+
+  componentDidMount() {
+    GeolocationApiService.getUserLocation().then(location =>
+      this.setState({ location: location })
+    );
   }
 
   updateFullname = fullname => {
@@ -35,28 +45,52 @@ class RegistrationForm extends Component {
     this.setState({ email: { value: email, touched: true } });
   };
 
+  updateProfile = profile => {
+    this.setState({ profile: { value: profile, touched: true } });
+  };
+
+  updateImage_Url = image_url => {
+    this.setState({ image_url: { value: image_url, touched: true } });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    const { fullname, username, password, email } = event.target;
+    const {
+      fullname,
+      username,
+      password,
+      email,
+      profile,
+      image_url
+    } = event.target;
     this.setState({
       error: null,
       password: password,
       email: email,
       username: username,
-      fullname: fullname
+      fullname: fullname,
+      profile: profile,
+      image_url: image_url
+        ? image_url
+        : "https://images.pexels.com/photos/2250394/pexels-photo-2250394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     });
 
     AuthApiService.postUser({
       fullname: fullname.value,
       username: username.value,
       password: password.value,
-      email: email.value
+      email: email.value,
+      profile: profile.value,
+      image_url: image_url.value,
+      location: this.state.location
     })
       .then(res => {
         fullname.value = "";
         username.value = "";
         password.value = "";
         email.value = "";
+        profile.value = "";
+        image_url.value = "";
         this.props.onRegistrationSuccess();
       })
       .catch(res => {
@@ -109,6 +143,7 @@ class RegistrationForm extends Component {
             name="password"
             type="password"
             id="RegistrationForm__password"
+            autoComplete="off"
           />
         </div>
         <div className="email">
@@ -125,6 +160,35 @@ class RegistrationForm extends Component {
             required
             id="RegistrationForm__email"
           />
+        </div>
+        <div className="profile">
+          <label
+            htmlFor="RegistrationForm__profile"
+            className="label_registration"
+          >
+            About Me
+          </label>{" "}
+          <textarea
+            onChange={e => this.updateProfile(e.target.value)}
+            name="profile"
+            type="text"
+            id="RegistrationForm_profile"
+            required
+          ></textarea>
+        </div>
+        <div className="image_url">
+          <label
+            htmlFor="RegistrationForm__image_url"
+            className="label_registration"
+          >
+            Image Url
+          </label>{" "}
+          <input
+            onChange={e => this.updateImage_Url(e.target.value)}
+            name="image_url"
+            type="text"
+            id="RegistrationForm_image_url"
+          ></input>
         </div>
         <div className="register_btn_container">
           <button id="submit_btn" type="submit">

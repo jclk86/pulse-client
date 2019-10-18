@@ -11,6 +11,9 @@ import ArticleListPage from "./Routes/ArticleListPage/ArticleListPage";
 import ArticlePage from "./Routes/ArticlePage/ArticlePage";
 import AddArticlePage from "./Routes/AddArticlePage/AddArticlePage";
 import EditArticlePage from "./Routes/EditArticlePage/EditArticlePage";
+import UserAccountPage from "./Routes/UserAccountPage/UserAccountPage";
+import EditUserPage from "./Routes/EditUserPage/EditUserPage";
+import UserProfilePage from "./Routes/UserProfilePage/UserProfilePage";
 
 class App extends Component {
   state = { hasError: false };
@@ -71,6 +74,13 @@ class App extends Component {
             exact
             path={"/articles/:article_id/edit_article"}
             component={EditArticlePage}
+          ></Route>
+          <Route expact path={"/account"} component={UserAccountPage}></Route>
+          <Route exact path={"/edit_account"} component={EditUserPage}></Route>
+          <Route
+            exact
+            path={"/profile/:username"}
+            component={UserProfilePage}
           ></Route>
           <Redirect from="/" to="/login"></Redirect>
         </Switch>

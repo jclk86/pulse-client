@@ -8,7 +8,7 @@ class RegistrationPage extends Component {
       push: () => {}
     }
   };
-
+  // do we need this?
   handleRegistrationSuccess = user => {
     const { history } = this.props;
     history.push("/login");

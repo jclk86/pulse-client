@@ -25,7 +25,16 @@ class Article extends Component {
         <h2>{article.title}</h2>
         <p>{DateFormatter(article.date_created)}</p>
         <p>
-          <span>By</span> {article.author.username}
+          <span>By</span>{" "}
+          <NavLink
+            to={
+              token.user_id === article.author.id
+                ? `/account`
+                : `/profile/${article.author.username}`
+            }
+          >
+            {article.author.username}
+          </NavLink>
         </p>
         <p>{article.content}</p>
         {token.user_id === article.author.id ? (

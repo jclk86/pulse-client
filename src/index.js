@@ -6,13 +6,16 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { ArticleListProvider } from "./Context/ArticleListContext";
 import { ArticleProvider } from "./Context/ArticleContext";
+import { UserProvider } from "./Context/UserContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <ArticleListProvider>
       <ArticleProvider>
-        {" "}
-        <App />
+        <UserProvider>
+          {" "}
+          <App />
+        </UserProvider>
       </ArticleProvider>
     </ArticleListProvider>
   </BrowserRouter>,

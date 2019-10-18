@@ -10,16 +10,9 @@ import "./ArticleListItem.css";
 
 class ArticleListItem extends Component {
   static contextType = ArticleContext;
-  constructor(props) {
-    super(props);
-    this.state = {
-      comments: []
-    };
-  }
+
   componentDidMount() {
-    CommentApiService.getAllComments().then(comments => {
-      this.setState({ comments: comments });
-    });
+    CommentApiService.getAllComments().then(this.context.setComments);
   }
 
   getTotalComments(article_id, comments) {
@@ -28,7 +21,7 @@ class ArticleListItem extends Component {
 
   render() {
     const { article } = this.props;
-    const { comments } = this.state;
+    const { comments } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
 
     return (

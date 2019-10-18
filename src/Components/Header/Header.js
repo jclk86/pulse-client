@@ -15,20 +15,31 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="container_logo">
-          <Logo></Logo>
+          <NavLink to="/articles">
+            <Logo></Logo>
+          </NavLink>
         </div>
         <div className="navbar_links">
           {TokenService.getAuthToken() ? (
-            <NavLink
-              to="/login"
-              role="navigation"
-              onClick={this.handleLogoutClick}
-              className="navbar_link_login"
-            >
-              Logout
-            </NavLink>
+            <div className="container_header_logged_in_links">
+              <NavLink
+                to="/account"
+                role="navigation"
+                className="navbar_link_account"
+              >
+                My Account
+              </NavLink>
+              <NavLink
+                to="/login"
+                role="navigation"
+                onClick={this.handleLogoutClick}
+                className="navbar_link_login"
+              >
+                Logout
+              </NavLink>
+            </div>
           ) : (
-            <div className="container_header_top_right_links">
+            <div className="container_header_logged_out_links">
               <NavLink
                 to="/login"
                 role="navigation"
