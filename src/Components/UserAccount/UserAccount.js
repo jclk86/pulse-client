@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import UserApiService from "../../Services/user-api-service";
-import GeolocationApiService from "../../Services/geolocation-api-service";
 import TokenService from "../../Services/token-service";
 import { Button } from "../Utils/Utils";
 import UserContext from "../../Context/UserContext";
 import "./UserAccount.css";
 
-class Profile extends Component {
+class UserAccount extends Component {
   static contextType = UserContext;
   componentDidMount() {
     UserApiService.getUserAccount().then(this.context.setUser);
@@ -18,6 +17,13 @@ class Profile extends Component {
     const token = TokenService.readJwtToken();
     return (
       <div className="container_user_account">
+        <Button
+          role="navigation"
+          id="user_account_return_btn"
+          onClick={this.props.history.goBack}
+        >
+          Return
+        </Button>
         <img
           src={user.image_url}
           alt={user.fullname}
@@ -38,4 +44,4 @@ class Profile extends Component {
   }
 }
 
-export default withRouter(Profile);
+export default withRouter(UserAccount);

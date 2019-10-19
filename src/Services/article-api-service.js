@@ -22,16 +22,6 @@ const ArticleApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  getCommentsForArticle(article_id) {
-    return fetch(`${config.API_ENDPOINT}/articles/${article_id}/comments`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
-  },
   postArticle(newArticle) {
     return fetch(`${config.API_ENDPOINT}/articles`, {
       method: "POST",
@@ -66,6 +56,16 @@ const ArticleApiService = {
         return res.json().then(error => Promise.reject(error));
       }
     });
+  },
+  getCommentsForArticle(article_id) {
+    return fetch(`${config.API_ENDPOINT}/articles/${article_id}/comments`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
 

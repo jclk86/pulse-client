@@ -17,6 +17,13 @@ class UserProfile extends Component {
 
     return (
       <div className="container_user_profile">
+        <Button
+          role="navigation"
+          id="user_profile_return_btn"
+          onClick={this.props.history.goBack}
+        >
+          Return
+        </Button>
         <img
           src={user.image_url}
           alt={user.fullname}

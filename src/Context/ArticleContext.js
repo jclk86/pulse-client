@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 export const nullArticle = {
   author: {},
-  tags: []
+  tags: [],
+  votes: 0
 };
 
 const ArticleContext = React.createContext({
   article: nullArticle,
   comments: [],
+  votes: 0,
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -25,6 +27,7 @@ export class ArticleProvider extends Component {
   state = {
     article: nullArticle,
     comments: [],
+    votes: 0,
     error: null
   };
 
@@ -62,6 +65,10 @@ export class ArticleProvider extends Component {
     });
   };
 
+  setVotes = votes => {
+    this.setState({ votes });
+  };
+
   deleteComment = deletedCommentId => {
     this.setState({
       comments: this.state.comments.filter(
@@ -73,11 +80,13 @@ export class ArticleProvider extends Component {
     const contextValue = {
       article: this.state.article,
       comments: this.state.comments,
+      votes: this.state.votes,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setArticle: this.setArticle,
       setComments: this.setComments,
+      setVotes: this.setVotes,
       clearArticle: this.clearArticle,
       addComment: this.addComment,
       updateComment: this.updateComment,
