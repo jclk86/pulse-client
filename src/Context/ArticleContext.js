@@ -2,14 +2,13 @@ import React, { Component } from "react";
 
 export const nullArticle = {
   author: {},
-  tags: [],
-  votes: 0
+  category: []
 };
 
 const ArticleContext = React.createContext({
   article: nullArticle,
   comments: [],
-  votes: 0,
+  votes: [],
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -27,7 +26,7 @@ export class ArticleProvider extends Component {
   state = {
     article: nullArticle,
     comments: [],
-    votes: 0,
+    votes: [],
     error: null
   };
 

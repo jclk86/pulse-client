@@ -7,13 +7,17 @@ exports[`Header Component renders Header component without issues 1`] = `
   <div
     className="container_logo"
   >
-    <Logo />
+    <NavLink
+      to="/articles"
+    >
+      <Logo />
+    </NavLink>
   </div>
   <div
     className="navbar_links"
   >
     <div
-      className="container_header_top_right_links"
+      className="container_header_logged_out_links"
     >
       <NavLink
         className="navbar_link_login"

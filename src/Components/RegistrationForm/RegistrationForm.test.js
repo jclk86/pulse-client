@@ -24,7 +24,10 @@ describe("Registration Form Component", () => {
         username: mockUser.username,
         password: mockUser.password,
         fullname: mockUser.fullname,
-        email: mockUser.email
+        email: mockUser.email,
+        profile: mockUser.profile,
+        location: mockUser.location,
+        image_url: mockUser.image_url
       },
       preventDefault: () => {}
     });

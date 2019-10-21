@@ -11,8 +11,8 @@ import {
 import ArticleListContext from "../../Context/ArticleListContext";
 import "./AddArticleForm.css";
 import ArticleApiService from "../../Services/article-api-service";
-import TagApiService from "../../Services/tag-api-service";
-import { renderTags } from "../Utils/Utils";
+import CategoryApiService from "../../Services/category-api-service";
+import { renderCategories } from "../Utils/Utils";
 
 class AddArticleForm extends Component {
   static contextType = ArticleListContext;
@@ -31,7 +31,7 @@ class AddArticleForm extends Component {
         value: "",
         touched: false
       },
-      tag: {
+      category: {
         value: "",
         touched: false
       }
@@ -39,7 +39,7 @@ class AddArticleForm extends Component {
   }
 
   componentDidMount() {
-    TagApiService.getAllTags().then(this.context.setTagList);
+    CategoryApiService.getAllCategories().then(this.context.setCategoriesList);
   }
 
   updateTitle = title => {
@@ -54,19 +54,19 @@ class AddArticleForm extends Component {
     this.setState({ content: { value: content, touched: true } });
   };
 
-  updateTag = tag => {
-    this.setState({ tag: { value: tag, touched: true } });
+  updateCategory = category => {
+    this.setState({ category: { value: category, touched: true } });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { title, image_url, content, tag } = this.state;
+    const { title, image_url, content, category } = this.state;
     // const token = TokenService.readJwtToken();
     const newArticle = {
       title: title.value,
       image_url: image_url.value,
       content: content.value,
-      article_tag: tag.value
+      article_category: category.value
     };
 
     ArticleApiService.postArticle(newArticle)
@@ -75,13 +75,13 @@ class AddArticleForm extends Component {
         this.setState({ title: { value: "", touched: false } });
         this.setState({ image_url: { value: "", touched: false } });
         this.setState({ content: { value: "", touched: false } });
-        this.setState({ tag: { value: "", touched: false } });
+        this.setState({ category: { value: "", touched: false } });
         this.props.history.push(`/articles`);
       });
   };
 
   render() {
-    const { tagList } = this.context;
+    const { categoriesList } = this.context;
 
     return (
       <Form
@@ -91,11 +91,14 @@ class AddArticleForm extends Component {
         <div className="container_AddArticleForm_header">
           <h2>Create a post</h2>
           <div className="container_AddArticleForm_select">
-            <Select name="tag" onChange={e => this.updateTag(e.target.value)}>
+            <Select
+              name="category"
+              onChange={e => this.updateCategory(e.target.value)}
+            >
               <option key="no-val" value="">
                 Select a category
               </option>
-              {renderTags(tagList)}
+              {renderCategories(categoriesList)}
             </Select>
           </div>
         </div>

@@ -31,28 +31,30 @@ class ArticleListItem extends Component {
     const { article } = this.props;
     const { comments, votes } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
-    // const numOfVotes = this.renderTotalVotes(article.id, votes);
-    console.log(article.id);
+    const numOfVotes = this.renderTotalVotes(article.id, votes);
+
     return (
       <div className="container_article_list_item">
-        <div className="container_article_item_image">
+        <div className="container_article_list_item_image">
           <img
             src={article.image_url}
             alt="user-submitted"
             className="article_list_item_image"
           ></img>
         </div>
-        <NavLink role="navigation" to={`/articles/${article.id}`}>
-          {" "}
-          <h2 className="article_title">{article.title}</h2>{" "}
-        </NavLink>
-        <p></p>
-        <p>{DateFormatter(article.date_created)} </p>
-        <p>
-          <span>{numOfComments} comments</span>
-          <span>/{article.article_tag}/</span>
-          <span>by</span> {article.author.username}
-        </p>
+        <div className="container_article_preview">
+          <NavLink role="navigation" to={`/articles/${article.id}`}>
+            {" "}
+            <h2 className="article_title">{article.title}</h2>{" "}
+          </NavLink>
+          <p>Votes: </p>
+          <p>{DateFormatter(article.date_created)} </p>
+          <p>
+            <span>{numOfComments} comments</span>
+            <span>/{article.article_category}/</span>
+            <span>by</span> {article.author.username}
+          </p>
+        </div>
       </div>
     );
   }

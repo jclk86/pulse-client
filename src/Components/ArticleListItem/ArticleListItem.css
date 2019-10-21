@@ -1,8 +1,17 @@
 .container_article_list_item {
-  max-width: 200px;
+  max-width: 100%;
   border: 1px solid black;
+  display: flex;
+  max-height: 200px;
+}
+
+.container_article_list_item_image {
+  width: 20%;
 }
 
 .article_list_item_image {
   width: 100%;
+  margin-left: 0;
+  height: 100%;
+  margin-bottom: 0px;
 }

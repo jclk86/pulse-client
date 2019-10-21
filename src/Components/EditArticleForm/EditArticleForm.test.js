@@ -43,7 +43,7 @@ describe(`EditArticleForm Component`, () => {
         target: {
           title: "Edited title",
           content: "Edited Content",
-          article_tag: "News"
+          article_category: "News"
         },
         preventDefault: () => {}
       });

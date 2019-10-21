@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { Button } from "../Utils/Utils";
-import TokenService from "../../Services/token-service";
 import UserApiService from "../../Services/user-api-service";
 import UserContext from "../../Context/UserContext";
+import "./UserProfile.css";
 
 class UserProfile extends Component {
   static contextType = UserContext;
@@ -19,10 +19,10 @@ class UserProfile extends Component {
       <div className="container_user_profile">
         <Button
           role="navigation"
-          id="user_profile_return_btn"
+          className="user_profile_return_btn"
           onClick={this.props.history.goBack}
         >
-          Return
+          Home
         </Button>
         <img
           src={user.image_url}

@@ -1,8 +1,8 @@
 import config from "../config";
 
-const TagApiService = {
-  getAllTags() {
-    return fetch(`${config.API_ENDPOINT}/tags`, {
+const CategoryApiService = {
+  getAllCategories() {
+    return fetch(`${config.API_ENDPOINT}/categories`, {
       method: "GET",
       headers: {
         "content-type": "application/json"
@@ -13,4 +13,4 @@ const TagApiService = {
   }
 };
 
-export default TagApiService;
+export default CategoryApiService;

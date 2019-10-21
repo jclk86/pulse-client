@@ -33,7 +33,7 @@ describe(`AddArticleForm Component`, () => {
       target: {
         title: mockArticle.title,
         content: mockArticle.content,
-        article_tag: mockArticle.article_tag
+        article_category: mockArticle.article_category
       },
       preventDefault: () => {}
     });

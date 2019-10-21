@@ -34,7 +34,7 @@ export function Textarea({ className, ...props }) {
 export function Select({ className, ...props }) {
   return (
     <select
-      name="tag"
+      name="category"
       className={["Select", className].join(" ")}
       {...props}
     ></select>
@@ -82,10 +82,10 @@ export function DateFormatter(date) {
   return new Date(date).toLocaleString("en-US", options);
 }
 
-export function renderTags(tagList) {
-  return tagList.map(tag => (
-    <option value={tag.name} key={tag.name}>
-      {tag.name}
+export function renderCategories(categoriesList) {
+  return categoriesList.map(category => (
+    <option value={category.name} key={category.name}>
+      {category.name}
     </option>
   ));
 }

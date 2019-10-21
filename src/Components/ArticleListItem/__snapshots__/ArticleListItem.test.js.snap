@@ -27,7 +27,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
     <withRouter(ArticleListItem)
       article={
         Object {
-          "article_tag": "News",
+          "article_category": "News",
           "author": Object {
             "username": "Pop123",
           },
@@ -41,7 +41,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
       <ArticleListItem
         article={
           Object {
-            "article_tag": "News",
+            "article_category": "News",
             "author": Object {
               "username": "Pop123",
             },
@@ -88,57 +88,80 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
           }
         }
       >
-        <NavLink
-          role="navigation"
-          to="/articles/1"
+        <div
+          className="container_article_list_item"
         >
-          <Link
-            aria-current={null}
-            role="navigation"
-            to={
-              Object {
-                "hash": "",
-                "pathname": "/articles/1",
-                "search": "",
-                "state": null,
-              }
-            }
+          <div
+            className="container_article_item_image"
           >
-            <LinkAnchor
+            <img
+              alt="user-submitted"
+              className="article_list_item_image"
+            />
+          </div>
+          <NavLink
+            role="navigation"
+            to="/articles/1"
+          >
+            <Link
               aria-current={null}
-              href="/articles/1"
-              navigate={[Function]}
               role="navigation"
+              to={
+                Object {
+                  "hash": "",
+                  "pathname": "/articles/1",
+                  "search": "",
+                  "state": null,
+                }
+              }
             >
-              <a
+              <LinkAnchor
                 aria-current={null}
                 href="/articles/1"
-                onClick={[Function]}
+                navigate={[Function]}
                 role="navigation"
               >
-                <div
-                  className="container_article_item"
+                <a
+                  aria-current={null}
+                  href="/articles/1"
+                  onClick={[Function]}
+                  role="navigation"
                 >
+                   
                   <h2
                     className="article_title"
                   >
                     test article
                   </h2>
-                  <p>
-                    Monday, October 14, 2019
-                  </p>
-                  <p>
-                    <span>
-                      by
-                    </span>
-                     
-                    Pop123
-                  </p>
-                </div>
-              </a>
-            </LinkAnchor>
-          </Link>
-        </NavLink>
+                   
+                </a>
+              </LinkAnchor>
+            </Link>
+          </NavLink>
+          <p>
+            Votes: 
+          </p>
+          <p>
+            October 14, 2019
+             
+          </p>
+          <p>
+            <span>
+              0
+               comments
+            </span>
+            <span>
+              /
+              News
+              /
+            </span>
+            <span>
+              by
+            </span>
+             
+            Pop123
+          </p>
+        </div>
       </ArticleListItem>
     </withRouter(ArticleListItem)>
   </Router>

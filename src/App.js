@@ -61,7 +61,7 @@ class App extends Component {
           <Route exact path={"/articles"} component={ArticleListPage}></Route>
           <Route
             exact
-            path={"/articles/tag/:tag_name"}
+            path={"/articles/categories/:category_name"}
             component={ArticleListPage}
           ></Route>
           <Route

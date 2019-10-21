@@ -19,7 +19,7 @@ class UserAccount extends Component {
       <div className="container_user_account">
         <Button
           role="navigation"
-          id="user_account_return_btn"
+          className="user_account_return_btn"
           onClick={this.props.history.goBack}
         >
           Return

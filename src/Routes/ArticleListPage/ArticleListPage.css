@@ -1,5 +1,52 @@
+.container_article_list_page {
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: gray;
+}
 .flex_container {
   display: flex;
-  justify-content: center;
-  background-color: rgb(174, 174, 251);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container_topbar_menu {
+  display: flex;
+  width: 100%;
+  height: 40px;
+}
+
+.container_dropdown_menu {
+  width: 75%;
+  height: 100%;
+}
+
+.container_topbar_create_btn {
+  width: 25%;
+  height: 100%;
+}
+
+.container_articles_section {
+  width: 80%;
+}
+
+.container_sidebar_create_post_btn {
+  height: 60px;
+  width: 100%;
+}
+
+.right_sidebar_menu {
+  width: 20%;
+  background-color: green;
+}
+
+@media only screen and (max-width: 768px) {
+  .hide_sidebar_menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .hide_topbar_menu {
+    display: none;
+  }
 }

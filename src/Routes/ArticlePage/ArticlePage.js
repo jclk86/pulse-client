@@ -24,7 +24,7 @@ class ArticlePage extends Component {
   render() {
     const { article, comments } = this.context;
     const { article_id } = this.props.match.params;
-
+    console.log(comments);
     return (
       <div className="SECTION">
         <div className="container_article_page_btn">

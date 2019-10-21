@@ -10,9 +10,9 @@ import {
   Button
 } from "../Utils/Utils";
 import ArticleApiService from "../../Services/article-api-service";
-import TagApiService from "../../Services/tag-api-service";
+import CategoryApiService from "../../Services/category-api-service";
 import TokenService from "../../Services/token-service";
-import { renderTags } from "../Utils/Utils";
+import { renderCategories } from "../Utils/Utils";
 
 class EditArticleForm extends Component {
   static contextType = ArticleContext;
@@ -31,11 +31,11 @@ class EditArticleForm extends Component {
         value: "",
         touched: false
       },
-      tag: {
+      category: {
         value: "",
         touched: false
       },
-      tagsList: []
+      categoriesList: []
     };
   }
 
@@ -50,11 +50,11 @@ class EditArticleForm extends Component {
           title: { value: article.title, touched: true },
           image_url: { value: article.image_url, touched: true },
           content: { value: article.content, touched: true },
-          tag: { value: article.article_tag, touched: true }
+          category: { value: article.article_category, touched: true }
         });
       });
-    TagApiService.getAllTags().then(tags => {
-      this.setState({ tagsList: tags });
+    CategoryApiService.getAllCategories().then(categories => {
+      this.setState({ categoriesList: categories });
     });
   }
 
@@ -70,8 +70,8 @@ class EditArticleForm extends Component {
     this.setState({ content: { value: content, touched: true } });
   };
 
-  updateTag = tag => {
-    this.setState({ tag: { value: tag, touched: true } });
+  updateCategory = category => {
+    this.setState({ category: { value: category, touched: true } });
   };
 
   handleDelete = article_id => {
@@ -84,7 +84,7 @@ class EditArticleForm extends Component {
     event.preventDefault();
 
     const { article_id } = this.props.match.params;
-    const { title, image_url, content, tag } = this.state;
+    const { title, image_url, content, category } = this.state;
     const token = TokenService.readJwtToken();
 
     const updatedArticle = {
@@ -92,7 +92,7 @@ class EditArticleForm extends Component {
       title: title.value,
       image_url: image_url.value,
       content: content.value,
-      article_tag: tag.value
+      article_category: category.value
     };
 
     ArticleApiService.updateArticle(updatedArticle, article_id).then(() => {
@@ -102,7 +102,7 @@ class EditArticleForm extends Component {
 
   render() {
     const { article_id } = this.props.match.params;
-    const { title, image_url, content, tag, tagsList } = this.state;
+    const { title, image_url, content, category, categoriesList } = this.state;
     return (
       <Form
         className="EditArticleForm"
@@ -112,11 +112,11 @@ class EditArticleForm extends Component {
           <h2>Edit post</h2>
           <div className="container_AddArticleForm_select">
             <Select
-              value={tag.value}
-              name="tag"
-              onChange={e => this.updateTag(e.target.value)}
+              value={category.value}
+              name="category"
+              onChange={e => this.updateCategory(e.target.value)}
             >
-              {renderTags(tagsList)}
+              {renderCategories(categoriesList)}
             </Select>
           </div>
         </div>

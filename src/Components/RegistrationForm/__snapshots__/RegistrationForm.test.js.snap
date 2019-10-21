@@ -49,6 +49,7 @@ exports[`Registration Form Component renders registration form without issues 1`
       Password
     </label>
     <input
+      autoComplete="off"
       id="RegistrationForm__password"
       name="password"
       onChange={[Function]}
@@ -70,6 +71,41 @@ exports[`Registration Form Component renders registration form without issues 1`
       name="email"
       onChange={[Function]}
       required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="profile"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__profile"
+    >
+      About Me
+    </label>
+     
+    <textarea
+      id="RegistrationForm_profile"
+      name="profile"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="image_url"
+  >
+    <label
+      className="label_registration"
+      htmlFor="RegistrationForm__image_url"
+    >
+      Image Url
+    </label>
+     
+    <input
+      id="RegistrationForm_image_url"
+      name="image_url"
+      onChange={[Function]}
       type="text"
     />
   </div>

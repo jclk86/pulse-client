@@ -101,7 +101,7 @@ exports[`Comment Component renders Comment component without issues 1`] = `
             </span>
              
             <p>
-              Monday, October 14, 2019
+              October 14, 2019
             </p>
             <p>
               test comment content
