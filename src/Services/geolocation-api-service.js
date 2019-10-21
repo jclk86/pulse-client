@@ -18,12 +18,9 @@ const GeolocationApiService = {
       method: "PATCH",
       body: JSON.stringify(location),
       headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json"
       }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    }).then(res => (!res.ok ? Promise.reject(res) : res));
   }
 };
 
