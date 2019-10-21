@@ -1,10 +1,10 @@
 import config from "../config";
 import TokenService from "./token-service";
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const GeolocationApiService = {
   getUserLocation() {
-    return fetch(proxyurl + `${config.GEOLOCATION_ENDPOINT}`, {
+    return fetch(proxyUrl + `${config.GEOLOCATION_ENDPOINT}`, {
       method: "GET",
       headers: {
         "content-type": "application/json"
@@ -14,7 +14,7 @@ const GeolocationApiService = {
     );
   },
   updateUserLocation(location) {
-    return fetch(`${config.API_ENDPOINT}/user/location`, {
+    return fetch(proxyUrl + `${config.API_ENDPOINT}/user/location`, {
       method: "PATCH",
       body: JSON.stringify(location),
       headers: {
