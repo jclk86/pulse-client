@@ -27,29 +27,32 @@ class ArticleListItem extends Component {
     return votes.filter(vote => article_id === vote.article_id);
   }
 
+  ellipsify(string) {
+    if (string.length > 140) {
+      return string.substring(0, 120) + "...";
+    } else {
+      return string;
+    }
+  }
+
   render() {
     const { article } = this.props;
     const { comments, votes } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
+    const previewText = this.ellipsify(article.content);
     const numOfVotes = this.renderTotalVotes(article.id, votes);
 
     return (
       <div className="container_article_list_item">
-        <div className="container_article_list_item_image">
-          <img
-            src={article.image_url}
-            alt="user-submitted"
-            className="article_list_item_image"
-          ></img>
-        </div>
         <div className="container_article_preview">
           <NavLink role="navigation" to={`/articles/${article.id}`}>
             {" "}
-            <h2 className="article_title">{article.title}</h2>{" "}
+            <h4 className="article_title">{article.title}</h4>{" "}
           </NavLink>
           <p>Votes: </p>
           <p>{DateFormatter(article.date_created)} </p>
-          <p>
+          <p>{previewText}</p>
+          <p className="article_info">
             <span>{numOfComments} comments</span>
             <span>/{article.article_category}/</span>
             <span>by</span> {article.author.username}

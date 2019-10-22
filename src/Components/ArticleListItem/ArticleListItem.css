@@ -1,17 +1,21 @@
 .container_article_list_item {
-  max-width: 100%;
-  border: 1px solid black;
-  display: flex;
-  max-height: 200px;
-}
-
-.container_article_list_item_image {
-  width: 20%;
-}
-
-.article_list_item_image {
   width: 100%;
-  margin-left: 0;
-  height: 100%;
-  margin-bottom: 0px;
+  display: flex;
+  padding-right: 100px;
+  margin-bottom: 15px;
+}
+
+.container_article_preview {
+  text-align: center;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .container_article_list_item {
+    padding-right: 0px;
+  }
 }

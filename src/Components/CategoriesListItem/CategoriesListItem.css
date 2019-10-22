@@ -1,0 +1,12 @@
+.category_link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: white;
+}
+
+.category_link:focus {
+  margin-left: 3px;
+}

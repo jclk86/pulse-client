@@ -46,10 +46,13 @@ class App extends Component {
   };
 
   render() {
+    const currentPath = window.location.pathname;
+
     return (
       <div className="App">
         <header className="App-header">
-          <Header></Header>
+          {!currentPath.includes("login") &&
+            !currentPath.includes("registration") && <Header></Header>}
         </header>
         <Switch>
           <Route

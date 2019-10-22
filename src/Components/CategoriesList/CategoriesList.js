@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import CategoriesListItem from "../CategoriesListItem/CategoriesListItem";
+import "./CategoriesList.css";
 
 class CategoriesList extends Component {
   render() {
@@ -11,7 +12,7 @@ class CategoriesList extends Component {
           <h3>Select a Category</h3>
         </div>
         <ul className="categories_list">
-          <NavLink to={`/articles`}>
+          <NavLink to={`/articles`} className="categories_all_link">
             <li>All</li>
           </NavLink>
           {categories.map(category => (

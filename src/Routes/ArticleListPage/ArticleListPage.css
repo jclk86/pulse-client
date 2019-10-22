@@ -1,7 +1,6 @@
 .container_article_list_page {
   max-width: 1500px;
   margin: 0 auto;
-  background-color: gray;
 }
 .flex_container {
   display: flex;
@@ -36,12 +35,19 @@
 
 .right_sidebar_menu {
   width: 20%;
-  background-color: green;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  height: fit-content;
 }
 
 @media only screen and (max-width: 768px) {
   .hide_sidebar_menu {
     display: none;
+  }
+
+  .container_articles_section {
+    width: 100%;
   }
 }
 

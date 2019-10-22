@@ -1,0 +1,28 @@
+.container_categories_list {
+  text-align: center;
+}
+.categories_list {
+  list-style: none;
+  margin: auto;
+  padding-left: 0;
+  background-color: blue;
+}
+.categories_all_link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.categories_all_link:focus {
+  margin-left: 3px;
+}
+
+.categories_list li {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
