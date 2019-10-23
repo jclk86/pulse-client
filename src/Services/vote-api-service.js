@@ -11,6 +11,28 @@ const VoteApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  addVoteForArticle(article_id) {
+    return fetch(`${config.API_ENDPOINT}/votes/${article_id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => (!res.ok ? Promise.reject(res) : res));
+  },
+  deleteVote(article_id) {
+    return fetch(`${config.API_ENDPOINT}/votes/${article_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res => {
+      if (!res.ok) {
+        return res.json().then(error => Promise.reject(error));
+      }
+    });
   }
 };
 

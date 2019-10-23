@@ -92,14 +92,6 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
           className="container_article_list_item"
         >
           <div
-            className="container_article_list_item_image"
-          >
-            <img
-              alt="user-submitted"
-              className="article_list_item_image"
-            />
-          </div>
-          <div
             className="container_article_preview"
           >
             <NavLink
@@ -131,11 +123,11 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                     role="navigation"
                   >
                      
-                    <h2
+                    <h4
                       className="article_title"
                     >
                       test article
-                    </h2>
+                    </h4>
                      
                   </a>
                 </LinkAnchor>
@@ -149,6 +141,11 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                
             </p>
             <p>
+              test content
+            </p>
+            <p
+              className="article_info"
+            >
               <span>
                 0
                  comments

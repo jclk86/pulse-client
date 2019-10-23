@@ -3,6 +3,7 @@ import React, { Component } from "react";
 const ArticleListContext = React.createContext({
   articleList: [],
   categoriesList: [],
+  votes: [],
   error: null,
   addArticle: () => {},
   setError: () => {},
@@ -16,7 +17,12 @@ export class ArticleListProvider extends Component {
   state = {
     articleList: [],
     categoriesList: [],
+    votes: [],
     error: null
+  };
+
+  setVotes = votes => {
+    this.setState({ votes });
   };
 
   setArticleList = articleList => {
@@ -42,6 +48,8 @@ export class ArticleListProvider extends Component {
 
   render() {
     const contextValue = {
+      votes: this.state.votes,
+      setVotes: this.setVotes,
       articleList: this.state.articleList,
       categoriesList: this.state.categoriesList,
       addArticle: this.addArticle,

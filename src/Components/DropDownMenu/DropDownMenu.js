@@ -4,7 +4,7 @@ import "./DropDownMenu.css";
 
 class DropDownMenu extends Component {
   handleSelectedCategory = category => {
-    category == "all"
+    category === "all"
       ? this.props.history.push(`/articles`)
       : this.props.history.push(`/articles/categories/${category}`);
   };

@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 import { Form } from "../Utils/Utils";
 import AuthApiService from "../../Services/auth-api-service";
 import GeolocationApiService from "../../Services/geolocation-api-service";
+import {
+  ValidationError,
+  validatePassword,
+  validateEmail
+} from "../ValidationError/ValidationError";
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -99,6 +104,7 @@ class RegistrationForm extends Component {
   };
 
   render() {
+    const { error, password, email } = this.state;
     return (
       <Form onSubmit={this.handleSubmit} id="registration_form">
         <div className="fullname">
@@ -145,6 +151,9 @@ class RegistrationForm extends Component {
             id="RegistrationForm__password"
             autoComplete="off"
           />
+          {password.touched && (
+            <ValidationError message={validatePassword(password.value)} />
+          )}
         </div>
         <div className="email">
           <label
@@ -160,6 +169,9 @@ class RegistrationForm extends Component {
             required
             id="RegistrationForm__email"
           />
+          {email.touched && (
+            <ValidationError message={validateEmail(email.value)} />
+          )}
         </div>
         <div className="profile">
           <label
@@ -190,6 +202,7 @@ class RegistrationForm extends Component {
             id="RegistrationForm_image_url"
           ></input>
         </div>
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="register_btn_container">
           <button id="submit_btn" type="submit">
             Submit

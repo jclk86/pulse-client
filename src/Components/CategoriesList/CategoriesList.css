@@ -5,7 +5,6 @@
   list-style: none;
   margin: auto;
   padding-left: 0;
-  background-color: blue;
 }
 .categories_all_link {
   display: block;
@@ -18,7 +17,7 @@
 }
 
 .categories_all_link:focus {
-  margin-left: 3px;
+  border-left: 5px solid blue;
 }
 
 .categories_list li {

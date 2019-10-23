@@ -18,15 +18,15 @@
 
 .Section {
   max-width: 800px;
-  background-color: rosybrown;
   margin: 0 auto;
 }
 
 .Form {
   max-width: 600px;
   min-height: 300px;
-  background-color: yellow;
   margin: 0 auto;
+  background-color: orange;
+  border-radius: 2px;
 }
 
 .FormLabel {

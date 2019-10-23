@@ -13,6 +13,12 @@ import "./AddArticleForm.css";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import { renderCategories } from "../Utils/Utils";
+import {
+  ValidationError,
+  validateCategory,
+  validateTitle,
+  validateContent
+} from "../ValidationError/ValidationError";
 
 class AddArticleForm extends Component {
   static contextType = ArticleListContext;
@@ -64,7 +70,9 @@ class AddArticleForm extends Component {
     // const token = TokenService.readJwtToken();
     const newArticle = {
       title: title.value,
-      image_url: image_url.value,
+      image_url: image_url.value
+        ? image_url.value
+        : "https://images.pexels.com/photos/1595/man-person-taking-photo-photographer.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       content: content.value,
       article_category: category.value
     };
@@ -80,9 +88,15 @@ class AddArticleForm extends Component {
       });
   };
 
-  render() {
-    const { categoriesList } = this.context;
+  isFormValid = () => {
+    const { title, content, category } = this.state;
+    return title.value && category.value && content.value;
+  };
 
+  render() {
+    const { title, content, category } = this.state;
+    const { categoriesList } = this.context;
+    const isValid = this.isFormValid();
     return (
       <Form
         className="AddArticleForm"
@@ -100,6 +114,9 @@ class AddArticleForm extends Component {
               </option>
               {renderCategories(categoriesList)}
             </Select>
+            {category.touched && (
+              <ValidationError message={validateCategory(category.value)} />
+            )}
           </div>
         </div>
         <FormLabel
@@ -113,6 +130,9 @@ class AddArticleForm extends Component {
           id="AddArticleForm_article_title"
           onChange={e => this.updateTitle(e.target.value)}
         ></Input>
+        {title.touched && (
+          <ValidationError message={validateTitle(title.value)} />
+        )}
         <FormLabel
           htmlFor="AddArticleForm_article_image_url"
           className="label_add_article_form"
@@ -135,6 +155,9 @@ class AddArticleForm extends Component {
             id="AddArticleForm_article_content"
             onChange={e => this.updateContent(e.target.value)}
           ></Textarea>
+          {content.touched && (
+            <ValidationError message={validateContent(content.value)} />
+          )}
         </div>
 
         <div className="container_AddArticleForm_btn">
@@ -146,7 +169,9 @@ class AddArticleForm extends Component {
           >
             Cancel
           </Button>
-          <Button type="submit">Post</Button>
+          <Button type="submit" role="button" disabled={!isValid}>
+            Post
+          </Button>
         </div>
       </Form>
     );

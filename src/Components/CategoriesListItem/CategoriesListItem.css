@@ -8,5 +8,5 @@
 }
 
 .category_link:focus {
-  margin-left: 3px;
+  border-left: 5px solid blue;
 }

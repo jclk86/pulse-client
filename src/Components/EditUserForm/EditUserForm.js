@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import UserApiService from "../../Services/user-api-service";
 import { Form, Button } from "../Utils/Utils";
+import {
+  ValidationError,
+  validatePassword,
+  validateProfile,
+  validateImage
+} from "../ValidationError/ValidationError";
 
+// add user context, isvalid, mount current user info
 class EditUserForm extends Component {
   // registration form recieves a registration success redirect
 
@@ -15,6 +22,8 @@ class EditUserForm extends Component {
       image_url: { value: "", touched: false }
     };
   }
+
+  componentDidMount;
 
   updatePassword = password => {
     this.setState({ password: { value: password, touched: true } });
@@ -36,8 +45,6 @@ class EditUserForm extends Component {
       password: password,
       profile: profile,
       image_url: image_url
-        ? image_url
-        : "https://images.pexels.com/photos/2250394/pexels-photo-2250394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     });
 
     UserApiService.updateUserAccount({
@@ -56,6 +63,7 @@ class EditUserForm extends Component {
       });
   };
   render() {
+    const { password, profile, image_url } = this.state;
     return (
       <Form onSubmit={this.handleSubmit} id="EditUser_form">
         <div className="password">
@@ -69,6 +77,9 @@ class EditUserForm extends Component {
             id="EditUserForm__password"
             autoComplete="off"
           />
+          {password.touched && (
+            <ValidationError message={validatePassword(password.value)} />
+          )}
         </div>
         <div className="profile">
           <label htmlFor="EditUserForm__profile" className="label_edit_user">
@@ -81,6 +92,9 @@ class EditUserForm extends Component {
             id="EditUserForm_profile"
             required
           ></textarea>
+          {profile.touched && (
+            <ValidationError message={validateProfile(profile.value)} />
+          )}
         </div>
         <div className="image_url">
           <label htmlFor="EditUserForm__image_url" className="label_edit_user">
@@ -92,6 +106,9 @@ class EditUserForm extends Component {
             type="text"
             id="EditUserForm_image_url"
           ></input>
+          {image_url.touched && (
+            <ValidationError message={validateImage(image_url.value)} />
+          )}
         </div>
         <div className="edit_user_container_btn">
           <Button

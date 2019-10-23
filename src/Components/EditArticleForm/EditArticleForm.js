@@ -13,6 +13,12 @@ import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import TokenService from "../../Services/token-service";
 import { renderCategories } from "../Utils/Utils";
+import {
+  ValidationError,
+  validateCategory,
+  validateTitle,
+  validateContent
+} from "../ValidationError/ValidationError";
 
 class EditArticleForm extends Component {
   static contextType = ArticleContext;
@@ -90,7 +96,9 @@ class EditArticleForm extends Component {
     const updatedArticle = {
       author_id: token.user_id,
       title: title.value,
-      image_url: image_url.value,
+      image_url: image_url.value
+        ? image_url.value
+        : "https://images.pexels.com/photos/1595/man-person-taking-photo-photographer.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       content: content.value,
       article_category: category.value
     };
@@ -100,7 +108,13 @@ class EditArticleForm extends Component {
     });
   };
 
+  isFormValid = () => {
+    const { title, content, category } = this.state;
+    return title.value && category.value && content.value;
+  };
+
   render() {
+    const isValid = this.isFormValid();
     const { article_id } = this.props.match.params;
     const { title, image_url, content, category, categoriesList } = this.state;
     return (
@@ -118,6 +132,9 @@ class EditArticleForm extends Component {
             >
               {renderCategories(categoriesList)}
             </Select>
+            {category.touched && (
+              <ValidationError message={validateCategory(category.value)} />
+            )}
           </div>
         </div>
 
@@ -132,6 +149,9 @@ class EditArticleForm extends Component {
           id="EditArticleForm_article_title"
           onChange={e => this.updateTitle(e.target.value)}
         ></Input>
+        {title.touched && (
+          <ValidationError message={validateTitle(title.value)} />
+        )}
         <FormLabel
           htmlFor="EditArticleForm_article_image_url"
           className="label_add_article_form"
@@ -156,10 +176,12 @@ class EditArticleForm extends Component {
             id="EditArticleForm_article_content"
             onChange={e => this.updateContent(e.target.value)}
           ></Textarea>
+          {content.touched && (
+            <ValidationError message={validateContent(content.value)} />
+          )}
         </div>
-
         <div className="container_EditArticleForm_btn">
-          <Button role="button" type="submit">
+          <Button role="button" type="submit" disabled={!isValid}>
             Edit
           </Button>
           <Button

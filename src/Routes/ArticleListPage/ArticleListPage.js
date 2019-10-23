@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { withRouter, NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import ArticleListContext from "../../Context/ArticleListContext";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
+import VoteApiService from "../../Services/vote-api-service";
 import { CreatePostButton } from "../../Components/Utils/Utils";
 import CategoriesList from "../../Components/CategoriesList/CategoriesList";
 import ArticlesList from "../../Components/ArticlesList/ArticlesList";
@@ -20,6 +21,9 @@ class ArticleListPage extends Component {
 
   componentDidMount() {
     ArticleApiService.getAllArticles().then(this.context.setArticleList);
+    VoteApiService.getVotesForArticle().then(votes => {
+      this.context.setVotes(votes);
+    });
     CategoryApiService.getAllCategories().then(this.context.setCategoriesList);
   }
 
@@ -30,7 +34,7 @@ class ArticleListPage extends Component {
       : articles.filter(article => article.article_category === categoryName);
   }
   render() {
-    const { articleList, categoriesList } = this.context;
+    const { articleList, categoriesList, votes } = this.context;
     const { category_name } = this.props.match.params;
     const articlesForCategory = this.getArticlesForCategory(
       articleList,
@@ -53,9 +57,11 @@ class ArticleListPage extends Component {
         </div>
         <div className="flex_container">
           <div className="container_articles_section">
-            <ArticlesList sortedArticles={articlesSortedByDate}></ArticlesList>
+            <ArticlesList
+              sortedArticles={articlesSortedByDate}
+              votes={votes}
+            ></ArticlesList>
           </div>
-
           <div className="right_sidebar_menu hide_sidebar_menu">
             <div className="container_sidebar_create_post_btn">
               <CreatePostButton>CREATE POST</CreatePostButton>

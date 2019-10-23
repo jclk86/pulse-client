@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { withRouter, NavLink } from "react-router-dom";
-import { Form } from "../Utils/Utils";
+import { withRouter } from "react-router-dom";
+
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 // if button clicked, replace comment block with edit form
 

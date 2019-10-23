@@ -11,19 +11,22 @@ import "./ArticleListItem.css";
 
 class ArticleListItem extends Component {
   static contextType = ArticleContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      voted: false
+    };
+  }
 
   componentDidMount() {
     CommentApiService.getAllComments().then(this.context.setComments);
-    VoteApiService.getVotesForArticle(this.props.article.id).then(
-      this.context.setVotes
-    );
   }
 
   getTotalComments(article_id, comments) {
     return comments.filter(comment => article_id === comment.article_id).length;
   }
 
-  renderTotalVotes(article_id, votes) {
+  filterTotalVotes(article_id, votes) {
     return votes.filter(vote => article_id === vote.article_id);
   }
 
@@ -35,28 +38,51 @@ class ArticleListItem extends Component {
     }
   }
 
+  handleClickUpArrow(article_id) {
+    VoteApiService.addVoteForArticle(article_id).then(() => {
+      this.setState({ voted: !this.state.voted });
+      console.log(this.state.voted);
+    });
+  }
+
   render() {
-    const { article } = this.props;
-    const { comments, votes } = this.context;
+    const { article, votes } = this.props;
+    const { comments } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
     const previewText = this.ellipsify(article.content);
-    const numOfVotes = this.renderTotalVotes(article.id, votes);
+    const totalVotes = this.filterTotalVotes(article.id, votes);
+    const numOfVotes = totalVotes.length ? totalVotes.length : 0;
 
     return (
       <div className="container_article_list_item">
         <div className="container_article_preview">
-          <NavLink role="navigation" to={`/articles/${article.id}`}>
-            {" "}
-            <h4 className="article_title">{article.title}</h4>{" "}
-          </NavLink>
-          <p>Votes: </p>
-          <p>{DateFormatter(article.date_created)} </p>
-          <p>{previewText}</p>
-          <p className="article_info">
-            <span>{numOfComments} comments</span>
-            <span>/{article.article_category}/</span>
-            <span>by</span> {article.author.username}
-          </p>
+          <div className="container_vote_arrows">
+            <div className="container_arrow_up">
+              <div
+                className="arrow_up"
+                onClick={() => this.handleClickUpArrow(article.id)}
+              ></div>
+            </div>
+            <div className="container_vote_count">
+              <p className="vote_count">{numOfVotes}</p>
+            </div>
+            <div className="container_arrow_down">
+              <div className="arrow_down"></div>
+            </div>
+          </div>
+          <div className="container_article_text_preview">
+            <NavLink role="navigation" to={`/articles/${article.id}`}>
+              {" "}
+              <h4 className="article_title">{article.title}</h4>{" "}
+            </NavLink>
+            <p>{DateFormatter(article.date_created)} </p>
+            <p>{previewText}</p>
+            <p className="article_info">
+              <span>{numOfComments} comments</span>
+              <span>/{article.article_category}/</span>
+              <span>by</span> {article.author.username}
+            </p>
+          </div>
         </div>
       </div>
     );

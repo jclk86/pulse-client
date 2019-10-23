@@ -1,5 +1,5 @@
 import config from "../config";
-import TokenService from "../Services/token-service";
+import TokenService from "./token-service";
 
 const UserApiService = {
   getUserAccount() {

@@ -1,12 +1,11 @@
 .header {
   width: 100%;
-  background-color: gray;
+  background-color: white;
   display: flex;
   margin-bottom: 70px;
 }
 .navbar_links {
   display: flex;
-  background-color: orange;
   width: 50%;
   justify-content: flex-end;
   padding-right: 10px;
@@ -15,7 +14,6 @@
 }
 
 .container_logo {
-  background-color: rgb(75, 78, 75);
   width: 50%;
   text-align: left;
 }

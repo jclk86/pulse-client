@@ -41,6 +41,7 @@ class LoginForm extends Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <Form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div className="container_username">
@@ -73,6 +74,7 @@ class LoginForm extends Component {
             </NavLink>
           </p>
         </div>
+        <div role="alert">{error && <p className="red">{error}</p>}</div>
         <Button type="submit">Submit</Button>
       </Form>
     );
