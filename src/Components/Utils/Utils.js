@@ -15,6 +15,24 @@ export function Logo({ className, ...props }) {
   );
 }
 
+export function BackgroundWaterfall({ className, ...props }) {
+  return (
+    <div
+      className={["BackgroundWaterfall", className].join(" ")}
+      {...props}
+    ></div>
+  );
+}
+
+export function BackgroundFriends({ className, ...props }) {
+  return (
+    <div
+      className={["BackgroundFriends", className].join(" ")}
+      {...props}
+    ></div>
+  );
+}
+
 export function Form({ className, ...props }) {
   return <form className={["Form", className].join(" ")} {...props}></form>;
 }
@@ -41,10 +59,8 @@ export function Select({ className, ...props }) {
   );
 }
 
-export function FormLabel({ className, ...props }) {
-  return (
-    <label className={["FormLabel", className].join(" ")} {...props}></label>
-  );
+export function Label({ className, ...props }) {
+  return <label className={["Label", className].join(" ")} {...props}></label>;
 }
 
 export function Required({ className, ...props }) {

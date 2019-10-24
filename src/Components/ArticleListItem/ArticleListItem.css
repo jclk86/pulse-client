@@ -27,9 +27,10 @@
   margin-left: 0;
 }
 
-.article_image {
-  width: 100%;
-  height: 100%;
+.article_list_item_title_link {
+  text-decoration: none;
+  color: black;
+  font-size: 28px;
 }
 
 .container_article_text_preview {

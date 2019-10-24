@@ -5,7 +5,7 @@ import { Section } from "../../Components/Utils/Utils";
 export default class AddArticlePage extends Component {
   render() {
     return (
-      <Section className="container_AddArticleForm">
+      <Section>
         <AddArticleForm></AddArticleForm>
       </Section>
     );

@@ -6,7 +6,7 @@ import { Section } from "../../Components/Utils/Utils";
 class EditArticlePage extends Component {
   render() {
     return (
-      <Section className="container_EditArticleForm">
+      <Section>
         <EditArticleForm></EditArticleForm>
       </Section>
     );

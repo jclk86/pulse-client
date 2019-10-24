@@ -21,7 +21,7 @@ export function validateTitle(fieldValue) {
 
 export function validateImage(fieldValue) {
   if (!fieldValue) {
-    return "Please provide an image";
+    return "Please provide an image link";
   }
 }
 
@@ -34,6 +34,18 @@ export function validateContent(fieldValue) {
 export function validateProfile(fieldValue) {
   if (!fieldValue) {
     return "Please enter profile";
+  }
+}
+
+export function validateUsername(fieldValue) {
+  if (!fieldValue) {
+    return "Please enter valid username";
+  }
+}
+
+export function validateFullname(fieldValue) {
+  if (!fieldValue) {
+    return "Please enter Fullname";
   }
 }
 

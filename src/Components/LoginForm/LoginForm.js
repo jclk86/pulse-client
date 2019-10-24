@@ -5,20 +5,38 @@ import "./LoginForm.css";
 import AuthApiService from "../../Services/auth-api-service";
 import TokenService from "../../Services/token-service";
 import GeolocationApiService from "../../Services/geolocation-api-service";
+import {
+  validateUsername,
+  validatePassword,
+  ValidationError
+} from "../ValidationError/ValidationError";
 
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {}
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      username: { value: "", touched: false },
+      password: { value: "", touched: false }
+    };
+  }
 
-  state = {
-    error: null
+  updateUsername = username => {
+    this.setState({ username: { value: username, touched: true } });
+  };
+
+  updatePassword = password => {
+    this.setState({ password: { value: password, touched: true } });
   };
 
   handleSubmitJwtAuth = event => {
     event.preventDefault();
     this.setState({ error: null });
     const { username, password } = event.target;
+
     AuthApiService.postLogin({
       username: username.value,
       password: password.value
@@ -41,26 +59,36 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { error } = this.state;
+    const { error, username, password } = this.state;
     return (
       <Form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
-        <div className="container_username">
+        <div className="container_LoginForm_username">
           <label htmlFor="label__username" className="label_login">
             Username
           </label>
-          <Input required name="username" id="LoginForm__username" />
+          <Input
+            onChange={e => this.updateUsername(e.target.value)}
+            name="username"
+            className="LoginForm_username"
+          />
+          {username.touched && (
+            <ValidationError message={validateUsername(username.value)} />
+          )}
         </div>
-        <div className="container_password">
-          <label htmlFor="LoginForm__password" className="label_login">
+        <div className="container_LoginForm_password">
+          <label htmlFor="LoginForm_password" className="label_login">
             Password
           </label>
           <Input
-            required
+            onChange={e => this.updatePassword(e.target.value)}
             name="password"
             type="password"
-            id="LoginForm__password"
+            className="LoginForm_password"
             autoComplete="off"
           />
+          {password.touched && (
+            <ValidationError message={validatePassword(password.value)} />
+          )}
         </div>
         <div className="container_login_register">
           <p className="message_redirect">
@@ -75,7 +103,9 @@ class LoginForm extends Component {
           </p>
         </div>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="LoginForm_submit_btn">
+          Submit
+        </Button>
       </Form>
     );
   }

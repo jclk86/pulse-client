@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Form } from "../Utils/Utils";
+import { Form, Input } from "../Utils/Utils";
 import AuthApiService from "../../Services/auth-api-service";
 import GeolocationApiService from "../../Services/geolocation-api-service";
 import {
   ValidationError,
   validatePassword,
+  validateProfile,
+  validateFullname,
+  validateUsername,
   validateEmail
 } from "../ValidationError/ValidationError";
+import "./RegistrationForm.css";
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -103,79 +107,94 @@ class RegistrationForm extends Component {
       });
   };
 
-  render() {
-    const { error, password, email } = this.state;
+  isFormValid = () => {
+    const { username, fullname, password, email, profile } = this.state;
     return (
-      <Form onSubmit={this.handleSubmit} id="registration_form">
-        <div className="fullname">
+      username.value && fullname.value,
+      password.value,
+      email.value,
+      profile.value
+    );
+  };
+
+  render() {
+    const { error, password, email, username, fullname, profile } = this.state;
+    const isValid = this.isFormValid();
+    return (
+      <Form onSubmit={this.handleSubmit} className="registration_form">
+        <h2>Registration</h2>
+        <div className="container_RegistrationForm_fullname">
           <label
-            htmlFor="RegistrationForm__fullname"
+            htmlFor="RegistrationForm_fullname"
             className="label_registration"
           >
             Fullname
           </label>
-          <input
+          <Input
             name="fullname"
             type="text"
-            required
-            id="RegistrationForm__fullname"
+            className="RegistrationForm_fullname"
             onChange={e => this.updateFullname(e.target.value)}
           />
+          {fullname.touched && (
+            <ValidationError message={validateFullname(fullname.value)} />
+          )}
         </div>
-        <div className="user_name">
+        <div className="container_RegistrationForm_username">
           <label
-            htmlFor="RegistrationForm__username"
+            htmlFor="RegistrationForm_username"
             className="label_registration"
           >
             Username
           </label>
-          <input
+          <Input
             name="username"
             type="text"
-            required
-            id="RegistrationForm__username"
+            className="RegistrationForm_username"
             onChange={e => this.updateUsername(e.target.value)}
           />
+          {username.touched && (
+            <ValidationError message={validateUsername(username.value)} />
+          )}
         </div>
-        <div className="password">
+        <div className="container_RegistrationForm_password">
           <label
-            htmlFor="RegistrationForm__password"
+            htmlFor="RegistrationForm_password"
             className="label_registration"
           >
             Password
           </label>
-          <input
+          <Input
             onChange={e => this.updatePassword(e.target.value)}
             name="password"
             type="password"
-            id="RegistrationForm__password"
+            className="RegistrationForm_password"
             autoComplete="off"
           />
           {password.touched && (
             <ValidationError message={validatePassword(password.value)} />
           )}
         </div>
-        <div className="email">
+        <div className="container_RegistrationForm_email">
           <label
-            htmlFor="RegistrationForm__email"
+            htmlFor="RegistrationForm_email"
             className="label_registration"
           >
             Email
           </label>{" "}
-          <input
+          <Input
             onChange={e => this.updateEmail(e.target.value)}
             name="email"
             type="text"
-            required
-            id="RegistrationForm__email"
+            className="RegistrationForm_email"
           />
           {email.touched && (
             <ValidationError message={validateEmail(email.value)} />
           )}
         </div>
-        <div className="profile">
+        <div className="container_RegistrationForm_profile">
           <label
-            htmlFor="RegistrationForm__profile"
+            htmlFor="RegistrationForm_profile"
             className="label_registration"
           >
             About Me
@@ -184,34 +203,44 @@ class RegistrationForm extends Component {
             onChange={e => this.updateProfile(e.target.value)}
             name="profile"
             type="text"
-            id="RegistrationForm_profile"
-            required
+            className="RegistrationForm_profile"
           ></textarea>
+          {profile.touched && (
+            <ValidationError message={validateProfile(profile.value)} />
+          )}
         </div>
-        <div className="image_url">
+        <div className="container_RegistrationForm_image_url">
           <label
-            htmlFor="RegistrationForm__image_url"
+            htmlFor="RegistrationForm_image_url"
             className="label_registration"
           >
             Image Url
           </label>{" "}
-          <input
+          <Input
             onChange={e => this.updateImage_Url(e.target.value)}
             name="image_url"
             type="text"
-            id="RegistrationForm_image_url"
-          ></input>
+            className="RegistrationForm_image_url"
+          ></Input>
         </div>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="register_btn_container">
-          <button id="submit_btn" type="submit">
+        <div className="container_RegistrationForm_btn">
+          <button
+            className="RegistrationForm_submit_btn"
+            type="submit"
+            disabled={!isValid}
+          >
             Submit
           </button>
         </div>
-        <div className="login_link">
+        <div className="container_RegistrationForm_login_link">
           <p className="message_redirect">
             Already a user?{" "}
-            <NavLink to={"/login"} role="navigation" className="btn_login_link">
+            <NavLink
+              to={"/login"}
+              role="navigation"
+              className="RegistrationForm_login_link"
+            >
               Login
             </NavLink>
           </p>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
+import "./EditCommentForm.css";
 // import PropTypes from "prop-types";
 
 // if button clicked, replace comment block with edit form
@@ -68,13 +68,16 @@ class EditCommentForm extends Component {
           Edit Comment
         </label>
         <textarea
+          className="EditCommentForm_comment_box"
           type="text"
           placeholder="Tell us your thoughts!"
           name="comment"
           onChange={e => this.updateContent(e.target.value)}
           value={this.state.content.value}
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit" className="EditCommentForm_submit_btn">
+          Edit
+        </button>
       </form>
     );
   }

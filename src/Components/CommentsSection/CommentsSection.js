@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Comment from "../Comment/Comment";
+import "./CommentsSection.css";
 
 class CommentsSection extends Component {
   renderComments = comments => {
@@ -14,7 +15,7 @@ class CommentsSection extends Component {
 
     return (
       <div className="container_comments">
-        <ul>
+        <ul className="comments_list">
           {comments.length ? (
             this.renderComments(comments)
           ) : (

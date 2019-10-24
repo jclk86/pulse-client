@@ -19,7 +19,11 @@ const VoteApiService = {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
-    }).then(res => (!res.ok ? Promise.reject(res) : res));
+    }).then(res => {
+      if (!res.ok) {
+        return res.json().then(error => Promise.reject(error));
+      }
+    });
   },
   deleteVote(article_id) {
     return fetch(`${config.API_ENDPOINT}/votes/${article_id}`, {

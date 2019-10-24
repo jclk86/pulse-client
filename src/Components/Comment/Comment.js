@@ -7,7 +7,7 @@ import ArticleContext from "../../Context/ArticleContext";
 import { DateFormatter } from "../Utils/Utils";
 import PropTypes from "prop-types";
 import "./Comment.css";
-
+// needs a context?
 class Comment extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +23,8 @@ class Comment extends Component {
   };
 
   handleDeleteClick = comment_id => {
-    CommentService.deleteComment(comment_id).then(() =>
-      this.context.deleteComment(comment_id)
+    CommentService.deleteComment(comment_id).then(
+      () => this.context.deleteComment(comment_id) // NO CONTEXT
     );
   };
 
@@ -41,9 +41,11 @@ class Comment extends Component {
           ></EditCommentForm>
         ) : (
           <div className="container_comment_content">
-            <span>{comment.user.username} says...</span>{" "}
-            <p>{DateFormatter(comment.date_created)}</p>
-            <p>{comment.content}</p>
+            <p className="comment_author_info">
+              <span>{comment.user.username} on </span>{" "}
+              <span>{DateFormatter(comment.date_created)}</span>
+            </p>
+            <p className="comment_content">{comment.content}</p>
             {token.user_id === comment.user.id ? (
               <div className="container_comment_btn hide">
                 <button

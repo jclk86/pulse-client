@@ -4,7 +4,7 @@ import ArticleListContext from "../../Context/ArticleListContext";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import VoteApiService from "../../Services/vote-api-service";
-import { CreatePostButton } from "../../Components/Utils/Utils";
+import { CreatePostButton, Section } from "../../Components/Utils/Utils";
 import CategoriesList from "../../Components/CategoriesList/CategoriesList";
 import ArticlesList from "../../Components/ArticlesList/ArticlesList";
 import DropDownMenu from "../../Components/DropDownMenu/DropDownMenu";
@@ -21,9 +21,7 @@ class ArticleListPage extends Component {
 
   componentDidMount() {
     ArticleApiService.getAllArticles().then(this.context.setArticleList);
-    VoteApiService.getVotesForArticle().then(votes => {
-      this.context.setVotes(votes);
-    });
+    VoteApiService.getVotesForArticle().then(this.context.setVotes); // change name
     CategoryApiService.getAllCategories().then(this.context.setCategoriesList);
   }
 
@@ -43,9 +41,8 @@ class ArticleListPage extends Component {
     const articlesSortedByDate = articlesForCategory.sort(function(a, b) {
       return new Date(a.date_created) - new Date(b.date_created);
     });
-
     return (
-      <div className="container_article_list_page">
+      <Section>
         <div className="container_topbar_menu hide_topbar_menu">
           <div className="container_dropdown_menu">
             {" "}
@@ -69,7 +66,7 @@ class ArticleListPage extends Component {
             <CategoriesList categories={categoriesList}></CategoriesList>
           </div>
         </div>
-      </div>
+      </Section>
     );
   }
 }

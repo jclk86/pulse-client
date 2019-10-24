@@ -1,7 +1,73 @@
-.profile_image {
-  max-width: 250px;
-}
-
 .user_account_return_btn {
   display: block;
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.container_return_btn {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.user_account_return_btn:hover {
+  cursor: pointer;
+}
+
+.user_account_return_btn:focus {
+  outline-width: 0;
+}
+
+.container_user_account_image {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.profile_image {
+  width: 100%;
+}
+
+.UserAccount_edit_btn {
+  min-width: 200px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.UserAccount_edit_btn:hover {
+  cursor: pointer;
+}
+
+.UserAccount_edit_btn:focus {
+  outline-width: 0;
+}
+
+@media only screen and (min-width: 568px) {
+  .container_return_btn {
+    max-width: 1400px;
+    margin-bottom: 50px;
+  }
+
+  .container_user_account_image {
+    margin-left: 0;
+  }
+
+  .container_UserAccount_profile {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container_UserAccount_edit_btn {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container_user_account_image {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

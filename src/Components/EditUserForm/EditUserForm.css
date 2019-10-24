@@ -1,0 +1,65 @@
+.EditUserForm {
+  padding-top: 50px;
+  border-radius: 10px;
+  padding-bottom: 40px;
+}
+
+.container_EditUserForm_password,
+.container_EditUserForm_profile,
+.container_EditUserForm_image_url {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.label_edit_user {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+
+.EditUserForm_profile {
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px auto;
+  text-align: left;
+  width: 100%;
+  border-radius: 10px;
+  resize: none;
+}
+
+.EditUserForm_password,
+.EditUserForm_image_url {
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.EditUserForm_password:focus,
+.EditUserForm_image_url:focus,
+.EditUserForm_profile:focus {
+  outline-width: 0;
+}
+
+.EditUserForm_submit_btn,
+.EditUserForm_cancel_btn {
+  border-radius: 10px;
+  min-width: 200px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.EditUserForm_submit_btn:hover,
+.EditUserForm_cancel_btn:hover {
+  cursor: pointer;
+}
+
+.EditUserForm_submit_btn:focus,
+.EditUserForm_cancel_btn:focus {
+  outline-width: 0;
+}

@@ -13,18 +13,19 @@ class Article extends Component {
   render() {
     const { article } = this.props;
     const token = TokenService.readJwtToken();
+
     return (
       <div className="container_article">
         <div className="container_article_image">
           <img
             src={article.image_url}
-            alt="user-posted"
+            alt="user posted"
             className="article_image"
           ></img>
         </div>
-        <h2>{article.title}</h2>
-        <p>{DateFormatter(article.date_created)}</p>
-        <p>
+        <h2 className="article_title">{article.title}</h2>
+        <p className="article_date">{DateFormatter(article.date_created)}</p>
+        <p className="article_author">
           <span>By</span>{" "}
           <NavLink
             to={
@@ -32,14 +33,17 @@ class Article extends Component {
                 ? `/account`
                 : `/profile/${article.author.username}`
             }
+            className="link_user_profile"
           >
             {article.author.username}
           </NavLink>
         </p>
-        <p>{article.content}</p>
+        <p className="article_content">{article.content}</p>
         {token.user_id === article.author.id ? (
           <NavLink to={`/articles/${article.id}/edit_article`}>
-            <Button type="button">Edit Post</Button>
+            <Button type="button" className="Article_edit_post_btn">
+              Edit Post
+            </Button>
           </NavLink>
         ) : (
           <div></div>

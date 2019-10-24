@@ -1,0 +1,64 @@
+.registration_form {
+  padding-top: 50px;
+  border-radius: 10px;
+  padding-bottom: 30px;
+}
+
+.container_RegistrationForm_username,
+.container_RegistrationForm_password,
+.container_RegistrationForm_profile,
+.container_RegistrationForm_email,
+.container_RegistrationForm_image_url,
+.container_RegistrationForm_fullname {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.label_registration {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+
+.RegistrationForm_email,
+.RegistrationForm_username,
+.RegistrationForm_image_url,
+.RegistrationForm_password,
+.RegistrationForm_fullname {
+  border: none;
+}
+
+.RegistrationForm_email:focus,
+.RegistrationForm_username:focus,
+.RegistrationForm_image_url:focus,
+.RegistrationForm_password:focus,
+.RegistrationForm_fullname:focus,
+.RegistrationForm_profile {
+  outline-width: 0;
+}
+
+.RegistrationForm_profile {
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px auto;
+  text-align: left;
+  width: 100%;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  resize: none;
+  min-height: 150px;
+}
+
+.RegistrationForm_submit_btn {
+  min-width: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.RegistrationForm_submit_btn:hover {
+  cursor: pointer;
+}

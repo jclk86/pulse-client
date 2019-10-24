@@ -1,5 +1,5 @@
 .Logo {
-  width: 100px;
+  width: 170px;
 }
 
 .Textarea {
@@ -17,7 +17,7 @@
 }
 
 .Section {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -29,9 +29,33 @@
   border-radius: 2px;
 }
 
-.FormLabel {
+.BackgroundWaterFall {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/waterfall.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 50px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.BackgroundFriends {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/friends.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.Label {
   display: block;
-  width: 300px;
+  width: 100%;
+  font-size: 16px;
 }
 
 .Select {
@@ -41,12 +65,13 @@
 }
 
 .Input {
-  width: 40%;
+  width: 100%;
   height: 30px;
-  margin: 0 auto;
+  margin: 7px auto;
   border: 1px solid black;
   display: block;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .Button {

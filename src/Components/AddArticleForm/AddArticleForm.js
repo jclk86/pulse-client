@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import {
-  Form,
-  FormLabel,
-  Input,
-  Textarea,
-  Select,
-  Button
-} from "../Utils/Utils";
+import { Form, Label, Textarea, Select, Button } from "../Utils/Utils";
 import ArticleListContext from "../../Context/ArticleListContext";
 import "./AddArticleForm.css";
 import ArticleApiService from "../../Services/article-api-service";
@@ -103,73 +96,88 @@ class AddArticleForm extends Component {
         onSubmit={event => this.handleSubmit(event)}
       >
         <div className="container_AddArticleForm_header">
-          <h2>Create a post</h2>
-          <div className="container_AddArticleForm_select">
-            <Select
-              name="category"
-              onChange={e => this.updateCategory(e.target.value)}
-            >
-              <option key="no-val" value="">
-                Select a category
-              </option>
-              {renderCategories(categoriesList)}
-            </Select>
-            {category.touched && (
-              <ValidationError message={validateCategory(category.value)} />
-            )}
-          </div>
+          <h2 className="title_add_article_form">Create a post</h2>
         </div>
-        <FormLabel
-          htmlFor="AddArticleForm_article_title"
-          className="label_add_article_form"
-        ></FormLabel>
-        <Input
-          type="text"
-          placeholder="Top 5 Destinations for This Summer"
-          name="title"
-          id="AddArticleForm_article_title"
-          onChange={e => this.updateTitle(e.target.value)}
-        ></Input>
-        {title.touched && (
-          <ValidationError message={validateTitle(title.value)} />
-        )}
-        <FormLabel
-          htmlFor="AddArticleForm_article_image_url"
-          className="label_add_article_form"
-        ></FormLabel>
-        <Input
-          type="text"
-          placeholder="image url"
-          name="image_url"
-          id="AddArticleForm_article_image_url"
-          onChange={e => this.updateImage_Url(e.target.value)}
-        ></Input>
-        <FormLabel
+        <div className="container_AddArticleForm_title">
+          <Label
+            htmlFor="AddArticleForm_article_title"
+            className="label_add_article_form"
+          >
+            Title:
+          </Label>
+          <input
+            type="text"
+            placeholder="Top 5 Destinations for This Summer"
+            name="title"
+            className="AddArticleForm_article_title"
+            onChange={e => this.updateTitle(e.target.value)}
+          ></input>
+          {title.touched && (
+            <ValidationError message={validateTitle(title.value)} />
+          )}
+        </div>
+        <div className="container_AddArticleForm_image_url">
+          <Label
+            htmlFor="AddArticleForm_article_image_url"
+            className="label_add_article_form"
+          >
+            Image Url:
+          </Label>
+          <input
+            type="text"
+            placeholder="image url"
+            name="image_url"
+            className="AddArticleForm_article_image_url"
+            onChange={e => this.updateImage_Url(e.target.value)}
+          ></input>
+        </div>
+        <Label
           htmlFor="AddArticleForm_article_content"
           className="label_add_article_form"
-        ></FormLabel>
+        >
+          Share your thoughts:
+        </Label>
         <div className="container_AddArticleForm_textarea">
           <Textarea
             placeholder="For the past two years I've traveled to..."
             name="content"
-            id="AddArticleForm_article_content"
+            className="AddArticleForm_article_content"
             onChange={e => this.updateContent(e.target.value)}
           ></Textarea>
           {content.touched && (
             <ValidationError message={validateContent(content.value)} />
           )}
         </div>
-
+        <div className="container_AddArticleForm_select">
+          <Select
+            className="AddArticleForm_select"
+            name="category"
+            onChange={e => this.updateCategory(e.target.value)}
+          >
+            <option key="no-val" value="">
+              Select a category
+            </option>
+            {renderCategories(categoriesList)}
+          </Select>
+          {category.touched && (
+            <ValidationError message={validateCategory(category.value)} />
+          )}
+        </div>
         <div className="container_AddArticleForm_btn">
           <Button
             type="button"
             role="button"
-            // change below history redirect
             onClick={() => this.props.history.push("/articles")}
+            className="AddArticleForm_cancel_btn"
           >
             Cancel
           </Button>
-          <Button type="submit" role="button" disabled={!isValid}>
+          <Button
+            type="submit"
+            role="button"
+            disabled={!isValid}
+            className="AddArticleForm_post_btn"
+          >
             Post
           </Button>
         </div>

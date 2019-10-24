@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
-import { Button } from "../../Components/Utils/Utils";
+import { Button, Section } from "../../Components/Utils/Utils";
 import Article from "../../Components/Article/Article";
 import AddCommentForm from "../../Components/AddCommentForm/AddCommentForm";
 import ArticleContext from "../../Context/ArticleContext";
@@ -24,9 +24,9 @@ class ArticlePage extends Component {
   render() {
     const { article, comments } = this.context;
     const { article_id } = this.props.match.params;
-    console.log(comments);
+
     return (
-      <div className="SECTION">
+      <Section>
         <div className="container_article_page_btn">
           <NavLink to="/articles">
             <Button role="navigation" type="button">
@@ -36,11 +36,11 @@ class ArticlePage extends Component {
         </div>
         <Article article={article}></Article>
         <div className="container_header_comments">
-          <h2>Comments Section</h2>
+          <h3>{comments.length} Comments </h3>
         </div>
         <CommentsSection comments={comments}></CommentsSection>
         <AddCommentForm article_id={article_id}></AddCommentForm>
-      </div>
+      </Section>
     );
   }
 }

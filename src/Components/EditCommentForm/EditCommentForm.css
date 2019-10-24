@@ -1,0 +1,38 @@
+.EditCommentForm {
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.label_edit_comment_form {
+  display: block;
+  width: 100%;
+  margin: 5px auto;
+  text-align: left;
+  font-size: 16px;
+}
+
+.EditCommentForm_comment_box {
+  width: 100%;
+  padding: 50px;
+  resize: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.EditCommentForm_comment_box:focus {
+  outline-width: 0;
+}
+
+.EditCommentForm_submit_btn {
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+  min-width: 200px;
+  padding: 6px;
+  font-size: 16px;
+}
+
+.EditCommentForm_submit_btn:hover {
+  cursor: pointer;
+}

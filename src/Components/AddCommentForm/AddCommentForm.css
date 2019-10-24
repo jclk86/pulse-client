@@ -1,0 +1,41 @@
+.AddCommentForm {
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.label_add_comment_form {
+  display: block;
+  width: 70%;
+  margin: 5px auto;
+  text-align: left;
+}
+
+.AddCommentForm_comment_box {
+  width: 70%;
+  padding: 50px;
+  resize: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.AddCommentForm_comment_box:focus {
+  outline-width: 0;
+}
+
+.AddCommentForm_submit_btn {
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+  min-width: 200px;
+  padding: 6px;
+  font-size: 16px;
+}
+
+.AddCommentForm_submit_btn:hover {
+  cursor: pointer;
+}
+
+.AddCommentForm_submit_btn:focus {
+  outline-width: 0;
+}

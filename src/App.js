@@ -56,7 +56,7 @@ class App extends Component {
         </header>
         <Switch>
           <Route
-            expact
+            exact
             path={"/registration"}
             component={RegistrationPage}
           ></Route>

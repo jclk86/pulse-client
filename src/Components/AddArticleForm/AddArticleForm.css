@@ -1,4 +1,73 @@
+.AddArticleForm {
+  padding-bottom: 40px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
 .container_AddArticleForm_header {
-  text-align: left;
-  border-bottom: 1px solid gray;
+  text-align: center;
+}
+
+.container_AddArticleForm_title,
+.container_AddArticleForm_image_url {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.label_add_article_form {
+  text-align: center;
+}
+
+.AddArticleForm_article_image_url,
+.AddArticleForm_article_title {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.AddArticleForm_article_content {
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.AddArticleForm_select {
+  margin: 10px auto;
+  border-radius: 10px;
+  font-size: 16px;
+  min-width: 200px;
+  padding-left: 10px;
+}
+
+.AddArticleForm_article_image_url:focus,
+.AddArticleForm_article_title:focus,
+.AddArticleForm_select:focus,
+.AddArticleForm_article_content:focus {
+  outline-width: 0;
+}
+
+.container_AddArticleForm_btn {
+  margin-top: 10px;
+  display: flex;
+}
+
+.AddArticleForm_post_btn,
+.AddArticleForm_cancel_btn {
+  display: block;
+  width: 40%;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: none;
+}
+
+.AddArticleForm_post_btn:hover,
+.AddArticleForm_cancel_btn:hover {
+  cursor: pointer;
+}
+
+.AddArticleForm_post_btn:focus,
+.AddArticleForm_cancel_btn:focus {
+  outline-width: 0;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "../../Components/LoginForm/LoginForm";
-import { Section } from "../../Components/Utils/Utils";
+import { Section, BackgroundWaterfall } from "../../Components/Utils/Utils";
 import { withRouter } from "react-router-dom";
 
 class LoginPage extends Component {
@@ -18,9 +18,11 @@ class LoginPage extends Component {
   };
   render() {
     return (
-      <Section>
-        <LoginForm onLoginSuccess={this.handleLoginSuccess}></LoginForm>
-      </Section>
+      <BackgroundWaterfall>
+        <Section>
+          <LoginForm onLoginSuccess={this.handleLoginSuccess}></LoginForm>
+        </Section>
+      </BackgroundWaterfall>
     );
   }
 }

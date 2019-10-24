@@ -1,0 +1,78 @@
+.EditArticleForm {
+  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.container_EditArticleForm_header {
+  text-align: center;
+}
+
+.container_EditArticleForm_title,
+.container_EditArticleForm_image_url {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.label_edit_article_form {
+  text-align: center;
+}
+
+.EditArticleForm_article_image_url,
+.EditArticleForm_article_title {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.EditArticleForm_article_content {
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.EditArticleForm_select {
+  margin: 10px auto;
+  border-radius: 10px;
+  font-size: 16px;
+  min-width: 200px;
+  padding-left: 10px;
+}
+.EditArticleForm_article_image_url,
+.EditArticleForm_article_title,
+.EditArticleForm_select,
+.EditArticleForm_article_content {
+  border: none;
+}
+
+.EditArticleForm_article_image_url:focus,
+.EditArticleForm_article_title:focus,
+.EditArticleForm_select:focus,
+.EditArticleForm_article_content:focus {
+  outline-width: none;
+}
+
+.container_EditArticleForm_btn {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.EditArticleForm_delete_btn,
+.EditArticleForm_cancel_btn,
+.EditArticleForm_edit_btn {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: none;
+}
+
+.EditArticleForm_delete_btn:hover,
+.EditArticleForm_cancel_btn:hover,
+.EditArticleForm_edit_btn:hover {
+  cursor: pointer;
+}

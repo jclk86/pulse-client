@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ArticleContext from "../../Context/ArticleContext";
-import {
-  Form,
-  FormLabel,
-  Input,
-  Textarea,
-  Select,
-  Button
-} from "../Utils/Utils";
+import { Form, Label, Input, Textarea, Select, Button } from "../Utils/Utils";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import TokenService from "../../Services/token-service";
@@ -19,6 +12,7 @@ import {
   validateTitle,
   validateContent
 } from "../ValidationError/ValidationError";
+import "./EditArticleForm.css";
 
 class EditArticleForm extends Component {
   static contextType = ArticleContext;
@@ -122,72 +116,82 @@ class EditArticleForm extends Component {
         className="EditArticleForm"
         onSubmit={event => this.handleSubmit(event)}
       >
-        <div className="container_AddArticleForm_header">
-          <h2>Edit post</h2>
-          <div className="container_AddArticleForm_select">
-            <Select
-              value={category.value}
-              name="category"
-              onChange={e => this.updateCategory(e.target.value)}
-            >
-              {renderCategories(categoriesList)}
-            </Select>
-            {category.touched && (
-              <ValidationError message={validateCategory(category.value)} />
-            )}
-          </div>
+        <div className="container_EditArticleForm_header">
+          <h2>Edit Post</h2>
         </div>
-
-        <FormLabel
-          htmlFor="EditArticleForm_article_title"
-          className="label_edit_article_form"
-        ></FormLabel>
-        <Input
-          value={title.value}
-          placeholder="Top 5 Destinations for This Summer"
-          name="title"
-          id="EditArticleForm_article_title"
-          onChange={e => this.updateTitle(e.target.value)}
-        ></Input>
-        {title.touched && (
-          <ValidationError message={validateTitle(title.value)} />
-        )}
-        <FormLabel
-          htmlFor="EditArticleForm_article_image_url"
-          className="label_add_article_form"
-        ></FormLabel>
-        <Input
-          value={image_url.value}
-          type="text"
-          placeholder="image url"
-          name="image_url"
-          id="EditArticleForm_article_image_url"
-          onChange={e => this.updateImage_Url(e.target.value)}
-        ></Input>
-        <FormLabel
+        <div className="container_EditArticleForm_title">
+          <Label
+            htmlFor="EditArticleForm_article_title"
+            className="label_edit_article_form"
+          ></Label>
+          <Input
+            value={title.value}
+            placeholder="Top 5 Destinations for This Summer"
+            name="title"
+            className="EditArticleForm_article_title"
+            onChange={e => this.updateTitle(e.target.value)}
+          ></Input>
+          {title.touched && (
+            <ValidationError message={validateTitle(title.value)} />
+          )}
+        </div>
+        <div className="container_EditArticleForm_image_url">
+          <Label
+            htmlFor="EditArticleForm_article_image_url"
+            className="label_edit_article_form"
+          ></Label>
+          <Input
+            value={image_url.value}
+            type="text"
+            placeholder="image url"
+            name="image_url"
+            className="EditArticleForm_article_image_url"
+            onChange={e => this.updateImage_Url(e.target.value)}
+          ></Input>
+        </div>
+        <Label
           htmlFor="EditArticleForm_article_content"
           className="label_edit_article_form"
-        ></FormLabel>
+        ></Label>
         <div className="container_EditArticleForm_textarea">
           <Textarea
             value={content.value}
             placeholder="For the past two years I've traveled to..."
             name="content"
-            id="EditArticleForm_article_content"
+            className="EditArticleForm_article_content"
             onChange={e => this.updateContent(e.target.value)}
           ></Textarea>
           {content.touched && (
             <ValidationError message={validateContent(content.value)} />
           )}
         </div>
+        <div className="container_EditArticleForm_select">
+          <Select
+            className="EditArticleForm_select"
+            value={category.value}
+            name="category"
+            onChange={e => this.updateCategory(e.target.value)}
+          >
+            {renderCategories(categoriesList)}
+          </Select>
+          {category.touched && (
+            <ValidationError message={validateCategory(category.value)} />
+          )}
+        </div>
         <div className="container_EditArticleForm_btn">
-          <Button role="button" type="submit" disabled={!isValid}>
+          <Button
+            role="button"
+            type="submit"
+            disabled={!isValid}
+            className="EditArticleForm_edit_btn"
+          >
             Edit
           </Button>
           <Button
             role="button"
             type="button"
             onClick={() => this.handleDelete(article_id)}
+            className="EditArticleForm_delete_btn"
           >
             Delete
           </Button>
@@ -195,6 +199,7 @@ class EditArticleForm extends Component {
             role="button"
             type="button"
             onClick={() => this.props.history.push(`/articles/${article_id}`)}
+            className="EditArticleForm_cancel_btn"
           >
             Cancel
           </Button>

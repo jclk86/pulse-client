@@ -3,20 +3,14 @@ import { NavLink, withRouter } from "react-router-dom";
 import { DateFormatter } from "../Utils/Utils";
 import CommentApiService from "../../Services/comment-api-service";
 import VoteApiService from "../../Services/vote-api-service";
-import ArticleContext from "../../Context/ArticleContext";
+import ArticleListContext from "../../Context/ArticleListContext";
 import PropTypes from "prop-types";
 import "./ArticleListItem.css";
 
 // need to proptypes
 
 class ArticleListItem extends Component {
-  static contextType = ArticleContext;
-  constructor(props) {
-    super(props);
-    this.state = {
-      voted: false
-    };
-  }
+  static contextType = ArticleListContext;
 
   componentDidMount() {
     CommentApiService.getAllComments().then(this.context.setComments);
@@ -39,10 +33,7 @@ class ArticleListItem extends Component {
   }
 
   handleClickUpArrow(article_id) {
-    VoteApiService.addVoteForArticle(article_id).then(() => {
-      this.setState({ voted: !this.state.voted });
-      console.log(this.state.voted);
-    });
+    VoteApiService.addVoteForArticle(article_id).then(this.context.addVote);
   }
 
   render() {
@@ -51,8 +42,8 @@ class ArticleListItem extends Component {
     const numOfComments = this.getTotalComments(article.id, comments);
     const previewText = this.ellipsify(article.content);
     const totalVotes = this.filterTotalVotes(article.id, votes);
-    const numOfVotes = totalVotes.length ? totalVotes.length : 0;
-
+    // const numOfVotes = totalVotes.length ? totalVotes.length : 0;
+    console.log(totalVotes);
     return (
       <div className="container_article_list_item">
         <div className="container_article_preview">
@@ -64,16 +55,20 @@ class ArticleListItem extends Component {
               ></div>
             </div>
             <div className="container_vote_count">
-              <p className="vote_count">{numOfVotes}</p>
+              <p className="vote_count">{}</p>
             </div>
             <div className="container_arrow_down">
               <div className="arrow_down"></div>
             </div>
           </div>
           <div className="container_article_text_preview">
-            <NavLink role="navigation" to={`/articles/${article.id}`}>
+            <NavLink
+              role="navigation"
+              to={`/articles/${article.id}`}
+              className="article_list_item_title_link"
+            >
               {" "}
-              <h4 className="article_title">{article.title}</h4>{" "}
+              <h4 className="article_list_item_title">{article.title}</h4>{" "}
             </NavLink>
             <p>{DateFormatter(article.date_created)} </p>
             <p>{previewText}</p>

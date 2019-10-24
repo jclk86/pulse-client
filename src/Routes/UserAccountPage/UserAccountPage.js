@@ -4,6 +4,7 @@ import ArticleApiService from "../../Services/article-api-service";
 // import TokenService from "../../Services/token-service";
 import ArticleListContext from "../../Context/ArticleListContext";
 import UserAccount from "../../Components/UserAccount/UserAccount";
+import { Section } from "../../Components/Utils/Utils";
 // import ArticleListItem from "../../Components/ArticleListItem/ArticleListItem";
 // import {renderUserArticles} from "../../Components/Utils/Utils"
 
@@ -18,10 +19,10 @@ class UserAccountPage extends Component {
     // const token = TokenService.readJwtToken();
 
     return (
-      <div className="container_account_page">
+      <Section>
         <UserAccount></UserAccount>
         <div className="container_user_articles"></div>
-      </div>
+      </Section>
     );
   }
 }

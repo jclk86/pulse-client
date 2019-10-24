@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
 import PropTypes from "prop-types";
+import "./AddCommentForm.css";
 
 class AddCommentForm extends Component {
   static contextType = ArticleContext;
@@ -43,16 +44,19 @@ class AddCommentForm extends Component {
           htmlFor="AddCommentForm_comment_title"
           className="label_add_comment_form"
         >
-          Add Comment
+          Add Comment:
         </label>
         <textarea
           type="text"
           placeholder="Tell us your thoughts!"
           name="comment"
+          className="AddCommentForm_comment_box"
           onChange={e => this.updateComment(e.target.value)}
           value={this.state.comment.value}
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit" className="AddCommentForm_submit_btn">
+          Submit
+        </button>
       </form>
     );
   }
