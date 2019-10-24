@@ -8,7 +8,7 @@
 }
 
 .container_return_btn {
-  max-width: 200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -20,8 +20,13 @@
   outline-width: 0;
 }
 
+.container_user_account_info {
+  display: flex;
+  flex-direction: column;
+}
+
 .container_user_account_image {
-  max-width: 200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -30,11 +35,13 @@
 }
 
 .UserAccount_edit_btn {
-  min-width: 200px;
+  width: 100%;
   border-radius: 10px;
   border: none;
   font-size: 16px;
   margin-bottom: 50px;
+  background-color: darkcyan;
+  padding: 10px;
 }
 
 .UserAccount_edit_btn:hover {
@@ -46,6 +53,11 @@
 }
 
 @media only screen and (min-width: 568px) {
+  .container_user_account {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
   .container_return_btn {
     max-width: 1400px;
     margin-bottom: 50px;
@@ -53,6 +65,11 @@
 
   .container_user_account_image {
     margin-left: 0;
+    width: 40%;
+  }
+
+  .container_user_account_info {
+    width: 50%;
   }
 
   .container_UserAccount_profile {
@@ -62,6 +79,10 @@
 
   .container_UserAccount_edit_btn {
     text-align: left;
+  }
+
+  .UserAccount_edit_btn {
+    width: 40%;
   }
 }
 

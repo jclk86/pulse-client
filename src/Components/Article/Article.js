@@ -16,7 +16,7 @@ class Article extends Component {
 
     return (
       <div className="container_article">
-        <div className="container_article_image">
+        <div className=".container_article_image">
           <img
             src={article.image_url}
             alt="user posted"

@@ -34,6 +34,8 @@ export function validateContent(fieldValue) {
 export function validateProfile(fieldValue) {
   if (!fieldValue) {
     return "Please enter profile";
+  } else if (fieldValue.length > 300) {
+    return "Please limit character to under 300";
   }
 }
 

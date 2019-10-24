@@ -36,10 +36,10 @@ class UserAccount extends Component {
               className="profile_image"
             ></img>
           </div>
-          <div className="user_info">
+          <div className="container_user_account_info">
             <h1>{user.fullname}</h1>
             <p>{user.profile}</p>
-            <p>Logged in from: {user.location}</p>
+            <p className="location_info">Logged in from: {user.location}</p>
           </div>
         </div>
         <div className="container_UserAccount_edit_btn">

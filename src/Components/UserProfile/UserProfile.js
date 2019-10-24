@@ -17,21 +17,29 @@ class UserProfile extends Component {
 
     return (
       <div className="container_user_profile">
-        <Button
-          role="navigation"
-          className="user_profile_return_btn"
-          onClick={this.props.history.goBack}
-        >
-          Home
-        </Button>
-        <img
-          src={user.image_url}
-          alt={user.fullname}
-          className="profile_image"
-        ></img>
-        <h1>{user.fullname}</h1>
-        <p>{user.profile}</p>
-        <p>Last logged in from: {user.location}</p>
+        <div className="container_home_btn">
+          <Button
+            role="navigation"
+            className="user_profile_home_btn"
+            onClick={this.props.history.goBack}
+          >
+            Home
+          </Button>
+        </div>
+        <div className="container_user_profile_section">
+          <div className="container_user_profile_image">
+            <img
+              src={user.image_url}
+              alt={user.fullname}
+              className="profile_image"
+            ></img>
+          </div>
+          <div className="container_user_profile_info">
+            <h1>{user.fullname}</h1>
+            <p>{user.profile}</p>
+            <p>Last logged in from: {user.location}</p>
+          </div>
+        </div>
       </div>
     );
   }

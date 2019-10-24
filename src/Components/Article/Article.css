@@ -1,6 +1,6 @@
 .container_article_image {
-  max-width: 800px;
-  margin: 50px auto;
+  width: 100%;
+  margin: 30px auto;
 }
 
 .article_image {
@@ -45,4 +45,14 @@
 
 .Article_edit_post_btn:focus {
   outline-width: 0;
+}
+
+@media only screen and (min-width: 568px) {
+  .container_article_image {
+    max-width: 800px;
+  }
+  .article_image {
+    height: 400px;
+    object-fit: cover;
+  }
 }
