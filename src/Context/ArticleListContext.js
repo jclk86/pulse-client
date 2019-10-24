@@ -8,6 +8,7 @@ const ArticleListContext = React.createContext({
   error: null,
   setComments: () => {},
   addVote: () => {},
+  deleteVote: () => {},
   addArticle: () => {},
   setError: () => {},
   clearError: () => {},
@@ -33,8 +34,14 @@ export class ArticleListProvider extends Component {
     this.setState({ votes });
   };
 
+  deleteVote = article_id => {
+    this.setState({
+      votes: this.state.votes.filter(vote => vote.article_id !== article_id)
+    });
+  };
+
   addVote = vote => {
-    this.setState({ votes: [...this.state.articleList, vote] });
+    this.setState({ votes: [...this.state.votes, vote] });
   };
 
   setArticleList = articleList => {
@@ -62,6 +69,7 @@ export class ArticleListProvider extends Component {
     const contextValue = {
       votes: this.state.votes,
       comments: this.state.comments,
+      deleteVote: this.deleteVote,
       addVote: this.addVote,
       setVotes: this.setVotes,
       articleList: this.state.articleList,

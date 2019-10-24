@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import "./Comment.css";
 // needs a context?
 class Comment extends Component {
+  static contextType = ArticleContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -16,15 +17,13 @@ class Comment extends Component {
     };
   }
 
-  static contextType = ArticleContext;
-
   handleEditClick = () => {
     this.setState({ isEditing: !this.state.isEditing });
   };
 
   handleDeleteClick = comment_id => {
-    CommentService.deleteComment(comment_id).then(
-      () => this.context.deleteComment(comment_id) // NO CONTEXT
+    CommentService.deleteComment(comment_id).then(() =>
+      this.context.deleteComment(comment_id)
     );
   };
 

@@ -20,8 +20,8 @@ class ArticleListPage extends Component {
   }
 
   componentDidMount() {
+    VoteApiService.getVotesForArticles().then(this.context.setVotes);
     ArticleApiService.getAllArticles().then(this.context.setArticleList);
-    VoteApiService.getVotesForArticle().then(this.context.setVotes); // change name
     CategoryApiService.getAllCategories().then(this.context.setCategoriesList);
   }
 
@@ -38,6 +38,8 @@ class ArticleListPage extends Component {
       articleList,
       category_name
     );
+    // re-sort by popularity
+    // also, impement search filter
     const articlesSortedByDate = articlesForCategory.sort(function(a, b) {
       return new Date(a.date_created) - new Date(b.date_created);
     });

@@ -28,7 +28,7 @@ class AddCommentForm extends Component {
     };
 
     CommentService.postComment(newComment)
-      .then(comment => this.context.addComment(comment))
+      .then(this.context.addComment)
       .then(() => {
         this.setState({ comment: { value: "", touched: false } });
         this.props.history.push(`/articles/${article_id}`);

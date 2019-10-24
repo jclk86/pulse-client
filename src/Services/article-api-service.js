@@ -51,11 +51,7 @@ const ArticleApiService = {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
-    }).then(res => {
-      if (!res.ok) {
-        return res.json().then(error => Promise.reject(error));
-      }
-    });
+    }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res));
   },
   getCommentsForArticle(article_id) {
     return fetch(`${config.API_ENDPOINT}/articles/${article_id}/comments`, {

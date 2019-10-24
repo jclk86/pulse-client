@@ -60,7 +60,6 @@ class AddArticleForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { title, image_url, content, category } = this.state;
-    // const token = TokenService.readJwtToken();
     const newArticle = {
       title: title.value,
       image_url: image_url.value

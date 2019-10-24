@@ -27,6 +27,7 @@
 .RegistrationForm_password,
 .RegistrationForm_fullname {
   border: none;
+  padding: 10px;
 }
 
 .RegistrationForm_email:focus,

@@ -4,11 +4,10 @@ export const nullArticle = {
   author: {},
   category: []
 };
-
+// removes votes?
 const ArticleContext = React.createContext({
   article: nullArticle,
   comments: [],
-  votes: [],
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -26,7 +25,6 @@ export class ArticleProvider extends Component {
   state = {
     article: nullArticle,
     comments: [],
-    votes: [],
     error: null
   };
 
@@ -64,10 +62,6 @@ export class ArticleProvider extends Component {
     });
   };
 
-  setVotes = votes => {
-    this.setState({ votes });
-  };
-
   deleteComment = deletedCommentId => {
     this.setState({
       comments: this.state.comments.filter(
@@ -79,7 +73,6 @@ export class ArticleProvider extends Component {
     const contextValue = {
       article: this.state.article,
       comments: this.state.comments,
-      votes: this.state.votes,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,

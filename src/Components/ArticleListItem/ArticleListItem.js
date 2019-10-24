@@ -33,32 +33,44 @@ class ArticleListItem extends Component {
   }
 
   handleClickUpArrow(article_id) {
-    VoteApiService.addVoteForArticle(article_id).then(this.context.addVote);
+    VoteApiService.addVoteForArticle(article_id)
+      .then(this.context.addVote)
+      .catch(this.context.setError);
+  }
+
+  handleClickDownArrow(article_id) {
+    VoteApiService.deleteVote(article_id).then(() =>
+      this.context.deleteVote(article_id)
+    );
   }
 
   render() {
-    const { article, votes } = this.props;
-    const { comments } = this.context;
+    const { article } = this.props;
+    const { comments, votes, error } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
     const previewText = this.ellipsify(article.content);
     const totalVotes = this.filterTotalVotes(article.id, votes);
-    // const numOfVotes = totalVotes.length ? totalVotes.length : 0;
-    console.log(totalVotes);
+    const numOfVotes = totalVotes.length ? totalVotes.length : 0;
+
     return (
       <div className="container_article_list_item">
         <div className="container_article_preview">
           <div className="container_vote_arrows">
             <div className="container_arrow_up">
+              {error && error.article_id === article.id && error.message}
               <div
                 className="arrow_up"
                 onClick={() => this.handleClickUpArrow(article.id)}
               ></div>
             </div>
             <div className="container_vote_count">
-              <p className="vote_count">{}</p>
+              <p className="vote_count">{numOfVotes}</p>
             </div>
             <div className="container_arrow_down">
-              <div className="arrow_down"></div>
+              <div
+                className="arrow_down"
+                onClick={() => this.handleClickDownArrow(article.id)}
+              ></div>
             </div>
           </div>
           <div className="container_article_text_preview">

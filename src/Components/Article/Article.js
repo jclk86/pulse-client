@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
-import ArticleContext from "../../Context/ArticleContext";
 import TokenService from "../../Services/token-service";
 import { Button } from "../Utils/Utils";
 import { DateFormatter } from "../Utils/Utils";
@@ -8,8 +7,6 @@ import PropTypes from "prop-types";
 import "./Article.css";
 
 class Article extends Component {
-  static contextType = ArticleContext;
-
   render() {
     const { article } = this.props;
     const token = TokenService.readJwtToken();

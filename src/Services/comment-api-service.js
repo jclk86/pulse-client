@@ -52,11 +52,7 @@ const CommentService = {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
-    }).then(res => {
-      if (!res.ok) {
-        return res.json().then(error => Promise.reject(error));
-      }
-    });
+    }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res));
   }
 };
 
