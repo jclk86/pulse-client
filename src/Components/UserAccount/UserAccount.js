@@ -33,11 +33,11 @@ class UserAccount extends Component {
             <img
               src={user.image_url}
               alt={user.fullname}
-              className="profile_image"
+              className="account_image"
             ></img>
           </div>
           <div className="container_user_account_info">
-            <h1>{user.fullname}</h1>
+            <h1 className="user_account_header">{user.fullname}</h1>
             <p>{user.profile}</p>
             <p className="location_info">Logged in from: {user.location}</p>
           </div>

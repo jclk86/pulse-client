@@ -44,6 +44,10 @@ class ArticleListItem extends Component {
     );
   }
 
+  // sortByVotes(voteObj1, voteObj2) {
+  //   if(voteObj1.length > voteObj2.length)
+  // }
+
   render() {
     const { article } = this.props;
     const { comments, votes, error } = this.context;
@@ -57,7 +61,9 @@ class ArticleListItem extends Component {
         <div className="container_article_preview">
           <div className="container_vote_arrows">
             <div className="container_arrow_up">
-              {error && error.article_id === article.id && error.message}
+              <span className="voting_request_error">
+                {error && error.article_id === article.id && error.message}
+              </span>
               <div
                 className="arrow_up"
                 onClick={() => this.handleClickUpArrow(article.id)}

@@ -5,7 +5,7 @@ import ArticleListItem from "../ArticleListItem/ArticleListItem";
 class ArticlesList extends Component {
   render() {
     const { sortedArticles } = this.props;
-
+    console.log(sortedArticles);
     return (
       <div className="container_article_list">
         {sortedArticles.map(article => (

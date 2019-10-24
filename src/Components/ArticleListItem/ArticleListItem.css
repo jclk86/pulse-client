@@ -27,6 +27,9 @@
   margin-left: 0;
 }
 
+.voting_request_error {
+  color: red;
+}
 .article_list_item_title_link {
   text-decoration: none;
   color: black;
@@ -42,6 +45,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgb(108, 161, 161);
+  border-radius: 2px;
 }
 
 .container_arrow_up {
@@ -62,6 +67,7 @@
 
 .vote_count {
   margin: 0 auto;
+  padding-left: 2px;
 }
 
 .arrow_up:hover {

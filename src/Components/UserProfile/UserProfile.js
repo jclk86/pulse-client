@@ -23,7 +23,7 @@ class UserProfile extends Component {
             className="user_profile_home_btn"
             onClick={this.props.history.goBack}
           >
-            Home
+            Return
           </Button>
         </div>
         <div className="container_user_profile_section">
@@ -35,7 +35,7 @@ class UserProfile extends Component {
             ></img>
           </div>
           <div className="container_user_profile_info">
-            <h1>{user.fullname}</h1>
+            <h1 className="user_profile_header">{user.fullname}</h1>
             <p>{user.profile}</p>
             <p>Last logged in from: {user.location}</p>
           </div>

@@ -33,6 +33,16 @@ export function BackgroundFriends({ className, ...props }) {
   );
 }
 
+export function SearchBox({ className, ...props }) {
+  return (
+    <input
+      type="text"
+      className={["SearchBox", className].join(" ")}
+      {...props}
+    ></input>
+  );
+}
+
 export function Form({ className, ...props }) {
   return <form className={["Form", className].join(" ")} {...props}></form>;
 }

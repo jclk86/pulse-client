@@ -4,7 +4,11 @@ import ArticleListContext from "../../Context/ArticleListContext";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import VoteApiService from "../../Services/vote-api-service";
-import { CreatePostButton, Section } from "../../Components/Utils/Utils";
+import {
+  CreatePostButton,
+  Section,
+  SearchBox
+} from "../../Components/Utils/Utils";
 import CategoriesList from "../../Components/CategoriesList/CategoriesList";
 import ArticlesList from "../../Components/ArticlesList/ArticlesList";
 import DropDownMenu from "../../Components/DropDownMenu/DropDownMenu";
@@ -15,7 +19,8 @@ class ArticleListPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null
+      error: null,
+      search: ""
     };
   }
 
@@ -31,6 +36,11 @@ class ArticleListPage extends Component {
       ? articles
       : articles.filter(article => article.article_category === categoryName);
   }
+
+  updateSearch = filter => {
+    this.setState({ search: filter });
+  };
+
   render() {
     const { articleList, categoriesList, votes } = this.context;
     const { category_name } = this.props.match.params;
@@ -38,9 +48,15 @@ class ArticleListPage extends Component {
       articleList,
       category_name
     );
+
+    const filteredArticles = articlesForCategory.filter(article => {
+      return article.title
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
+    });
     // re-sort by popularity
     // also, impement search filter
-    const articlesSortedByDate = articlesForCategory.sort(function(a, b) {
+    const articlesSortedByDate = filteredArticles.sort(function(a, b) {
       return new Date(a.date_created) - new Date(b.date_created);
     });
     return (
@@ -53,6 +69,14 @@ class ArticleListPage extends Component {
           <div className="container_topbar_create_btn">
             <CreatePostButton>CREATE POST</CreatePostButton>
           </div>
+          <div className="container_search_box">
+            <SearchBox
+              placeholder="search articles"
+              name="search filter"
+              onChange={e => this.updateSearch(e.target.value)}
+              id="mobile_view_search_box"
+            ></SearchBox>
+          </div>
         </div>
         <div className="flex_container">
           <div className="container_articles_section">
@@ -62,6 +86,12 @@ class ArticleListPage extends Component {
             ></ArticlesList>
           </div>
           <div className="right_sidebar_menu hide_sidebar_menu">
+            <SearchBox
+              placeholder="search articles"
+              name="search filter"
+              onChange={e => this.updateSearch(e.target.value)}
+              id="desktop_view_search_box"
+            ></SearchBox>
             <div className="container_sidebar_create_post_btn">
               <CreatePostButton>CREATE POST</CreatePostButton>
             </div>

@@ -8,13 +8,13 @@ import ArticleApiService from "../../Services/article-api-service";
 import CommentsSection from "../../Components/CommentsSection/CommentsSection";
 
 class ArticlePage extends Component {
+  static contextType = ArticleContext;
   static defaultProps = {
     match: { params: {} }
   };
-  static contextType = ArticleContext;
 
   componentDidMount() {
-    const { article_id } = this.props.match.params; //append catches
+    const { article_id } = this.props.match.params;
     ArticleApiService.getArticleById(article_id).then(this.context.setArticle);
     ArticleApiService.getCommentsForArticle(article_id).then(
       this.context.setComments
