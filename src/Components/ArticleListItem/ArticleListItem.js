@@ -34,12 +34,14 @@ class ArticleListItem extends Component {
   }
 
   handleClickUpArrow(article_id) {
+    this.context.clearError();
     VoteApiService.addVoteForArticle(article_id)
       .then(this.context.addVote)
       .catch(this.context.setError);
   }
 
   handleClickDownArrow(article_id, user_id) {
+    this.context.clearError();
     VoteApiService.deleteVote(article_id)
       .then(() => this.context.deleteVote(user_id))
       .catch(this.context.setError);

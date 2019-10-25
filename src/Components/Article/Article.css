@@ -30,6 +30,12 @@
   font-size: 16px;
 }
 
+.article_content {
+  white-space: pre-line;
+  text-align: justify;
+  text-indent: 5%;
+}
+
 .Article_edit_post_btn {
   min-width: 200px;
   border-radius: 10px;

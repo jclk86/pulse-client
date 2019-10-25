@@ -10,7 +10,9 @@ class Article extends Component {
   render() {
     const { article } = this.props;
     const token = TokenService.readJwtToken();
-
+    const articleParagraphs = article.content
+      ? article.content.split(/\s\s+/)
+      : null;
     return (
       <div className="container_article">
         <div className=".container_article_image">
@@ -35,7 +37,12 @@ class Article extends Component {
             {article.author.username}
           </NavLink>
         </p>
-        <p className="article_content">{article.content}</p>
+        <div className="article_content">
+          {articleParagraphs &&
+            articleParagraphs.map((paragraph, i) => (
+              <p key={paragraph[i]}>{paragraph}</p>
+            ))}
+        </div>
         {token.user_id === article.author.id ? (
           <NavLink to={`/articles/${article.id}/edit_article`}>
             <Button type="button" className="Article_edit_post_btn">

@@ -15,6 +15,9 @@ class CategoriesList extends Component {
           <NavLink to={`/articles`} className="categories_all_link">
             <li>All</li>
           </NavLink>
+          <NavLink to={`/Popularity`} className="categories_popularity_link">
+            <li>Popularity</li>
+          </NavLink>
           {categories.map(category => (
             <CategoriesListItem
               category={category}

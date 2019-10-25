@@ -42,6 +42,7 @@ class ArticleListPage extends Component {
   };
 
   render() {
+    const currentPath = window.location.pathname;
     const { articleList, categoriesList, votes } = this.context;
     const { category_name } = this.props.match.params;
     const articlesForCategory = this.getArticlesForCategory(
@@ -54,11 +55,14 @@ class ArticleListPage extends Component {
         .toLowerCase()
         .includes(this.state.search.toLowerCase());
     });
-    // re-sort by popularity
-    // also, impement search filter
-    const articlesSortedByDate = filteredArticles.sort(function(a, b) {
-      return new Date(a.date_created) - new Date(b.date_created);
+    const articlesSortedByDateOrVote = filteredArticles.sort(function(a, b) {
+      if (currentPath.includes("/Popularity")) {
+        return b.votes.num_of_votes - a.votes.num_of_votes;
+      } else {
+        return new Date(b.date_created) - new Date(a.date_created);
+      }
     });
+
     return (
       <Section>
         <div className="container_topbar_menu hide_topbar_menu">
@@ -81,7 +85,7 @@ class ArticleListPage extends Component {
         <div className="flex_container">
           <div className="container_articles_section">
             <ArticlesList
-              sortedArticles={articlesSortedByDate}
+              sortedArticles={articlesSortedByDateOrVote}
               votes={votes}
             ></ArticlesList>
           </div>
