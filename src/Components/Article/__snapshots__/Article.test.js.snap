@@ -150,11 +150,15 @@ exports[`Article Component renders Article component without issues 1`] = `
               </Link>
             </NavLink>
           </p>
-          <p
+          <div
             className="article_content"
           >
-            test content
-          </p>
+            <p
+              key="t"
+            >
+              test content
+            </p>
+          </div>
           <NavLink
             to="/articles/1/edit_article"
           >
