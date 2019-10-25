@@ -14,7 +14,7 @@ const GeolocationApiService = {
     );
   },
   updateUserLocation(location) {
-    return fetch(proxyUrl + `${config.API_ENDPOINT}/user/location`, {
+    return fetch(`${config.API_ENDPOINT}/user/location`, {
       method: "PATCH",
       body: JSON.stringify(location),
       headers: {

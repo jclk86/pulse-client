@@ -12,6 +12,7 @@ import {
 import CategoriesList from "../../Components/CategoriesList/CategoriesList";
 import ArticlesList from "../../Components/ArticlesList/ArticlesList";
 import DropDownMenu from "../../Components/DropDownMenu/DropDownMenu";
+import Ticker from "../../Components/Ticker/Ticker";
 import "./ArticleListPage.css";
 
 class ArticleListPage extends Component {
@@ -65,6 +66,7 @@ class ArticleListPage extends Component {
 
     return (
       <Section>
+        <Ticker></Ticker>
         <div className="container_topbar_menu hide_topbar_menu">
           <div className="container_dropdown_menu">
             {" "}
