@@ -92,29 +92,37 @@ exports[`Article Component renders Article component without issues 1`] = `
           className="container_article"
         >
           <div
-            className="container_article_image"
+            className=".container_article_image"
           >
             <img
-              alt="user-posted"
+              alt="user posted"
               className="article_image"
             />
           </div>
-          <h2>
+          <h2
+            className="article_title"
+          >
             test article
           </h2>
-          <p>
+          <p
+            className="article_date"
+          >
             October 14, 2019
           </p>
-          <p>
+          <p
+            className="article_author"
+          >
             <span>
               By
             </span>
              
             <NavLink
+              className="link_user_profile"
               to="/account"
             >
               <Link
                 aria-current={null}
+                className="link_user_profile"
                 to={
                   Object {
                     "hash": "",
@@ -126,11 +134,13 @@ exports[`Article Component renders Article component without issues 1`] = `
               >
                 <LinkAnchor
                   aria-current={null}
+                  className="link_user_profile"
                   href="/account"
                   navigate={[Function]}
                 >
                   <a
                     aria-current={null}
+                    className="link_user_profile"
                     href="/account"
                     onClick={[Function]}
                   >
@@ -140,7 +150,9 @@ exports[`Article Component renders Article component without issues 1`] = `
               </Link>
             </NavLink>
           </p>
-          <p>
+          <p
+            className="article_content"
+          >
             test content
           </p>
           <NavLink
@@ -168,10 +180,11 @@ exports[`Article Component renders Article component without issues 1`] = `
                   onClick={[Function]}
                 >
                   <Button
+                    className="Article_edit_post_btn"
                     type="button"
                   >
                     <button
-                      className="Button "
+                      className="Button Article_edit_post_btn"
                       type="button"
                     >
                       Edit Post

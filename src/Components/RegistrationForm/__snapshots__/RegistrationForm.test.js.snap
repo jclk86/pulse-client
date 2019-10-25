@@ -2,125 +2,128 @@
 
 exports[`Registration Form Component renders registration form without issues 1`] = `
 <Form
-  id="registration_form"
+  className="registration_form"
   onSubmit={[Function]}
 >
+  <h2>
+    Registration
+  </h2>
   <div
-    className="fullname"
+    className="container_RegistrationForm_fullname"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__fullname"
+      htmlFor="RegistrationForm_fullname"
     >
       Fullname
     </label>
-    <input
-      id="RegistrationForm__fullname"
+    <Input
+      className="RegistrationForm_fullname"
       name="fullname"
       onChange={[Function]}
-      required={true}
       type="text"
     />
   </div>
   <div
-    className="user_name"
+    className="container_RegistrationForm_username"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__username"
+      htmlFor="RegistrationForm_username"
     >
       Username
     </label>
-    <input
-      id="RegistrationForm__username"
+    <Input
+      className="RegistrationForm_username"
       name="username"
       onChange={[Function]}
-      required={true}
       type="text"
     />
   </div>
   <div
-    className="password"
+    className="container_RegistrationForm_password"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__password"
+      htmlFor="RegistrationForm_password"
     >
       Password
     </label>
-    <input
+    <Input
       autoComplete="off"
-      id="RegistrationForm__password"
+      className="RegistrationForm_password"
       name="password"
       onChange={[Function]}
       type="password"
     />
   </div>
   <div
-    className="email"
+    className="container_RegistrationForm_email"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__email"
+      htmlFor="RegistrationForm_email"
     >
       Email
     </label>
      
-    <input
-      id="RegistrationForm__email"
+    <Input
+      className="RegistrationForm_email"
       name="email"
       onChange={[Function]}
-      required={true}
       type="text"
     />
   </div>
   <div
-    className="profile"
+    className="container_RegistrationForm_profile"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__profile"
+      htmlFor="RegistrationForm_profile"
     >
       About Me
     </label>
      
     <textarea
-      id="RegistrationForm_profile"
+      className="RegistrationForm_profile"
       name="profile"
       onChange={[Function]}
-      required={true}
       type="text"
     />
   </div>
   <div
-    className="image_url"
+    className="container_RegistrationForm_image_url"
   >
     <label
       className="label_registration"
-      htmlFor="RegistrationForm__image_url"
+      htmlFor="RegistrationForm_image_url"
     >
       Image Url
     </label>
      
-    <input
-      id="RegistrationForm_image_url"
+    <Input
+      className="RegistrationForm_image_url"
       name="image_url"
       onChange={[Function]}
       type="text"
     />
   </div>
   <div
-    className="register_btn_container"
+    role="alert"
+  />
+  <div
+    className="container_RegistrationForm_btn"
   >
     <button
-      id="submit_btn"
+      className="RegistrationForm_submit_btn"
+      disabled={true}
       type="submit"
     >
       Submit
     </button>
   </div>
   <div
-    className="login_link"
+    className="container_RegistrationForm_login_link"
   >
     <p
       className="message_redirect"
@@ -128,7 +131,7 @@ exports[`Registration Form Component renders registration form without issues 1`
       Already a user?
        
       <NavLink
-        className="btn_login_link"
+        className="RegistrationForm_login_link"
         role="navigation"
         to="/login"
       >

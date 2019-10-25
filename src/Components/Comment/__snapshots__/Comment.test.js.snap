@@ -95,15 +95,21 @@ exports[`Comment Component renders Comment component without issues 1`] = `
           <div
             className="container_comment_content"
           >
-            <span>
-              Pop123
-               says...
-            </span>
-             
-            <p>
-              October 14, 2019
+            <p
+              className="comment_author_info"
+            >
+              <span>
+                Pop123
+                 on 
+              </span>
+               
+              <span>
+                October 14, 2019
+              </span>
             </p>
-            <p>
+            <p
+              className="comment_content"
+            >
               test comment content
             </p>
           </div>

@@ -34,9 +34,9 @@ export class ArticleListProvider extends Component {
     this.setState({ votes });
   };
 
-  deleteVote = article_id => {
+  deleteVote = user_id => {
     this.setState({
-      votes: this.state.votes.filter(vote => vote.article_id !== article_id)
+      votes: this.state.votes.filter(vote => vote.user_id !== user_id)
     });
   };
 

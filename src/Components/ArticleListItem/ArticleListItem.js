@@ -3,6 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import { DateFormatter } from "../Utils/Utils";
 import CommentApiService from "../../Services/comment-api-service";
 import VoteApiService from "../../Services/vote-api-service";
+import TokenService from "../../Services/token-service";
 import ArticleListContext from "../../Context/ArticleListContext";
 import PropTypes from "prop-types";
 import "./ArticleListItem.css";
@@ -38,10 +39,10 @@ class ArticleListItem extends Component {
       .catch(this.context.setError);
   }
 
-  handleClickDownArrow(article_id) {
-    VoteApiService.deleteVote(article_id).then(() =>
-      this.context.deleteVote(article_id)
-    );
+  handleClickDownArrow(article_id, user_id) {
+    VoteApiService.deleteVote(article_id)
+      .then(() => this.context.deleteVote(user_id))
+      .catch(this.context.setError);
   }
 
   // sortByVotes(voteObj1, voteObj2) {
@@ -55,7 +56,8 @@ class ArticleListItem extends Component {
     const previewText = this.ellipsify(article.content);
     const totalVotes = this.filterTotalVotes(article.id, votes);
     const numOfVotes = totalVotes.length ? totalVotes.length : 0;
-
+    const token = TokenService.readJwtToken();
+    const user_id = token.user_id;
     return (
       <div className="container_article_list_item">
         <div className="container_article_preview">
@@ -75,7 +77,7 @@ class ArticleListItem extends Component {
             <div className="container_arrow_down">
               <div
                 className="arrow_down"
-                onClick={() => this.handleClickDownArrow(article.id)}
+                onClick={() => this.handleClickDownArrow(article.id, user_id)}
               ></div>
             </div>
           </div>

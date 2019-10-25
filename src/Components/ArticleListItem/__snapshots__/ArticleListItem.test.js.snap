@@ -94,73 +94,110 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
           <div
             className="container_article_preview"
           >
-            <NavLink
-              role="navigation"
-              to="/articles/1"
+            <div
+              className="container_vote_arrows"
             >
-              <Link
-                aria-current={null}
-                role="navigation"
-                to={
-                  Object {
-                    "hash": "",
-                    "pathname": "/articles/1",
-                    "search": "",
-                    "state": null,
-                  }
-                }
+              <div
+                className="container_arrow_up"
               >
-                <LinkAnchor
-                  aria-current={null}
-                  href="/articles/1"
-                  navigate={[Function]}
-                  role="navigation"
+                <span
+                  className="voting_request_error"
+                />
+                <div
+                  className="arrow_up"
+                  onClick={[Function]}
+                />
+              </div>
+              <div
+                className="container_vote_count"
+              >
+                <p
+                  className="vote_count"
                 >
-                  <a
+                  0
+                </p>
+              </div>
+              <div
+                className="container_arrow_down"
+              >
+                <div
+                  className="arrow_down"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+            <div
+              className="container_article_text_preview"
+            >
+              <NavLink
+                className="article_list_item_title_link"
+                role="navigation"
+                to="/articles/1"
+              >
+                <Link
+                  aria-current={null}
+                  className="article_list_item_title_link"
+                  role="navigation"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/articles/1",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
                     aria-current={null}
+                    className="article_list_item_title_link"
                     href="/articles/1"
-                    onClick={[Function]}
+                    navigate={[Function]}
                     role="navigation"
                   >
-                     
-                    <h4
-                      className="article_title"
+                    <a
+                      aria-current={null}
+                      className="article_list_item_title_link"
+                      href="/articles/1"
+                      onClick={[Function]}
+                      role="navigation"
                     >
-                      test article
-                    </h4>
-                     
-                  </a>
-                </LinkAnchor>
-              </Link>
-            </NavLink>
-            <p>
-              Votes: 
-            </p>
-            <p>
-              October 14, 2019
-               
-            </p>
-            <p>
-              test content
-            </p>
-            <p
-              className="article_info"
-            >
-              <span>
-                0
-                 comments
-              </span>
-              <span>
-                /
-                News
-                /
-              </span>
-              <span>
-                by
-              </span>
-               
-              Pop123
-            </p>
+                       
+                      <h4
+                        className="article_list_item_title"
+                      >
+                        test article
+                      </h4>
+                       
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
+              <p>
+                October 14, 2019
+                 
+              </p>
+              <p>
+                test content
+              </p>
+              <p
+                className="article_info"
+              >
+                <span>
+                  0
+                   comments
+                </span>
+                <span>
+                  /
+                  News
+                  /
+                </span>
+                <span>
+                  by
+                </span>
+                 
+                Pop123
+              </p>
+            </div>
           </div>
         </div>
       </ArticleListItem>
