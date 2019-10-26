@@ -29,7 +29,6 @@ class EditUserForm extends Component {
     UserApiService.getUserAccount().then(user => {
       this.context.setUser(user);
       this.setState({
-        password: { value: user.password, touched: true },
         profile: { value: user.profile, touched: true },
         image_url: { value: user.image_url, touched: true }
       });
