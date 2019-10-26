@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
-import { Button, Section } from "../../Components/Utils/Utils";
+import { Section } from "../../Components/Utils/Utils";
 import Article from "../../Components/Article/Article";
 import AddCommentForm from "../../Components/AddCommentForm/AddCommentForm";
 import ArticleContext from "../../Context/ArticleContext";
 import ArticleApiService from "../../Services/article-api-service";
 import CommentsSection from "../../Components/CommentsSection/CommentsSection";
+import "./ArticlePage.css";
 
 class ArticlePage extends Component {
   static contextType = ArticleContext;
@@ -27,11 +28,9 @@ class ArticlePage extends Component {
 
     return (
       <Section>
-        <div className="container_article_page_btn">
-          <NavLink to="/articles">
-            <Button role="navigation" type="button">
-              Return
-            </Button>
+        <div className="container_article_page_return_btn">
+          <NavLink to="/articles" className="return_btn">
+            Home
           </NavLink>
         </div>
         <Article article={article}></Article>

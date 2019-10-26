@@ -8,28 +8,27 @@ class Ticker extends Component {
   };
 
   componentDidMount() {
-    NewsApiService.getNews().then(news => this.setState({ news }));
+    NewsApiService.getNews().then(news =>
+      this.setState({ news: news.articles })
+    );
+  }
+
+  renderNewsTitles(articles) {
+    return articles.map((article, i) => (
+      <div className="ticker-item" key={i}>
+        <a href={article.url} className="ticker_links">
+          {article.title}
+        </a>
+      </div>
+    ));
   }
 
   render() {
-    console.log(this.state.news);
+    const { news } = this.state;
     return (
       <div className="tcontainer">
         <div className="ticker-wrap">
-          <div className="ticker-move">
-            <div className="ticker-item">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            <div className="ticker-item">
-              Aliquam consequat varius consequat.
-            </div>
-            <div className="ticker-item">
-              Fusce dapibus turpis vel nisi malesuada sollicitudin.
-            </div>
-            <div className="ticker-item">
-              Pellentesque auctor molestie orci ut blandit.
-            </div>
-          </div>
+          <div className="ticker-move">{this.renderNewsTitles(news)}</div>
         </div>
       </div>
     );

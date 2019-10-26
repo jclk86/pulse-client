@@ -1,0 +1,16 @@
+.container_article_page_return_btn {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 0;
+}
+
+.return_btn {
+  text-decoration: underline;
+  color: black;
+  font-size: 20px;
+}
+
+.return_btn:hover {
+  cursor: pointer;
+}

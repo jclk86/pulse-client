@@ -16,7 +16,21 @@
   display: block;
 }
 
+.categories_popularity_link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+}
+
 .categories_all_link:focus {
+  border-left: 5px solid blue;
+}
+
+.categories_popularity_link:focus {
   border-left: 5px solid blue;
 }
 

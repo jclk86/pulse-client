@@ -77,7 +77,7 @@ class ArticleListPage extends Component {
           </div>
           <div className="container_search_box">
             <SearchBox
-              placeholder="search articles"
+              placeholder="type here to search"
               name="search filter"
               onChange={e => this.updateSearch(e.target.value)}
               id="mobile_view_search_box"
@@ -93,7 +93,7 @@ class ArticleListPage extends Component {
           </div>
           <div className="right_sidebar_menu hide_sidebar_menu">
             <SearchBox
-              placeholder="search articles"
+              placeholder="type here to search"
               name="search filter"
               onChange={e => this.updateSearch(e.target.value)}
               id="desktop_view_search_box"
