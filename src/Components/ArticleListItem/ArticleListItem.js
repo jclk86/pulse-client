@@ -42,10 +42,8 @@ class ArticleListItem extends Component {
 
   handleClickDownArrow(votes, article_id, user_id) {
     this.context.clearError();
-    VoteApiService.deleteVote(article_id);
-    this.context
-      .deleteVote(votes, article_id, user_id)
-      .catch(this.context.setError);
+    VoteApiService.deleteVote(article_id).catch(this.context.setError);
+    this.context.deleteVote(votes, article_id, user_id);
   }
 
   render() {
