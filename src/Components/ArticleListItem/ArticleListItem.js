@@ -41,17 +41,12 @@ class ArticleListItem extends Component {
   }
 
   handleClickDownArrow(votes, article_id, user_id) {
-    // this.context.clearError();
+    this.context.clearError();
     VoteApiService.deleteVote(article_id);
-    this.context.deleteVote(votes, article_id, user_id);
-    // .then(votes => console.log(votes))
-    // .catch(this.context.setError);
-    // this.context.deleteVote(user_id, article_id)
+    this.context
+      .deleteVote(votes, article_id, user_id)
+      .catch(this.context.setError);
   }
-
-  // sortByVotes(voteObj1, voteObj2) {
-  //   if(voteObj1.length > voteObj2.length)
-  // }
 
   render() {
     const { article } = this.props;
