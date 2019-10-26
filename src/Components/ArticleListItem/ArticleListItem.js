@@ -40,11 +40,13 @@ class ArticleListItem extends Component {
       .catch(this.context.setError);
   }
 
-  handleClickDownArrow(article_id, user_id) {
-    this.context.clearError();
-    VoteApiService.deleteVote(article_id)
-      .then(() => this.context.deleteVote(user_id))
-      .catch(this.context.setError);
+  handleClickDownArrow(votes, article_id, user_id) {
+    // this.context.clearError();
+    VoteApiService.deleteVote(article_id);
+    this.context.deleteVote(votes, article_id, user_id);
+    // .then(votes => console.log(votes))
+    // .catch(this.context.setError);
+    // this.context.deleteVote(user_id, article_id)
   }
 
   // sortByVotes(voteObj1, voteObj2) {
@@ -79,7 +81,9 @@ class ArticleListItem extends Component {
             <div className="container_arrow_down">
               <div
                 className="arrow_down"
-                onClick={() => this.handleClickDownArrow(article.id, user_id)}
+                onClick={() =>
+                  this.handleClickDownArrow(votes, article.id, user_id)
+                }
               ></div>
             </div>
           </div>

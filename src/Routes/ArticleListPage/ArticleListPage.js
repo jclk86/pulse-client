@@ -63,7 +63,6 @@ class ArticleListPage extends Component {
         return new Date(b.date_created) - new Date(a.date_created);
       }
     });
-
     return (
       <Section>
         <Ticker></Ticker>

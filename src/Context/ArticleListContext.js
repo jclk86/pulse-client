@@ -34,10 +34,15 @@ export class ArticleListProvider extends Component {
     this.setState({ votes });
   };
 
-  deleteVote = user_id => {
-    this.setState({
-      votes: this.state.votes.filter(vote => vote.user_id !== user_id)
+  deleteVote = (votes, article_id, user_id) => {
+    let filter = { article_id: article_id, user_id: user_id };
+    const result = votes.filter(vote => {
+      for (let key in filter) {
+        if (vote[key] !== filter[key]) return true;
+      }
+      return false;
     });
+    this.setState({ votes: result });
   };
 
   addVote = vote => {
