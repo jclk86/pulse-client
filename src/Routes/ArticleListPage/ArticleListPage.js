@@ -58,7 +58,7 @@ class ArticleListPage extends Component {
     });
     const articlesSortedByDateOrVote = filteredArticles.sort(function(a, b) {
       if (currentPath.includes("/Popularity")) {
-        return b.votes.num_of_votes - a.votes.num_of_votes;
+        return b.num_of_votes - a.num_of_votes;
       } else {
         return new Date(b.date_created) - new Date(a.date_created);
       }
