@@ -5,7 +5,6 @@ export const mockUser = {
   email: "BSmith@gmail.com",
   image_url:
     "https://images.pexels.com/photos/1622419/pexels-photo-1622419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  location: "TEST, LOCATION",
   profile: "test profile"
 };
 

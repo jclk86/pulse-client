@@ -37,7 +37,6 @@ class UserProfile extends Component {
           <div className="container_user_profile_info">
             <h1 className="user_profile_header">{user.fullname}</h1>
             <p>{user.profile}</p>
-            <p>Last logged in from: {user.location}</p>
           </div>
         </div>
       </div>

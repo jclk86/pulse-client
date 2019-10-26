@@ -4,7 +4,6 @@ import { withRouter, NavLink } from "react-router-dom";
 import "./LoginForm.css";
 import AuthApiService from "../../Services/auth-api-service";
 import TokenService from "../../Services/token-service";
-import GeolocationApiService from "../../Services/geolocation-api-service";
 import {
   validateUsername,
   validatePassword,
@@ -45,12 +44,6 @@ class LoginForm extends Component {
         username.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        GeolocationApiService.getUserLocation().then(location => {
-          const newLocation = {
-            location: `${location.city}, ${location.country_name}`
-          };
-          GeolocationApiService.updateUserLocation(newLocation);
-        });
         this.props.onLoginSuccess();
       })
       .catch(res => {

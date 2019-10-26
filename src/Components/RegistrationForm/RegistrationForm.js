@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Form, Input } from "../Utils/Utils";
 import AuthApiService from "../../Services/auth-api-service";
-import GeolocationApiService from "../../Services/geolocation-api-service";
 import {
   ValidationError,
   validatePassword,
@@ -27,15 +26,8 @@ class RegistrationForm extends Component {
       username: { value: "", touched: false },
       fullname: { value: "", touched: false },
       profile: { value: "", touched: false },
-      image_url: { value: "", touched: false },
-      location: null
+      image_url: { value: "", touched: false }
     };
-  }
-
-  componentDidMount() {
-    GeolocationApiService.getUserLocation().then(location =>
-      this.setState({ location: location })
-    );
   }
 
   updateFullname = fullname => {
@@ -90,8 +82,7 @@ class RegistrationForm extends Component {
       password: password.value,
       email: email.value,
       profile: profile.value,
-      image_url: image_url.value,
-      location: this.state.location
+      image_url: image_url.value
     })
       .then(res => {
         fullname.value = "";

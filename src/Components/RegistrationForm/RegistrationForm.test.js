@@ -26,7 +26,6 @@ describe("Registration Form Component", () => {
         fullname: mockUser.fullname,
         email: mockUser.email,
         profile: mockUser.profile,
-        location: mockUser.location,
         image_url: mockUser.image_url
       },
       preventDefault: () => {}
