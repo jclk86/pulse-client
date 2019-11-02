@@ -18,7 +18,7 @@ import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
 import PrivateOnlyRoute from "./Components/Utils/PrivateOnlyRoute";
 
 class App extends Component {
-  state = { hasError: false };
+  state = { hasError: false, lightsOff: true };
 
   static getDerivedStateFromError(error) {
     console.error(error);
@@ -47,14 +47,25 @@ class App extends Component {
     this.forceUpdate();
   };
 
+  toggleLights = () => {
+    this.setState({ lightsOff: !this.state.lightsOff });
+    console.log(this.state.lightsOff);
+  };
+
   render() {
     const currentPath = window.location.pathname;
-
     return (
-      <div className="App">
+      <div
+        className={`App + ${this.state.lightsOff ? "App" : "App_lights_off"}`}
+      >
         <header className="App-header">
           {!currentPath.includes("login") &&
-            !currentPath.includes("registration") && <Header></Header>}
+            !currentPath.includes("registration") && (
+              <Header
+                toggleLights={this.toggleLights}
+                lightsOff={this.state.lightsOff}
+              ></Header>
+            )}
         </header>
         <Switch>
           <PublicOnlyRoute

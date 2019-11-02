@@ -93,8 +93,21 @@ class ArticleListItem extends Component {
             <p>{previewText}</p>
             <p className="article_info">
               <span>{numOfComments} comments</span>
-              <span>/{article.article_category}/</span>
-              <span>by</span> {article.author.username}
+              <span>
+                <NavLink
+                  to={`/articles/categories/${article.article_category}`}
+                  className="article_info_category"
+                >
+                  /{article.article_category}/
+                </NavLink>
+              </span>
+              <span>by</span>{" "}
+              <NavLink
+                to={`/profile/${article.author.username}`}
+                className="article_info_username"
+              >
+                {article.author.username}
+              </NavLink>
             </p>
           </div>
         </div>

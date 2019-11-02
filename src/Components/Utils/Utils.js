@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/travelist_logo.png";
+import lightsOff from "../../images/lightsOff.png";
 import TokenService from "../../Services/token-service";
 import "./Utils.css";
 
@@ -12,6 +13,17 @@ export function Logo({ className, ...props }) {
       className={["Logo", className].join(" ")}
       {...props}
     ></img>
+  );
+}
+
+export function Moon({ className, ...props }) {
+  return (
+    <img
+      src={lightsOff}
+      alt="Moon"
+      className={["Moon", className].join(" ")}
+      {...props}
+    />
   );
 }
 

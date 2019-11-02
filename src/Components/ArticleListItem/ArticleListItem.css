@@ -30,6 +30,10 @@
 .voting_request_error {
   color: red;
   font-size: 12px;
+  display: block;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  margin-top: 10px;
 }
 .article_list_item_title_link {
   text-decoration: none;
@@ -42,11 +46,38 @@
   padding: 20px;
 }
 
+.article_info {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.article_info > span {
+  margin-left: 3px;
+}
+
+.article_info > NavLink {
+  color: black;
+}
+.article_info_username,
+.article_info_category {
+  text-decoration: none;
+  color: black;
+}
+
+.article_info_username:hover,
+.article_info_category:hover {
+  text-decoration: underline;
+}
+
+.article_list_item_username:hover {
+  cursor: pointer;
+}
+
 .container_vote_arrows {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  border-right: 1px solid black;
   border-radius: 2px;
 }
 

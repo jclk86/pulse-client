@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  /* background-color: #cee3f8; */
+}
+
+.App_lights_off {
+  background-color: rgb(46, 42, 42);
 }
 
 .App-logo {

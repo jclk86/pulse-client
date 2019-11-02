@@ -1,26 +1,42 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Logo } from "../Utils/Utils";
+import { Logo, Moon } from "../Utils/Utils";
 import TokenService from "../../Services/token-service";
 import IdleService from "../../Services/idle-service";
 import "./Header.css";
+import PropTypes from "prop-types";
 
 class Header extends Component {
+  static defaultProps = () => {};
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
   };
+
+  onMoonClick = () => {
+    this.props.toggleLights();
+  };
+
   render() {
     return (
-      <div className="header">
+      <div
+        className={`header ${
+          this.props.lightsOff ? "header" : "header_lights_off"
+        }`}
+      >
         <div className="container_header_content">
           <div className="container_logo">
             <NavLink to="/articles">
               <Logo className="top_header_logo"></Logo>
             </NavLink>
           </div>
+
           <div className="navbar_links">
+            <div className="container_moon">
+              <Moon className="header_moon" onClick={this.onMoonClick}></Moon>
+            </div>
             {TokenService.getAuthToken() ? (
               <div className="container_header_logged_in_links">
                 <NavLink
@@ -59,5 +75,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  lightsOff: PropTypes.bool,
+  toggleLights: PropTypes.func
+};
 
 export default Header;
