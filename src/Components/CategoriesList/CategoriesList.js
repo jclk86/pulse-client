@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import CategoriesListItem from "../CategoriesListItem/CategoriesListItem";
+import PropTypes from "prop-types";
 import "./CategoriesList.css";
 
 class CategoriesList extends Component {
@@ -29,5 +30,13 @@ class CategoriesList extends Component {
     );
   }
 }
+
+CategoriesList.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string
+    })
+  )
+};
 
 export default withRouter(CategoriesList);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Comment from "../Comment/Comment";
+import PropTypes from "prop-types";
 import "./CommentsSection.css";
 
 class CommentsSection extends Component {
@@ -27,5 +28,12 @@ class CommentsSection extends Component {
   }
 }
 
-CommentsSection.propTypes = {};
+CommentsSection.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      comment: PropTypes.string
+    })
+  )
+};
+
 export default withRouter(CommentsSection);

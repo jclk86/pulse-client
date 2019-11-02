@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
 import "./EditCommentForm.css";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 // if button clicked, replace comment block with edit form
 
@@ -83,8 +83,15 @@ class EditCommentForm extends Component {
   }
 }
 
-// EditCommentForm.Proptype = {
-//   comment: propTypes.shape
-// }
+EditCommentForm.propTypes = {
+  comment: PropTypes.shape({
+    id: PropTypes.number,
+    date_created: PropTypes.string,
+    user_id: PropTypes.number,
+    usr: PropTypes.shape({
+      username: PropTypes.string
+    })
+  })
+};
 
 export default withRouter(EditCommentForm);

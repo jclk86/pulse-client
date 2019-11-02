@@ -28,9 +28,9 @@ class ArticlePage extends Component {
 
     return (
       <Section>
-        <div className="container_article_page_return_btn">
-          <NavLink to="/articles" className="return_btn">
-            Home
+        <div className="container_article_page_return_link">
+          <NavLink to="/articles" className="article_page_return_link">
+            Return
           </NavLink>
         </div>
         <Article article={article}></Article>

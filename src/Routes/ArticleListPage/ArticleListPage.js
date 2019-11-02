@@ -66,6 +66,14 @@ class ArticleListPage extends Component {
     return (
       <Section>
         <Ticker></Ticker>
+        <div className="container_search_box hide_topbar_menu">
+          <SearchBox
+            placeholder="type here to search"
+            name="search filter"
+            onChange={e => this.updateSearch(e.target.value)}
+            id="mobile_view_search_box"
+          ></SearchBox>
+        </div>
         <div className="container_topbar_menu hide_topbar_menu">
           <div className="container_dropdown_menu">
             {" "}
@@ -74,14 +82,7 @@ class ArticleListPage extends Component {
           <div className="container_topbar_create_btn">
             <CreatePostButton>CREATE POST</CreatePostButton>
           </div>
-          <div className="container_search_box">
-            <SearchBox
-              placeholder="type here to search"
-              name="search filter"
-              onChange={e => this.updateSearch(e.target.value)}
-              id="mobile_view_search_box"
-            ></SearchBox>
-          </div>
+          <div className="container_search_box"></div>
         </div>
         <div className="flex_container">
           <div className="container_articles_section">

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAccount Component renders UserAccount component without issues 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <withRouter(UserAccount)
+    user={
+      Object {
+        "email": "BSmith@gmail.com",
+        "fullname": "Bob Smith",
+        "image_url": "https://images.pexels.com/photos/1622419/pexels-photo-1622419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "password": "Password123!",
+        "profile": "test profile",
+        "username": "Pop123",
+      }
+    }
+  />
+</Router>
+`;

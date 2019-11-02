@@ -5,6 +5,7 @@ import { Form, Label, Input, Textarea, Select, Button } from "../Utils/Utils";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import TokenService from "../../Services/token-service";
+import PropTypes from "prop-types";
 import { renderCategories } from "../Utils/Utils";
 import {
   ValidationError,
@@ -208,5 +209,9 @@ class EditArticleForm extends Component {
     );
   }
 }
+
+EditArticleForm.propTypes = {
+  article_id: PropTypes.string
+};
 
 export default withRouter(EditArticleForm);

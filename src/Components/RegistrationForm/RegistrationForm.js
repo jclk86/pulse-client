@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Form, Input } from "../Utils/Utils";
+import { Form, Input, Logo } from "../Utils/Utils";
 import AuthApiService from "../../Services/auth-api-service";
 import {
   ValidationError,
@@ -112,131 +112,145 @@ class RegistrationForm extends Component {
     const { error, password, email, username, fullname, profile } = this.state;
     const isValid = this.isFormValid();
     return (
-      <Form onSubmit={this.handleSubmit} className="registration_form">
-        <h2>Registration</h2>
-        <div className="container_RegistrationForm_fullname">
-          <label
-            htmlFor="RegistrationForm_fullname"
-            className="label_registration"
-          >
-            Fullname
-          </label>
-          <Input
-            name="fullname"
-            type="text"
-            className="RegistrationForm_fullname"
-            onChange={e => this.updateFullname(e.target.value)}
-          />
-          {fullname.touched && (
-            <ValidationError message={validateFullname(fullname.value)} />
-          )}
+      <div className="container_registration_page">
+        <div className="container_registration_form">
+          <Form onSubmit={this.handleSubmit} className="RegistrationForm">
+            <Logo className="logo_registration"></Logo>
+            <h2 className="header_registration_form">Registration</h2>
+            <div className="container_RegistrationForm_fullname">
+              <label
+                htmlFor="RegistrationForm_fullname"
+                className="label_registration"
+              >
+                Fullname
+              </label>
+              <Input
+                name="fullname"
+                type="text"
+                className="RegistrationForm_fullname"
+                onChange={e => this.updateFullname(e.target.value)}
+              />
+              {fullname.touched && (
+                <ValidationError message={validateFullname(fullname.value)} />
+              )}
+            </div>
+            <div className="container_RegistrationForm_username">
+              <label
+                htmlFor="RegistrationForm_username"
+                className="label_registration"
+              >
+                Username
+              </label>
+              <Input
+                name="username"
+                type="text"
+                className="RegistrationForm_username"
+                onChange={e => this.updateUsername(e.target.value)}
+              />
+              {username.touched && (
+                <ValidationError message={validateUsername(username.value)} />
+              )}
+            </div>
+            <div className="container_RegistrationForm_password">
+              <label
+                htmlFor="RegistrationForm_password"
+                className="label_registration"
+              >
+                Password
+              </label>
+              <Input
+                onChange={e => this.updatePassword(e.target.value)}
+                name="password"
+                type="password"
+                className="RegistrationForm_password"
+                autoComplete="off"
+              />
+              {password.touched && (
+                <ValidationError message={validatePassword(password.value)} />
+              )}
+            </div>
+            <div className="container_RegistrationForm_email">
+              <label
+                htmlFor="RegistrationForm_email"
+                className="label_registration"
+              >
+                Email
+              </label>{" "}
+              <Input
+                onChange={e => this.updateEmail(e.target.value)}
+                name="email"
+                type="text"
+                className="RegistrationForm_email"
+              />
+              {email.touched && (
+                <ValidationError message={validateEmail(email.value)} />
+              )}
+            </div>
+            <div className="container_RegistrationForm_profile">
+              <label
+                htmlFor="RegistrationForm_profile"
+                className="label_registration"
+              >
+                About Me
+              </label>{" "}
+              <textarea
+                onChange={e => this.updateProfile(e.target.value)}
+                name="profile"
+                type="text"
+                className="RegistrationForm_profile"
+              ></textarea>
+              {profile.touched && (
+                <ValidationError message={validateProfile(profile.value)} />
+              )}
+            </div>
+            <div className="container_RegistrationForm_image_url">
+              <label
+                htmlFor="RegistrationForm_image_url"
+                className="label_registration"
+              >
+                Image Url
+              </label>{" "}
+              <Input
+                onChange={e => this.updateImage_Url(e.target.value)}
+                name="image_url"
+                type="text"
+                className="RegistrationForm_image_url"
+              ></Input>
+            </div>
+            <div role="alert">{error && <p className="red">{error}</p>}</div>
+            <div className="container_RegistrationForm_btn">
+              <button
+                className="RegistrationForm_submit_btn"
+                type="submit"
+                disabled={!isValid}
+              >
+                Submit
+              </button>
+            </div>
+            <div className="container_RegistrationForm_login_link">
+              <p className="message_redirect">
+                Already a user?{" "}
+                <NavLink
+                  to={"/login"}
+                  role="navigation"
+                  className="RegistrationForm_login_link"
+                >
+                  Login
+                </NavLink>
+              </p>
+            </div>
+          </Form>
         </div>
-        <div className="container_RegistrationForm_username">
-          <label
-            htmlFor="RegistrationForm_username"
-            className="label_registration"
-          >
-            Username
-          </label>
-          <Input
-            name="username"
-            type="text"
-            className="RegistrationForm_username"
-            onChange={e => this.updateUsername(e.target.value)}
-          />
-          {username.touched && (
-            <ValidationError message={validateUsername(username.value)} />
-          )}
+        <div className="bg_desktop_view_registration_page">
+          {" "}
+          <div className="container_desktop_view_registration_hero">
+            <h3>
+              Become a part of our community with a simple up for a free
+              account.
+            </h3>
+          </div>
         </div>
-        <div className="container_RegistrationForm_password">
-          <label
-            htmlFor="RegistrationForm_password"
-            className="label_registration"
-          >
-            Password
-          </label>
-          <Input
-            onChange={e => this.updatePassword(e.target.value)}
-            name="password"
-            type="password"
-            className="RegistrationForm_password"
-            autoComplete="off"
-          />
-          {password.touched && (
-            <ValidationError message={validatePassword(password.value)} />
-          )}
-        </div>
-        <div className="container_RegistrationForm_email">
-          <label
-            htmlFor="RegistrationForm_email"
-            className="label_registration"
-          >
-            Email
-          </label>{" "}
-          <Input
-            onChange={e => this.updateEmail(e.target.value)}
-            name="email"
-            type="text"
-            className="RegistrationForm_email"
-          />
-          {email.touched && (
-            <ValidationError message={validateEmail(email.value)} />
-          )}
-        </div>
-        <div className="container_RegistrationForm_profile">
-          <label
-            htmlFor="RegistrationForm_profile"
-            className="label_registration"
-          >
-            About Me
-          </label>{" "}
-          <textarea
-            onChange={e => this.updateProfile(e.target.value)}
-            name="profile"
-            type="text"
-            className="RegistrationForm_profile"
-          ></textarea>
-          {profile.touched && (
-            <ValidationError message={validateProfile(profile.value)} />
-          )}
-        </div>
-        <div className="container_RegistrationForm_image_url">
-          <label
-            htmlFor="RegistrationForm_image_url"
-            className="label_registration"
-          >
-            Image Url
-          </label>{" "}
-          <Input
-            onChange={e => this.updateImage_Url(e.target.value)}
-            name="image_url"
-            type="text"
-            className="RegistrationForm_image_url"
-          ></Input>
-        </div>
-        <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="container_RegistrationForm_btn">
-          <button
-            className="RegistrationForm_submit_btn"
-            type="submit"
-            disabled={!isValid}
-          >
-            Submit
-          </button>
-        </div>
-        <div className="container_RegistrationForm_login_link">
-          <p className="message_redirect">
-            Already a user?{" "}
-            <NavLink
-              to={"/login"}
-              role="navigation"
-              className="RegistrationForm_login_link"
-            >
-              Login
-            </NavLink>
-          </p>
-        </div>
-      </Form>
+      </div>
     );
   }
 }

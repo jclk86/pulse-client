@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import RegistrationForm from "../../Components/RegistrationForm/RegistrationForm";
-import { Section } from "../../Components/Utils/Utils";
 
 class RegistrationPage extends Component {
   static defaultProps = {
@@ -8,7 +7,7 @@ class RegistrationPage extends Component {
       push: () => {}
     }
   };
-  // do we need this?
+
   handleRegistrationSuccess = user => {
     const { history } = this.props;
     history.push("/login");
@@ -16,11 +15,9 @@ class RegistrationPage extends Component {
 
   render() {
     return (
-      <Section>
-        <RegistrationForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        ></RegistrationForm>
-      </Section>
+      <RegistrationForm
+        onRegistrationSuccess={this.handleRegistrationSuccess}
+      ></RegistrationForm>
     );
   }
 }

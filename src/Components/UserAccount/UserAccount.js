@@ -17,15 +17,15 @@ class UserAccount extends Component {
     const token = TokenService.readJwtToken();
     return (
       <div className="container_user_account">
-        <div className="container_return_btn">
-          <Button
+        <div className="container_return_link">
+          <NavLink
+            to="/articles"
             role="navigation"
-            className="user_account_return_btn"
-            onClick={this.props.history.goBack}
+            className="user_account_return_link"
           >
             {" "}
             Return
-          </Button>
+          </NavLink>
         </div>
         <div className="container_UserAccount_profile">
           <div className="container_user_account_image">

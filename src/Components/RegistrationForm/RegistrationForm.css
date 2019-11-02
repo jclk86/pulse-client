@@ -1,7 +1,23 @@
-.registration_form {
-  padding-top: 50px;
-  border-radius: 10px;
+.bg_mobile_view_registration_page {
+  display: none;
+}
+
+.container_desktop_view_registration_hero {
+  display: none;
+}
+
+.logo_registration {
+  width: 150px;
+}
+
+.header_registration_form {
+  margin-top: 0;
+}
+
+.RegistrationForm {
   padding-bottom: 30px;
+  max-width: 600px;
+  background-image: url("../../images/main_bg.jpeg");
 }
 
 .container_RegistrationForm_username,
@@ -11,7 +27,7 @@
 .container_RegistrationForm_image_url,
 .container_RegistrationForm_fullname {
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .label_registration {
@@ -19,6 +35,7 @@
   width: 100%;
   text-align: left;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .RegistrationForm_email,
@@ -26,8 +43,15 @@
 .RegistrationForm_image_url,
 .RegistrationForm_password,
 .RegistrationForm_fullname {
-  border: none;
   padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;
+  font-size: 16px;
 }
 
 .RegistrationForm_email:focus,
@@ -35,8 +59,17 @@
 .RegistrationForm_image_url:focus,
 .RegistrationForm_password:focus,
 .RegistrationForm_fullname:focus,
-.RegistrationForm_profile {
+.RegistrationForm_profile:focus {
   outline-width: 0;
+}
+
+.RegistrationForm_email:hover,
+.RegistrationForm_username:hover,
+.RegistrationForm_image_url:hover,
+.RegistrationForm_password:hover,
+.RegistrationForm_fullname:hover,
+.RegistrationForm_profile:hover {
+  border: 1px solid rgb(110, 110, 110);
 }
 
 .RegistrationForm_profile {
@@ -50,6 +83,11 @@
   font-family: "Open Sans", sans-serif;
   resize: none;
   min-height: 150px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;
 }
 
 .RegistrationForm_submit_btn {
@@ -58,8 +96,49 @@
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 2px 2px 5px;
 }
 
 .RegistrationForm_submit_btn:hover {
   cursor: pointer;
+  border: 1px solid rgb(110, 110, 110);
+}
+
+.RegistrationForm_login_link {
+  text-decoration: none;
+  color: teal;
+}
+
+.red {
+  margin-top: 2px;
+  color: rgb(107, 46, 46);
+}
+
+@media only screen and (min-width: 1024px) {
+  .container_registration_page {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .container_registration_form {
+    width: 30%;
+    height: 100%;
+  }
+
+  .RegistrationForm {
+    background-image: none;
+    height: 100vh;
+    background-color: rgb(229, 226, 226);
+  }
+
+  .bg_desktop_view_registration_page {
+    width: 70%;
+    background-color: red;
+  }
 }

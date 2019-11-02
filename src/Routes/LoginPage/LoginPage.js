@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LoginForm from "../../Components/LoginForm/LoginForm";
-import { Section, BackgroundWaterfall } from "../../Components/Utils/Utils";
 import { withRouter } from "react-router-dom";
 
 class LoginPage extends Component {
@@ -17,13 +16,7 @@ class LoginPage extends Component {
     history.push(destination);
   };
   render() {
-    return (
-      <BackgroundWaterfall>
-        <Section>
-          <LoginForm onLoginSuccess={this.handleLoginSuccess}></LoginForm>
-        </Section>
-      </BackgroundWaterfall>
-    );
+    return <LoginForm onLoginSuccess={this.handleLoginSuccess}></LoginForm>;
   }
 }
 

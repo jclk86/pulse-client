@@ -13,6 +13,7 @@
   max-width: 800px;
   margin: 100px auto;
   padding-bottom: 50px;
+  padding-right: 0;
 }
 
 .link_user_profile {

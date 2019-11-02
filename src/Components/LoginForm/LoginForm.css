@@ -1,32 +1,49 @@
-.container_LoginForm_username,
-.container_LoginForm_password {
-  width: 80%;
+.mobile_view_bg_login_page {
+  min-height: 100vh;
+  background-image: url("../../images/main_bg.jpeg");
+}
+
+.container_login_form {
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .LoginForm {
-  margin-top: 300px;
-  padding-top: 70px;
-  padding-bottom: 40px;
-  border-radius: 10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.container_LoginForm_username,
+.container_LoginForm_password {
+  width: 80%;
+  margin: 10px auto;
 }
 
 .label_login {
   display: block;
   width: 100%;
   text-align: left;
+  padding-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .LoginForm_password,
 .LoginForm_username {
-  padding: 25px;
+  width: 100%;
+  padding: 10px;
   font-size: 21px;
-  border: none;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;
+  font-size: 16px;
 }
 
 .LoginForm_password:hover,
 .LoginForm_username:hover {
-  border: 1px solid goldenrod;
+  border: 1px solid rgb(110, 110, 110);
 }
 
 .LoginForm_password:focus,
@@ -35,12 +52,95 @@
 }
 
 .LoginForm_submit_btn {
+  padding: 10px;
   min-width: 200px;
   border-radius: 10px;
-  border: none;
+  background-color: white;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 2px 2px 5px;
 }
 
 .LoginForm_submit_btn:hover {
   cursor: pointer;
-  border: 1px solid goldenrod;
+  border: 1px solid rgb(110, 110, 110);
+}
+
+.btn_register_link {
+  color: teal;
+  text-decoration: none;
+}
+
+.message_redirect {
+  font-weight: bold;
+}
+
+.container_desktop_view_login_hero {
+  padding-top: 300px;
+  font-size: 40px;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.error {
+  margin-top: 2px;
+  color: rgb(107, 46, 46);
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+  .LoginForm {
+    margin-left: 0;
+    max-width: 600px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .mobile_view_bg_login_page {
+    background-image: none;
+  }
+  .container_login_page {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .container_login_form {
+    min-height: 100vh;
+    background-color: rgb(229, 226, 226);
+    width: 30%;
+    padding-top: 40px;
+  }
+
+  .container_desktop_view_login_hero {
+    color: white;
+  }
+
+  .bg_desktop_view_login_image {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("../../images/friends.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 70%;
+  }
+
+  .LoginForm {
+    padding-top: 60px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .bg_desktop_view_login_image {
+    display: none;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./CategoriesListItem.css";
 
 class CategoriesListItem extends Component {
@@ -18,4 +19,11 @@ class CategoriesListItem extends Component {
     );
   }
 }
+
+CategoriesListItem.propTypes = {
+  category: PropTypes.shape({
+    name: PropTypes.string
+  })
+};
+
 export default withRouter(CategoriesListItem);

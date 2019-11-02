@@ -1,143 +1,168 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Registration Form Component renders registration form without issues 1`] = `
-<Form
-  className="registration_form"
-  onSubmit={[Function]}
+<div
+  className="container_registration_page"
 >
-  <h2>
-    Registration
-  </h2>
   <div
-    className="container_RegistrationForm_fullname"
+    className="container_registration_form"
   >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_fullname"
+    <Form
+      className="RegistrationForm"
+      onSubmit={[Function]}
     >
-      Fullname
-    </label>
-    <Input
-      className="RegistrationForm_fullname"
-      name="fullname"
-      onChange={[Function]}
-      type="text"
-    />
-  </div>
-  <div
-    className="container_RegistrationForm_username"
-  >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_username"
-    >
-      Username
-    </label>
-    <Input
-      className="RegistrationForm_username"
-      name="username"
-      onChange={[Function]}
-      type="text"
-    />
-  </div>
-  <div
-    className="container_RegistrationForm_password"
-  >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_password"
-    >
-      Password
-    </label>
-    <Input
-      autoComplete="off"
-      className="RegistrationForm_password"
-      name="password"
-      onChange={[Function]}
-      type="password"
-    />
-  </div>
-  <div
-    className="container_RegistrationForm_email"
-  >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_email"
-    >
-      Email
-    </label>
-     
-    <Input
-      className="RegistrationForm_email"
-      name="email"
-      onChange={[Function]}
-      type="text"
-    />
-  </div>
-  <div
-    className="container_RegistrationForm_profile"
-  >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_profile"
-    >
-      About Me
-    </label>
-     
-    <textarea
-      className="RegistrationForm_profile"
-      name="profile"
-      onChange={[Function]}
-      type="text"
-    />
-  </div>
-  <div
-    className="container_RegistrationForm_image_url"
-  >
-    <label
-      className="label_registration"
-      htmlFor="RegistrationForm_image_url"
-    >
-      Image Url
-    </label>
-     
-    <Input
-      className="RegistrationForm_image_url"
-      name="image_url"
-      onChange={[Function]}
-      type="text"
-    />
-  </div>
-  <div
-    role="alert"
-  />
-  <div
-    className="container_RegistrationForm_btn"
-  >
-    <button
-      className="RegistrationForm_submit_btn"
-      disabled={true}
-      type="submit"
-    >
-      Submit
-    </button>
-  </div>
-  <div
-    className="container_RegistrationForm_login_link"
-  >
-    <p
-      className="message_redirect"
-    >
-      Already a user?
-       
-      <NavLink
-        className="RegistrationForm_login_link"
-        role="navigation"
-        to="/login"
+      <Logo
+        className="logo_registration"
+      />
+      <h2
+        className="header_registration_form"
       >
-        Login
-      </NavLink>
-    </p>
+        Registration
+      </h2>
+      <div
+        className="container_RegistrationForm_fullname"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_fullname"
+        >
+          Fullname
+        </label>
+        <Input
+          className="RegistrationForm_fullname"
+          name="fullname"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="container_RegistrationForm_username"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_username"
+        >
+          Username
+        </label>
+        <Input
+          className="RegistrationForm_username"
+          name="username"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="container_RegistrationForm_password"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_password"
+        >
+          Password
+        </label>
+        <Input
+          autoComplete="off"
+          className="RegistrationForm_password"
+          name="password"
+          onChange={[Function]}
+          type="password"
+        />
+      </div>
+      <div
+        className="container_RegistrationForm_email"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_email"
+        >
+          Email
+        </label>
+         
+        <Input
+          className="RegistrationForm_email"
+          name="email"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="container_RegistrationForm_profile"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_profile"
+        >
+          About Me
+        </label>
+         
+        <textarea
+          className="RegistrationForm_profile"
+          name="profile"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="container_RegistrationForm_image_url"
+      >
+        <label
+          className="label_registration"
+          htmlFor="RegistrationForm_image_url"
+        >
+          Image Url
+        </label>
+         
+        <Input
+          className="RegistrationForm_image_url"
+          name="image_url"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        role="alert"
+      />
+      <div
+        className="container_RegistrationForm_btn"
+      >
+        <button
+          className="RegistrationForm_submit_btn"
+          disabled={true}
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div
+        className="container_RegistrationForm_login_link"
+      >
+        <p
+          className="message_redirect"
+        >
+          Already a user?
+           
+          <NavLink
+            className="RegistrationForm_login_link"
+            role="navigation"
+            to="/login"
+          >
+            Login
+          </NavLink>
+        </p>
+      </div>
+    </Form>
   </div>
-</Form>
+  <div
+    className="bg_desktop_view_registration_page"
+  >
+     
+    <div
+      className="container_desktop_view_registration_hero"
+    >
+      <h3>
+        Become a part of our community with a simple up for a free account.
+      </h3>
+    </div>
+  </div>
+</div>
 `;

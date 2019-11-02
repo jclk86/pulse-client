@@ -85,7 +85,7 @@ class EditUserForm extends Component {
               Password
             </label>
             <input
-              value={password.value}
+              defaultValue={password.value}
               onChange={e => this.updatePassword(e.target.value)}
               name="password"
               type="password"
@@ -118,7 +118,7 @@ class EditUserForm extends Component {
             Image Url
           </label>{" "}
           <input
-            value={image_url.value}
+            defaultValue={image_url.value}
             onChange={e => this.updateImage_Url(e.target.value)}
             name="image_url"
             type="text"

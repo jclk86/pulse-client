@@ -29,6 +29,7 @@
 
 .voting_request_error {
   color: red;
+  font-size: 12px;
 }
 .article_list_item_title_link {
   text-decoration: none;
@@ -45,7 +46,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(108, 161, 161);
+
   border-radius: 2px;
 }
 
@@ -59,7 +60,7 @@
   width: 10px;
   border-style: solid;
   border-color: black;
-  border-width: 0px 1px 1px 0px;
+  border-width: 0px 3px 3px 0px;
   transform: rotate(225deg);
   transition: border-width 150ms ease-in-out;
   margin: 0 auto;
@@ -67,7 +68,8 @@
 
 .vote_count {
   margin: 0 auto;
-  padding-left: 2px;
+
+  font-weight: bold;
 }
 
 .arrow_up:hover {
@@ -86,7 +88,7 @@
   width: 10px;
   border-style: solid;
   border-color: black;
-  border-width: 0px 1px 1px 0px;
+  border-width: 0px 3px 3px 0px;
   transform: rotate(45deg);
   transition: border-width 150ms ease-in-out;
   margin: 0 auto;

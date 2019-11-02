@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ticker Component renders Ticker component without issues 1`] = `
+<div
+  className="tcontainer"
+>
+  <div
+    className="ticker-wrap"
+  >
+    <div
+      className="ticker-move"
+    />
+  </div>
+</div>
+`;

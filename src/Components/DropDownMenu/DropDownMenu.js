@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./DropDownMenu.css";
 
 class DropDownMenu extends Component {
@@ -29,5 +30,15 @@ class DropDownMenu extends Component {
     );
   }
 }
+
+DropDownMenu.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.shape({
+        name: PropTypes.string
+      })
+    })
+  )
+};
 
 export default withRouter(DropDownMenu);

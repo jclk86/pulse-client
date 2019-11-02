@@ -24,12 +24,15 @@ const UserApiService = {
     }).then(res => (!res.ok ? Promise.reject(res) : res));
   },
   getUserProfile(username) {
-    return fetch(`${config.API_ENDPOINT}/user/profile/${username}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
+    return fetch(
+      `${config.API_ENDPOINT}/user/profile/${username.replace(/ /g, "")}`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json"
+        }
       }
-    }).then(res =>
+    ).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   }

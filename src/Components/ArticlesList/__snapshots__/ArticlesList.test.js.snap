@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlesList Component renders ArticlesList component without issues 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(ArticlesList)
+      sortedArticles={
+        Array [
+          Object {
+            "article_category": "News",
+            "author": Object {
+              "username": "Pop123",
+            },
+            "content": "test content",
+            "date_created": "2019-10-14T21:49:20.570Z",
+            "id": 1,
+            "title": "test article one",
+          },
+          Object {
+            "article_category": "News",
+            "author": Object {
+              "username": "testuser2",
+            },
+            "content": "test content",
+            "date_created": "2019-10-14T21:49:20.570Z",
+            "id": 2,
+            "title": "test article two",
+          },
+        ]
+      }
+    >
+      <ArticlesList
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
+        sortedArticles={
+          Array [
+            Object {
+              "article_category": "News",
+              "author": Object {
+                "username": "Pop123",
+              },
+              "content": "test content",
+              "date_created": "2019-10-14T21:49:20.570Z",
+              "id": 1,
+              "title": "test article one",
+            },
+            Object {
+              "article_category": "News",
+              "author": Object {
+                "username": "testuser2",
+              },
+              "content": "test content",
+              "date_created": "2019-10-14T21:49:20.570Z",
+              "id": 2,
+              "title": "test article two",
+            },
+          ]
+        }
+      >
+        <div
+          className="container_article_list"
+        >
+          <withRouter(ArticleListItem)
+            article={
+              Object {
+                "article_category": "News",
+                "author": Object {
+                  "username": "Pop123",
+                },
+                "content": "test content",
+                "date_created": "2019-10-14T21:49:20.570Z",
+                "id": 1,
+                "title": "test article one",
+              }
+            }
+            key="1"
+          >
+            <ArticleListItem
+              article={
+                Object {
+                  "article_category": "News",
+                  "author": Object {
+                    "username": "Pop123",
+                  },
+                  "content": "test content",
+                  "date_created": "2019-10-14T21:49:20.570Z",
+                  "id": 1,
+                  "title": "test article one",
+                }
+              }
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+            >
+              <div
+                className="container_article_list_item"
+              >
+                <div
+                  className="container_article_preview"
+                >
+                  <div
+                    className="container_vote_arrows"
+                  >
+                    <div
+                      className="container_arrow_up"
+                    >
+                      <span
+                        className="voting_request_error"
+                      />
+                      <div
+                        className="arrow_up"
+                        onClick={[Function]}
+                      />
+                    </div>
+                    <div
+                      className="container_vote_count"
+                    >
+                      <p
+                        className="vote_count"
+                      >
+                        0
+                      </p>
+                    </div>
+                    <div
+                      className="container_arrow_down"
+                    >
+                      <div
+                        className="arrow_down"
+                        onClick={[Function]}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="container_article_text_preview"
+                  >
+                    <NavLink
+                      className="article_list_item_title_link"
+                      role="navigation"
+                      to="/articles/1"
+                    >
+                      <Link
+                        aria-current={null}
+                        className="article_list_item_title_link"
+                        role="navigation"
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/articles/1",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current={null}
+                          className="article_list_item_title_link"
+                          href="/articles/1"
+                          navigate={[Function]}
+                          role="navigation"
+                        >
+                          <a
+                            aria-current={null}
+                            className="article_list_item_title_link"
+                            href="/articles/1"
+                            onClick={[Function]}
+                            role="navigation"
+                          >
+                             
+                            <h4
+                              className="article_list_item_title"
+                            >
+                              test article one
+                            </h4>
+                             
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                    <p>
+                      October 14, 2019
+                       
+                    </p>
+                    <p>
+                      test content
+                    </p>
+                    <p
+                      className="article_info"
+                    >
+                      <span>
+                        0
+                         comments
+                      </span>
+                      <span>
+                        /
+                        News
+                        /
+                      </span>
+                      <span>
+                        by
+                      </span>
+                       
+                      Pop123
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ArticleListItem>
+          </withRouter(ArticleListItem)>
+          <withRouter(ArticleListItem)
+            article={
+              Object {
+                "article_category": "News",
+                "author": Object {
+                  "username": "testuser2",
+                },
+                "content": "test content",
+                "date_created": "2019-10-14T21:49:20.570Z",
+                "id": 2,
+                "title": "test article two",
+              }
+            }
+            key="2"
+          >
+            <ArticleListItem
+              article={
+                Object {
+                  "article_category": "News",
+                  "author": Object {
+                    "username": "testuser2",
+                  },
+                  "content": "test content",
+                  "date_created": "2019-10-14T21:49:20.570Z",
+                  "id": 2,
+                  "title": "test article two",
+                }
+              }
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+            >
+              <div
+                className="container_article_list_item"
+              >
+                <div
+                  className="container_article_preview"
+                >
+                  <div
+                    className="container_vote_arrows"
+                  >
+                    <div
+                      className="container_arrow_up"
+                    >
+                      <span
+                        className="voting_request_error"
+                      />
+                      <div
+                        className="arrow_up"
+                        onClick={[Function]}
+                      />
+                    </div>
+                    <div
+                      className="container_vote_count"
+                    >
+                      <p
+                        className="vote_count"
+                      >
+                        0
+                      </p>
+                    </div>
+                    <div
+                      className="container_arrow_down"
+                    >
+                      <div
+                        className="arrow_down"
+                        onClick={[Function]}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="container_article_text_preview"
+                  >
+                    <NavLink
+                      className="article_list_item_title_link"
+                      role="navigation"
+                      to="/articles/2"
+                    >
+                      <Link
+                        aria-current={null}
+                        className="article_list_item_title_link"
+                        role="navigation"
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/articles/2",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current={null}
+                          className="article_list_item_title_link"
+                          href="/articles/2"
+                          navigate={[Function]}
+                          role="navigation"
+                        >
+                          <a
+                            aria-current={null}
+                            className="article_list_item_title_link"
+                            href="/articles/2"
+                            onClick={[Function]}
+                            role="navigation"
+                          >
+                             
+                            <h4
+                              className="article_list_item_title"
+                            >
+                              test article two
+                            </h4>
+                             
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                    <p>
+                      October 14, 2019
+                       
+                    </p>
+                    <p>
+                      test content
+                    </p>
+                    <p
+                      className="article_info"
+                    >
+                      <span>
+                        0
+                         comments
+                      </span>
+                      <span>
+                        /
+                        News
+                        /
+                      </span>
+                      <span>
+                        by
+                      </span>
+                       
+                      testuser2
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ArticleListItem>
+          </withRouter(ArticleListItem)>
+        </div>
+      </ArticlesList>
+    </withRouter(ArticlesList)>
+  </Router>
+</BrowserRouter>
+`;

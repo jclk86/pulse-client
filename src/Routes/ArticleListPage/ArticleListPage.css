@@ -25,7 +25,6 @@
 }
 
 .container_sidebar_create_post_btn {
-  height: 60px;
   width: 100%;
 }
 
@@ -35,6 +34,8 @@
   border-radius: 5px;
   padding-bottom: 20px;
   height: fit-content;
+  background-color: white;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 768px) {
@@ -50,15 +51,5 @@
 @media only screen and (min-width: 767px) {
   .hide_topbar_menu {
     display: none;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .container_search_box {
-    width: 20%;
-  }
-
-  .align_right {
-    margin-right: 0;
   }
 }

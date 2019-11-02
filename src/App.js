@@ -14,6 +14,8 @@ import EditArticlePage from "./Routes/EditArticlePage/EditArticlePage";
 import UserAccountPage from "./Routes/UserAccountPage/UserAccountPage";
 import EditUserPage from "./Routes/EditUserPage/EditUserPage";
 import UserProfilePage from "./Routes/UserProfilePage/UserProfilePage";
+import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
+import PrivateOnlyRoute from "./Components/Utils/PrivateOnlyRoute";
 
 class App extends Component {
   state = { hasError: false };
@@ -55,12 +57,16 @@ class App extends Component {
             !currentPath.includes("registration") && <Header></Header>}
         </header>
         <Switch>
-          <Route
+          <PublicOnlyRoute
             exact
             path={"/registration"}
             component={RegistrationPage}
-          ></Route>
-          <Route exact path={"/login"} component={LoginPage}></Route>
+          ></PublicOnlyRoute>
+          <PublicOnlyRoute
+            exact
+            path={"/login"}
+            component={LoginPage}
+          ></PublicOnlyRoute>
           <Route exact path={"/articles"} component={ArticleListPage}></Route>
           <Route exact path={"/Popularity"} component={ArticleListPage}></Route>
           <Route
@@ -73,14 +79,22 @@ class App extends Component {
             path={"/articles/:article_id"}
             component={ArticlePage}
           ></Route>
-          <Route exact path={"/add_article"} component={AddArticlePage}></Route>
-          <Route
+          <PrivateOnlyRoute
+            exact
+            path={"/add_article"}
+            component={AddArticlePage}
+          ></PrivateOnlyRoute>
+          <PrivateOnlyRoute
             exact
             path={"/articles/:article_id/edit_article"}
             component={EditArticlePage}
-          ></Route>
+          ></PrivateOnlyRoute>
           <Route expact path={"/account"} component={UserAccountPage}></Route>
-          <Route exact path={"/edit_account"} component={EditUserPage}></Route>
+          <PrivateOnlyRoute
+            exact
+            path={"/edit_account"}
+            component={EditUserPage}
+          ></PrivateOnlyRoute>
           <Route
             exact
             path={"/profile/:username"}

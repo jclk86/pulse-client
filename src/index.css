@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -9,6 +12,9 @@ body {
   padding: 0px;
   padding: env(safe-area-inset);
   min-height: 100vh;
+  overflow: auto;
+  font-family: IBM Plex Sans, Roboto, sans-serif;
+  background-color: rgb(229, 226, 226);
 }
 
 body {

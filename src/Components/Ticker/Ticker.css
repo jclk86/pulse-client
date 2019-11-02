@@ -13,9 +13,9 @@
 .ticker-wrap {
   width: 100%;
   padding-left: 100%;
-  background-color: teal;
+  background-color: black;
   margin-bottom: 30px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .ticker-move {
   display: inline-block;
@@ -47,6 +47,6 @@
 
 @media only screen and (max-width: 768px) {
   .ticker-move {
-    animation-duration: 15s;
+    animation-duration: 60s;
   }
 }

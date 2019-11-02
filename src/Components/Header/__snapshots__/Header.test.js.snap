@@ -5,33 +5,39 @@ exports[`Header Component renders Header component without issues 1`] = `
   className="header"
 >
   <div
-    className="container_logo"
-  >
-    <NavLink
-      to="/articles"
-    >
-      <Logo />
-    </NavLink>
-  </div>
-  <div
-    className="navbar_links"
+    className="container_header_content"
   >
     <div
-      className="container_header_logged_out_links"
+      className="container_logo"
     >
       <NavLink
-        className="navbar_link_login"
-        role="navigation"
-        to="/login"
+        to="/articles"
       >
-        Login
+        <Logo
+          className="top_header_logo"
+        />
       </NavLink>
-      <NavLink
-        className="navbar_link_signup"
-        to="/signup"
+    </div>
+    <div
+      className="navbar_links"
+    >
+      <div
+        className="container_header_logged_out_links"
       >
-        Sign Up
-      </NavLink>
+        <NavLink
+          className="navbar_link_login"
+          role="navigation"
+          to="/login"
+        >
+          Login
+        </NavLink>
+        <NavLink
+          className="navbar_link_signup"
+          to="/signup"
+        >
+          Sign Up
+        </NavLink>
+      </div>
     </div>
   </div>
 </div>
