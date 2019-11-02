@@ -7,7 +7,7 @@ import ArticleContext from "../../Context/ArticleContext";
 import { DateFormatter } from "../Utils/Utils";
 import PropTypes from "prop-types";
 import "./Comment.css";
-// needs a context?
+
 class Comment extends Component {
   static contextType = ArticleContext;
   constructor(props) {
