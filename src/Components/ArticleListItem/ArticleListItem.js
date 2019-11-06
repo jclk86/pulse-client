@@ -27,7 +27,7 @@ class ArticleListItem extends Component {
 
   ellipsify(string) {
     if (string.length > 140) {
-      return string.substring(0, 200) + "...";
+      return string.substring(0, 220) + "...";
     } else {
       return string;
     }

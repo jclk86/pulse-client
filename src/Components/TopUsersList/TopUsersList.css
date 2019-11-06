@@ -24,7 +24,7 @@
 }
 
 .container_top_user_username {
-  width: 50%;
+  width: 30%;
   text-align: left;
 }
 
@@ -42,6 +42,7 @@
 
 .container_top_user_image {
   width: 25%;
+  margin-left: 35px;
 }
 
 .top_user_image {
@@ -50,14 +51,14 @@
   object-fit: cover;
   display: block;
   margin-left: auto;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
 .container_top_user_chatbox {
-  width: 25%;
+  width: 20%;
 }
 
 .top_user_chatbox {
   width: 20px;
-  margin-right: auto;
+  margin-right: 150px;
 }
