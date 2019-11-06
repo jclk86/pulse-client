@@ -53,6 +53,7 @@ class LoginForm extends Component {
 
   render() {
     const { error, username, password } = this.state;
+    console.log(error);
     return (
       <div className="container_login_page">
         <div className="container_login_form mobile_view_bg_login_page">
@@ -61,7 +62,7 @@ class LoginForm extends Component {
               <Logo id="logo_login"></Logo>
             </div>
             <div className="container_LoginForm_username">
-              <label htmlFor="label__username" className="label_login">
+              <label htmlFor="label__username" id="label_login_username">
                 Username
               </label>
               <Input
@@ -74,7 +75,7 @@ class LoginForm extends Component {
               )}
             </div>
             <div className="container_LoginForm_password">
-              <label htmlFor="LoginForm_password" className="label_login">
+              <label htmlFor="LoginForm_password" id="label_login_password">
                 Password
               </label>
               <Input
@@ -90,7 +91,7 @@ class LoginForm extends Component {
             </div>
 
             <div className="container_login_register">
-              <p className="message_redirect">
+              <p id="message_redirect">
                 Not a member?{" "}
                 <NavLink
                   to="/registration"

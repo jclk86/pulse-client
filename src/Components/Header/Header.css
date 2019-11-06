@@ -1,14 +1,18 @@
 .header {
   width: 100%;
-  background-color: rgb(229, 226, 226);
+  background-color: rgba(0, 0, 0, 0.2);
   margin-bottom: 70px;
 }
 
 .header_lights_off {
   width: 100%;
-  background-color: rgb(46, 42, 42);
+  background-color: rgb(36, 36, 36, 0.4);
   margin-bottom: 70px;
   margin-right: 5px;
+}
+
+#lights_off_text {
+  color: white;
 }
 
 .container_header_content {

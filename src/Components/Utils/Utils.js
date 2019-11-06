@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/travelist_logo.png";
+import logoWhite from "../../images/travelist_logo_white.png";
 import lightsOff from "../../images/lightsOff.png";
 import TokenService from "../../Services/token-service";
 import "./Utils.css";
@@ -16,6 +17,17 @@ export function Logo({ className, ...props }) {
   );
 }
 
+export function LogoWhite({ className, ...props }) {
+  return (
+    <img
+      src={logoWhite}
+      alt="logo-white"
+      className={["LogoWhite", className].join(" ")}
+      {...props}
+    ></img>
+  );
+}
+
 export function Moon({ className, ...props }) {
   return (
     <img
@@ -24,15 +36,6 @@ export function Moon({ className, ...props }) {
       className={["Moon", className].join(" ")}
       {...props}
     />
-  );
-}
-
-export function BackgroundWaterfall({ className, ...props }) {
-  return (
-    <div
-      className={["BackgroundWaterfall", className].join(" ")}
-      {...props}
-    ></div>
   );
 }
 
@@ -126,4 +129,29 @@ export function renderCategories(categoriesList) {
       {category.name}
     </option>
   ));
+}
+
+export function sortByFrequencyAndRemoveDuplicates(array) {
+  let frequency = {},
+    value;
+
+  for (let i = 0; i < array.length; i++) {
+    value = array[i];
+    if (value in frequency) {
+      frequency[value]++;
+    } else {
+      frequency[value] = 1;
+    }
+  }
+
+  let uniques = [];
+  for (value in frequency) {
+    uniques.push(value);
+  }
+
+  function compareFrequency(a, b) {
+    return frequency[b] - frequency[a];
+  }
+
+  return uniques.sort(compareFrequency);
 }

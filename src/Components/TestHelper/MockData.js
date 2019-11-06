@@ -30,6 +30,29 @@ export const mockComment = {
   }
 };
 
+export const mockComments = [
+  {
+    id: 1,
+    content: "test comment content",
+    date_created: "2019-10-14T21:49:20.570Z",
+    article_id: 1,
+    user: {
+      id: 1,
+      username: mockArticle.author.username
+    }
+  },
+  {
+    id: 2,
+    content: "second test comment",
+    date_created: "2019-10-14T21:49:20.570Z",
+    article_id: 2,
+    user: {
+      id: 2,
+      username: mockArticle.author.username
+    }
+  }
+];
+
 export const mockUsers = [
   {
     username: "Pop123",

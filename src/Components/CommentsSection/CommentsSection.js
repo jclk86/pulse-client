@@ -7,12 +7,18 @@ import "./CommentsSection.css";
 class CommentsSection extends Component {
   renderComments = comments => {
     return comments.map(comment => {
-      return <Comment comment={comment} key={comment.id}></Comment>;
+      return (
+        <Comment
+          comment={comment}
+          key={comment.id}
+          lightsOff={this.props.lightsOff}
+        ></Comment>
+      );
     });
   };
 
   render() {
-    const { comments } = this.props;
+    const { comments, lightOff } = this.props;
 
     return (
       <div className="container_comments">
@@ -33,7 +39,8 @@ CommentsSection.propTypes = {
     PropTypes.shape({
       comment: PropTypes.string
     })
-  )
+  ),
+  lightsOff: PropTypes.bool
 };
 
 export default withRouter(CommentsSection);

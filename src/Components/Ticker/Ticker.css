@@ -6,10 +6,12 @@
     transform: translate3d(-100%, 0, 0);
   }
 }
+
 .tcontainer {
   width: 100%;
   overflow: hidden;
 }
+
 .ticker-wrap {
   width: 100%;
   padding-left: 100%;
@@ -17,6 +19,15 @@
   margin-bottom: 30px;
   margin-top: 20px;
 }
+
+.ticker-wrap-lights-off {
+  width: 100%;
+  padding-left: 100%;
+  background-color: white;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
 .ticker-move {
   display: inline-block;
   white-space: nowrap;
@@ -29,9 +40,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .ticker-move:hover {
   animation-play-state: paused;
 }
+
 .ticker-item {
   display: inline-block;
   padding: 0 2rem;
@@ -42,6 +55,13 @@
   text-decoration: none;
   font-weight: bold;
   color: white;
+  font-size: 24px;
+}
+
+.ticker_links_lights_off {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
   font-size: 24px;
 }
 

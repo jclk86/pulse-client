@@ -16,9 +16,11 @@ import EditUserPage from "./Routes/EditUserPage/EditUserPage";
 import UserProfilePage from "./Routes/UserProfilePage/UserProfilePage";
 import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
 import PrivateOnlyRoute from "./Components/Utils/PrivateOnlyRoute";
+import ArticleListContext from "./Context/ArticleListContext";
 
 class App extends Component {
-  state = { hasError: false, lightsOff: true };
+  static contextType = ArticleListContext;
+  state = { hasError: false };
 
   static getDerivedStateFromError(error) {
     console.error(error);
@@ -47,16 +49,12 @@ class App extends Component {
     this.forceUpdate();
   };
 
-  toggleLights = () => {
-    this.setState({ lightsOff: !this.state.lightsOff });
-    console.log(this.state.lightsOff);
-  };
-
   render() {
     const currentPath = window.location.pathname;
+    const { lightsOff } = this.context;
     return (
       <div
-        className={`App + ${this.state.lightsOff ? "App" : "App_lights_off"}`}
+        className={`App + ${lightsOff ? "App_lights_on" : "App_lights_off"}`}
       >
         <header className="App-header">
           {!currentPath.includes("login") &&
@@ -88,7 +86,7 @@ class App extends Component {
           <Route
             exact
             path={"/articles/:article_id"}
-            component={ArticlePage}
+            render={props => <ArticlePage lightsOff={lightsOff}></ArticlePage>}
           ></Route>
           <PrivateOnlyRoute
             exact

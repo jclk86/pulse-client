@@ -1,0 +1,63 @@
+.top_users_list {
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.top_users_list_item {
+  list-style: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.top_users_list_item:hover {
+  background-color: rgba(109, 108, 108, 0.2);
+}
+
+.top_users_list_item_lights_off:hover {
+  background-color: rgba(109, 108, 108, 0.2);
+}
+
+.container_top_user_username {
+  width: 50%;
+  text-align: left;
+}
+
+.top_users_link {
+  text-decoration: none;
+  color: black;
+  word-wrap: break-word;
+}
+
+.top_users_link_lights_off {
+  text-decoration: none;
+  color: white;
+  word-wrap: break-word;
+}
+
+.container_top_user_image {
+  width: 25%;
+}
+
+.top_user_image {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.container_top_user_chatbox {
+  width: 25%;
+}
+
+.top_user_chatbox {
+  width: 20px;
+  margin-right: auto;
+}

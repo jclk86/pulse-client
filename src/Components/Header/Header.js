@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Logo, Moon } from "../Utils/Utils";
+import { Logo, LogoWhite, Moon } from "../Utils/Utils";
 import TokenService from "../../Services/token-service";
 import IdleService from "../../Services/idle-service";
 import "./Header.css";
 import PropTypes from "prop-types";
+import ArticleListContext from "../../Context/ArticleListContext";
 
 class Header extends Component {
+  static contextType = ArticleListContext;
   static defaultProps = () => {};
 
   handleLogoutClick = () => {
@@ -16,20 +18,21 @@ class Header extends Component {
   };
 
   onMoonClick = () => {
-    this.props.toggleLights();
+    this.context.toggleLights();
   };
 
   render() {
+    const { lightsOff } = this.context;
     return (
-      <div
-        className={`header ${
-          this.props.lightsOff ? "header" : "header_lights_off"
-        }`}
-      >
+      <div className={`header ${lightsOff ? "" : "header_lights_off"}`}>
         <div className="container_header_content">
           <div className="container_logo">
             <NavLink to="/articles">
-              <Logo className="top_header_logo"></Logo>
+              {lightsOff ? (
+                <LogoWhite className="top_header_logo"></LogoWhite>
+              ) : (
+                <Logo className="top_header_logo"></Logo>
+              )}
             </NavLink>
           </div>
 
@@ -43,6 +46,7 @@ class Header extends Component {
                   to="/account"
                   role="navigation"
                   className="navbar_link_account"
+                  id={`${lightsOff ? "" : "lights_off_text"}`}
                 >
                   My Account
                 </NavLink>
@@ -51,6 +55,7 @@ class Header extends Component {
                   role="navigation"
                   onClick={this.handleLogoutClick}
                   className="navbar_link_login"
+                  id={`${lightsOff ? "" : "lights_off_text"}`}
                 >
                   Logout
                 </NavLink>
@@ -61,10 +66,15 @@ class Header extends Component {
                   to="/login"
                   role="navigation"
                   className="navbar_link_login"
+                  id={`${lightsOff ? "" : "lights_off_text"}`}
                 >
                   Login
                 </NavLink>
-                <NavLink to="/signup" className="navbar_link_signup">
+                <NavLink
+                  to="/signup"
+                  className="navbar_link_signup"
+                  id={`${lightsOff ? "" : "lights_off_text"}`}
+                >
                   Sign Up
                 </NavLink>
               </div>

@@ -184,111 +184,219 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                 className="container_article_list_item"
               >
                 <div
-                  className="container_article_preview"
+                  className="container_article_preview +  + article_list_item_lightsOff"
                 >
-                  <div
-                    className="container_vote_arrows"
+                  <NavLink
+                    role="navigation"
+                    to="/articles/1"
                   >
-                    <div
-                      className="container_arrow_up"
+                    <Link
+                      aria-current={null}
+                      role="navigation"
+                      to={
+                        Object {
+                          "hash": "",
+                          "pathname": "/articles/1",
+                          "search": "",
+                          "state": null,
+                        }
+                      }
                     >
-                      <span
-                        className="voting_request_error"
-                      />
-                      <div
-                        className="arrow_up"
-                        onClick={[Function]}
-                      />
-                    </div>
-                    <div
-                      className="container_vote_count"
-                    >
-                      <p
-                        className="vote_count"
+                      <LinkAnchor
+                        aria-current={null}
+                        href="/articles/1"
+                        navigate={[Function]}
+                        role="navigation"
                       >
-                        0
-                      </p>
-                    </div>
-                    <div
-                      className="container_arrow_down"
-                    >
-                      <div
-                        className="arrow_down"
-                        onClick={[Function]}
-                      />
-                    </div>
-                  </div>
+                        <a
+                          aria-current={null}
+                          href="/articles/1"
+                          onClick={[Function]}
+                          role="navigation"
+                        >
+                          <div
+                            className="container_article_list_item_image hide_image"
+                          >
+                            <img
+                              alt="test article one"
+                              className="article_list_item_image"
+                              src="undefined"
+                            />
+                          </div>
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </NavLink>
                   <div
                     className="container_article_text_preview"
                   >
-                    <NavLink
-                      className="article_list_item_title_link"
-                      role="navigation"
-                      to="/articles/1"
+                    <div
+                      className="container_article_list_item_info"
                     >
-                      <Link
-                        aria-current={null}
+                      <NavLink
                         className="article_list_item_title_link"
                         role="navigation"
-                        to={
-                          Object {
-                            "hash": "",
-                            "pathname": "/articles/1",
-                            "search": "",
-                            "state": null,
-                          }
-                        }
+                        to="/articles/1"
                       >
-                        <LinkAnchor
+                        <Link
                           aria-current={null}
                           className="article_list_item_title_link"
-                          href="/articles/1"
-                          navigate={[Function]}
                           role="navigation"
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/articles/1",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
                         >
-                          <a
+                          <LinkAnchor
                             aria-current={null}
                             className="article_list_item_title_link"
                             href="/articles/1"
-                            onClick={[Function]}
+                            navigate={[Function]}
                             role="navigation"
                           >
-                             
-                            <h4
-                              className="article_list_item_title"
+                            <a
+                              aria-current={null}
+                              className="article_list_item_title_link"
+                              href="/articles/1"
+                              onClick={[Function]}
+                              role="navigation"
                             >
-                              test article one
-                            </h4>
-                             
-                          </a>
-                        </LinkAnchor>
-                      </Link>
-                    </NavLink>
-                    <p>
-                      October 14, 2019
-                       
-                    </p>
-                    <p>
-                      test content
-                    </p>
-                    <p
-                      className="article_info"
-                    >
-                      <span>
-                        0
-                         comments
-                      </span>
-                      <span>
-                        /
-                        News
-                        /
-                      </span>
-                      <span>
-                        by
-                      </span>
-                       
-                      Pop123
-                    </p>
+                               
+                              <h4
+                                className="article_list_item_title + lightsOff_text"
+                              >
+                                test article one
+                              </h4>
+                               
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
+                      <p
+                        className="preview_text"
+                      >
+                        test content
+                      </p>
+                      <div
+                        className="container_article_attributes"
+                      >
+                        <div
+                          className="article_attributes"
+                        >
+                          <div
+                            className="container_vote_count"
+                          >
+                            <p
+                              className="vote_count"
+                            >
+                              <img
+                                alt="vote up"
+                                className="thumbs_up"
+                                onClick={[Function]}
+                                src="thumbs-up.png"
+                              />
+                              0
+                              <img
+                                alt="vote up"
+                                className="thumbs_down"
+                                onClick={[Function]}
+                                src="thumbs-down.png"
+                              />
+                            </p>
+                          </div>
+                          <div
+                            className="voting_request_error"
+                          />
+                          <span>
+                            0
+                             comments
+                          </span>
+                          <span>
+                            /
+                            <NavLink
+                              className="article_attributes_category"
+                              to="/articles/categories/News"
+                            >
+                              <Link
+                                aria-current={null}
+                                className="article_attributes_category"
+                                to={
+                                  Object {
+                                    "hash": "",
+                                    "pathname": "/articles/categories/News",
+                                    "search": "",
+                                    "state": null,
+                                  }
+                                }
+                              >
+                                <LinkAnchor
+                                  aria-current={null}
+                                  className="article_attributes_category"
+                                  href="/articles/categories/News"
+                                  navigate={[Function]}
+                                >
+                                  <a
+                                    aria-current={null}
+                                    className="article_attributes_category"
+                                    href="/articles/categories/News"
+                                    onClick={[Function]}
+                                  >
+                                    News
+                                  </a>
+                                </LinkAnchor>
+                              </Link>
+                            </NavLink>
+                            /
+                          </span>
+                          <span>
+                            by
+                          </span>
+                           
+                          <NavLink
+                            className="article_attributes_username"
+                            to="/profile/Pop123"
+                          >
+                            <Link
+                              aria-current={null}
+                              className="article_attributes_username"
+                              to={
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/profile/Pop123",
+                                  "search": "",
+                                  "state": null,
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                aria-current={null}
+                                className="article_attributes_username"
+                                href="/profile/Pop123"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  aria-current={null}
+                                  className="article_attributes_username"
+                                  href="/profile/Pop123"
+                                  onClick={[Function]}
+                                >
+                                  Pop123
+                                   
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                          </NavLink>
+                          <span>
+                            on 
+                            October 14, 2019
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -363,111 +471,219 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                 className="container_article_list_item"
               >
                 <div
-                  className="container_article_preview"
+                  className="container_article_preview +  + article_list_item_lightsOff"
                 >
-                  <div
-                    className="container_vote_arrows"
+                  <NavLink
+                    role="navigation"
+                    to="/articles/2"
                   >
-                    <div
-                      className="container_arrow_up"
+                    <Link
+                      aria-current={null}
+                      role="navigation"
+                      to={
+                        Object {
+                          "hash": "",
+                          "pathname": "/articles/2",
+                          "search": "",
+                          "state": null,
+                        }
+                      }
                     >
-                      <span
-                        className="voting_request_error"
-                      />
-                      <div
-                        className="arrow_up"
-                        onClick={[Function]}
-                      />
-                    </div>
-                    <div
-                      className="container_vote_count"
-                    >
-                      <p
-                        className="vote_count"
+                      <LinkAnchor
+                        aria-current={null}
+                        href="/articles/2"
+                        navigate={[Function]}
+                        role="navigation"
                       >
-                        0
-                      </p>
-                    </div>
-                    <div
-                      className="container_arrow_down"
-                    >
-                      <div
-                        className="arrow_down"
-                        onClick={[Function]}
-                      />
-                    </div>
-                  </div>
+                        <a
+                          aria-current={null}
+                          href="/articles/2"
+                          onClick={[Function]}
+                          role="navigation"
+                        >
+                          <div
+                            className="container_article_list_item_image hide_image"
+                          >
+                            <img
+                              alt="test article two"
+                              className="article_list_item_image"
+                              src="undefined"
+                            />
+                          </div>
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </NavLink>
                   <div
                     className="container_article_text_preview"
                   >
-                    <NavLink
-                      className="article_list_item_title_link"
-                      role="navigation"
-                      to="/articles/2"
+                    <div
+                      className="container_article_list_item_info"
                     >
-                      <Link
-                        aria-current={null}
+                      <NavLink
                         className="article_list_item_title_link"
                         role="navigation"
-                        to={
-                          Object {
-                            "hash": "",
-                            "pathname": "/articles/2",
-                            "search": "",
-                            "state": null,
-                          }
-                        }
+                        to="/articles/2"
                       >
-                        <LinkAnchor
+                        <Link
                           aria-current={null}
                           className="article_list_item_title_link"
-                          href="/articles/2"
-                          navigate={[Function]}
                           role="navigation"
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/articles/2",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
                         >
-                          <a
+                          <LinkAnchor
                             aria-current={null}
                             className="article_list_item_title_link"
                             href="/articles/2"
-                            onClick={[Function]}
+                            navigate={[Function]}
                             role="navigation"
                           >
-                             
-                            <h4
-                              className="article_list_item_title"
+                            <a
+                              aria-current={null}
+                              className="article_list_item_title_link"
+                              href="/articles/2"
+                              onClick={[Function]}
+                              role="navigation"
                             >
-                              test article two
-                            </h4>
-                             
-                          </a>
-                        </LinkAnchor>
-                      </Link>
-                    </NavLink>
-                    <p>
-                      October 14, 2019
-                       
-                    </p>
-                    <p>
-                      test content
-                    </p>
-                    <p
-                      className="article_info"
-                    >
-                      <span>
-                        0
-                         comments
-                      </span>
-                      <span>
-                        /
-                        News
-                        /
-                      </span>
-                      <span>
-                        by
-                      </span>
-                       
-                      testuser2
-                    </p>
+                               
+                              <h4
+                                className="article_list_item_title + lightsOff_text"
+                              >
+                                test article two
+                              </h4>
+                               
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
+                      <p
+                        className="preview_text"
+                      >
+                        test content
+                      </p>
+                      <div
+                        className="container_article_attributes"
+                      >
+                        <div
+                          className="article_attributes"
+                        >
+                          <div
+                            className="container_vote_count"
+                          >
+                            <p
+                              className="vote_count"
+                            >
+                              <img
+                                alt="vote up"
+                                className="thumbs_up"
+                                onClick={[Function]}
+                                src="thumbs-up.png"
+                              />
+                              0
+                              <img
+                                alt="vote up"
+                                className="thumbs_down"
+                                onClick={[Function]}
+                                src="thumbs-down.png"
+                              />
+                            </p>
+                          </div>
+                          <div
+                            className="voting_request_error"
+                          />
+                          <span>
+                            0
+                             comments
+                          </span>
+                          <span>
+                            /
+                            <NavLink
+                              className="article_attributes_category"
+                              to="/articles/categories/News"
+                            >
+                              <Link
+                                aria-current={null}
+                                className="article_attributes_category"
+                                to={
+                                  Object {
+                                    "hash": "",
+                                    "pathname": "/articles/categories/News",
+                                    "search": "",
+                                    "state": null,
+                                  }
+                                }
+                              >
+                                <LinkAnchor
+                                  aria-current={null}
+                                  className="article_attributes_category"
+                                  href="/articles/categories/News"
+                                  navigate={[Function]}
+                                >
+                                  <a
+                                    aria-current={null}
+                                    className="article_attributes_category"
+                                    href="/articles/categories/News"
+                                    onClick={[Function]}
+                                  >
+                                    News
+                                  </a>
+                                </LinkAnchor>
+                              </Link>
+                            </NavLink>
+                            /
+                          </span>
+                          <span>
+                            by
+                          </span>
+                           
+                          <NavLink
+                            className="article_attributes_username"
+                            to="/profile/testuser2"
+                          >
+                            <Link
+                              aria-current={null}
+                              className="article_attributes_username"
+                              to={
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/profile/testuser2",
+                                  "search": "",
+                                  "state": null,
+                                }
+                              }
+                            >
+                              <LinkAnchor
+                                aria-current={null}
+                                className="article_attributes_username"
+                                href="/profile/testuser2"
+                                navigate={[Function]}
+                              >
+                                <a
+                                  aria-current={null}
+                                  className="article_attributes_username"
+                                  href="/profile/testuser2"
+                                  onClick={[Function]}
+                                >
+                                  testuser2
+                                   
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                          </NavLink>
+                          <span>
+                            on 
+                            October 14, 2019
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

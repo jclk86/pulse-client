@@ -13,6 +13,8 @@ import CategoriesList from "../../Components/CategoriesList/CategoriesList";
 import ArticlesList from "../../Components/ArticlesList/ArticlesList";
 import DropDownMenu from "../../Components/DropDownMenu/DropDownMenu";
 import Ticker from "../../Components/Ticker/Ticker";
+import TopUsersList from "../../Components/TopUsersList/TopUsersList";
+import flash from "../../images/flash.png";
 import "./ArticleListPage.css";
 
 class ArticleListPage extends Component {
@@ -44,7 +46,7 @@ class ArticleListPage extends Component {
 
   render() {
     const currentPath = window.location.pathname;
-    const { articleList, categoriesList, votes } = this.context;
+    const { articleList, categoriesList, votes, lightsOff } = this.context;
     const { category_name } = this.props.match.params;
     const articlesForCategory = this.getArticlesForCategory(
       articleList,
@@ -80,18 +82,35 @@ class ArticleListPage extends Component {
             <DropDownMenu categories={categoriesList}></DropDownMenu>
           </div>
           <div className="container_topbar_create_btn">
-            <CreatePostButton>CREATE POST</CreatePostButton>
+            <CreatePostButton className="create_post_btn_bg">
+              CREATE POST
+            </CreatePostButton>
           </div>
-          <div className="container_search_box"></div>
         </div>
         <div className="flex_container">
+          <div
+            className={`container_top_users_list hide_top_users_list + ${
+              lightsOff ? "lights_on_bg" : "container_top_users_list_lights_off"
+            }`}
+          >
+            <h4 className="top_users_title">
+              <img src={flash} className="flash_icon" alt="flash icon"></img>Top
+              Commenters
+              <img src={flash} className="flash_icon" alt="flash icon"></img>
+            </h4>
+            <TopUsersList></TopUsersList>
+          </div>
           <div className="container_articles_section">
             <ArticlesList
               sortedArticles={articlesSortedByDateOrVote}
               votes={votes}
             ></ArticlesList>
           </div>
-          <div className="right_sidebar_menu hide_sidebar_menu">
+          <div
+            className={`right_sidebar_menu hide_sidebar_menu + ${
+              lightsOff ? "lights_on_bg" : "lights_off_bg_shadow"
+            }`}
+          >
             <SearchBox
               placeholder="type here to search"
               name="search filter"
@@ -99,7 +118,9 @@ class ArticleListPage extends Component {
               id="desktop_view_search_box"
             ></SearchBox>
             <div className="container_sidebar_create_post_btn">
-              <CreatePostButton>CREATE POST</CreatePostButton>
+              <CreatePostButton className="create_post_btn_bg">
+                CREATE POST
+              </CreatePostButton>
             </div>
             <CategoriesList categories={categoriesList}></CategoriesList>
           </div>

@@ -5,7 +5,7 @@ exports[`Ticker Component renders Ticker component without issues 1`] = `
   className="tcontainer"
 >
   <div
-    className="ticker-wrap"
+    className="ticker-wrap + ticker-wrap-lights-off"
   >
     <div
       className="ticker-move"

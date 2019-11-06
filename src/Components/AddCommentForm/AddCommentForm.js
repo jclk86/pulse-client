@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
+import {
+  ValidationError,
+  validateContent
+} from "../ValidationError/ValidationError";
 import PropTypes from "prop-types";
 import "./AddCommentForm.css";
 
@@ -34,7 +38,14 @@ class AddCommentForm extends Component {
         this.props.history.push(`/articles/${article_id}`);
       });
   };
+
+  isFormValid = () => {
+    const { comment } = this.state;
+    return comment.value;
+  };
   render() {
+    const { comment } = this.state;
+    const isValid = this.isFormValid();
     return (
       <form
         className="AddCommentForm"
@@ -54,7 +65,14 @@ class AddCommentForm extends Component {
           onChange={e => this.updateComment(e.target.value)}
           value={this.state.comment.value}
         ></textarea>
-        <button type="submit" className="AddCommentForm_submit_btn">
+        {comment.touched && (
+          <ValidationError message={validateContent(comment.value)} />
+        )}
+        <button
+          type="submit"
+          className="AddCommentForm_submit_btn"
+          disabled={!isValid}
+        >
           Submit
         </button>
       </form>

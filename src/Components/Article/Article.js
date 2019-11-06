@@ -24,6 +24,7 @@ class Article extends Component {
         </div>
         <h2 className="article_title">{article.title}</h2>
         <p className="article_date">{DateFormatter(article.date_created)}</p>
+
         <p className="article_author">
           <span>By</span>{" "}
           <NavLink

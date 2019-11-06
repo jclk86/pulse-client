@@ -3,6 +3,12 @@
   max-width: 800px;
 }
 
+.comment_username_link {
+  text-decoration: none;
+  color: rgb(51, 160, 255);
+  font-weight: bold;
+}
+
 .container_comment_content {
   border: 1px solid gray;
   margin-top: 10px;
@@ -11,6 +17,10 @@
 
 .comment_content {
   font-size: 20px;
+}
+
+.lights_off_comments_content {
+  background-color: rgb(59, 59, 59);
 }
 
 .comment_author_info {
@@ -37,4 +47,15 @@
 .delete_comment_btn {
   margin: 5px;
   min-width: 150px;
+  background-color: rgb(51, 160, 255);
+  border-radius: 3px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.edit_comment_btn:hover,
+.delete_comment_btn:hover {
+  cursor: pointer;
 }

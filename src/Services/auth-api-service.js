@@ -21,9 +21,6 @@ const AuthApiService = {
           AuthApiService.postRefreshToken();
         });
         return res;
-      })
-      .catch(err => {
-        console.error(err);
       });
   },
   postUser(user) {

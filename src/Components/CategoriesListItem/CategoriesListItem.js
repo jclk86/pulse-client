@@ -2,17 +2,22 @@ import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./CategoriesListItem.css";
+import ArticleListContext from "../../Context/ArticleListContext";
 
 class CategoriesListItem extends Component {
+  static contextType = ArticleListContext;
   static defaultProps = {
     category: {}
   };
   render() {
     const { category } = this.props;
+    const { lightsOff } = this.context;
     return (
       <NavLink
         to={`/articles/categories/${category.name}`}
-        className="category_link"
+        className={`category_link + ${
+          lightsOff ? "" : "lights_off_category_bg"
+        }`}
       >
         <li>{category.name}</li>
       </NavLink>

@@ -16,3 +16,7 @@
 .article_page_return_link:hover {
   text-decoration: underline;
 }
+
+.lights_off_return_btn {
+  color: white;
+}

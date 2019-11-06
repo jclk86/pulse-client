@@ -6,15 +6,13 @@
   display: none;
 }
 
-.container_registration_form_logo {
-}
-
 .logo_registration {
   width: 150px;
 }
 
-.header_registration_form {
+#header_registration_form {
   margin-top: 0;
+  color: black;
 }
 
 .RegistrationForm {
@@ -33,12 +31,18 @@
   margin: 10px auto;
 }
 
-.label_registration {
+#label_registration_fullname,
+#label_registration_username,
+#label_registration_password,
+#label_registration_email,
+#label_registration_profile,
+#label_registration_image_url {
   display: block;
   width: 100%;
   text-align: left;
   font-size: 16px;
   font-weight: bold;
+  color: black;
 }
 
 .RegistrationForm_email,
@@ -120,9 +124,12 @@
 
 .red {
   margin-top: 2px;
-  color: rgb(107, 46, 46);
+  color: rgb(255, 0, 0);
 }
 
+#message_redirect {
+  color: black;
+}
 @media only screen and (min-width: 1024px) {
   .container_registration_page {
     display: flex;

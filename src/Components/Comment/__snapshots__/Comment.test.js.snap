@@ -93,17 +93,50 @@ exports[`Comment Component renders Comment component without issues 1`] = `
           key="1"
         >
           <div
-            className="container_comment_content"
+            className="container_comment_content + lights_off_comments_content"
           >
             <p
               className="comment_author_info"
             >
+              <NavLink
+                className="comment_username_link"
+                to="/profile/Pop123"
+              >
+                <Link
+                  aria-current={null}
+                  className="comment_username_link"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/profile/Pop123",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
+                    aria-current={null}
+                    className="comment_username_link"
+                    href="/profile/Pop123"
+                    navigate={[Function]}
+                  >
+                    <a
+                      aria-current={null}
+                      className="comment_username_link"
+                      href="/profile/Pop123"
+                      onClick={[Function]}
+                    >
+                      <span>
+                        Pop123
+                         
+                      </span>
+                       
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
               <span>
-                Pop123
-                 on 
-              </span>
-               
-              <span>
+                on 
                 October 14, 2019
               </span>
             </p>

@@ -19,13 +19,15 @@
   margin: 10px auto;
 }
 
-.label_login {
+#label_login_username,
+#label_login_password {
   display: block;
   width: 100%;
   text-align: left;
   padding-bottom: 5px;
   font-size: 18px;
   font-weight: bold;
+  color: black;
 }
 
 .LoginForm_password,
@@ -73,8 +75,9 @@
   text-decoration: none;
 }
 
-.message_redirect {
+#message_redirect {
   font-weight: bold;
+  color: black;
 }
 
 .container_desktop_view_login_hero {
@@ -86,7 +89,7 @@
 
 .error {
   margin-top: 2px;
-  color: rgb(107, 46, 46);
+  color: rgb(255, 0, 0);
 }
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {

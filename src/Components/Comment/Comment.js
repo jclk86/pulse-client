@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import TokenService from "../../Services/token-service";
 import EditCommentForm from "../EditCommentForm/EditCommentForm";
 import CommentService from "../../Services/comment-api-service";
@@ -29,7 +29,7 @@ class Comment extends Component {
 
   render() {
     const token = TokenService.readJwtToken();
-    const { comment } = this.props;
+    const { comment, lightsOff } = this.props;
 
     return (
       <li className="list_comment_item" key={comment.id}>
@@ -39,10 +39,19 @@ class Comment extends Component {
             handleEditClick={this.handleEditClick}
           ></EditCommentForm>
         ) : (
-          <div className="container_comment_content">
+          <div
+            className={`container_comment_content + ${
+              lightsOff ? "" : "lights_off_comments_content"
+            }`}
+          >
             <p className="comment_author_info">
-              <span>{comment.user.username} on </span>{" "}
-              <span>{DateFormatter(comment.date_created)}</span>
+              <NavLink
+                to={`/profile/${comment.user.username}`}
+                className="comment_username_link"
+              >
+                <span>{comment.user.username} </span>{" "}
+              </NavLink>
+              <span>on {DateFormatter(comment.date_created)}</span>
             </p>
             <p className="comment_content">{comment.content}</p>
             {token.user_id === comment.user.id ? (
@@ -76,7 +85,8 @@ Comment.propTypes = {
     user: PropTypes.shape({
       id: PropTypes.number
     })
-  })
+  }),
+  lightsOff: PropTypes.bool
 };
 
 export default withRouter(Comment);

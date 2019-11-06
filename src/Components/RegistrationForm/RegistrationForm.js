@@ -116,11 +116,11 @@ class RegistrationForm extends Component {
         <div className="container_registration_form">
           <Form onSubmit={this.handleSubmit} className="RegistrationForm">
             <Logo className="logo_registration"></Logo>
-            <h2 className="header_registration_form">Registration</h2>
+            <h2 id="header_registration_form">Registration</h2>
             <div className="container_RegistrationForm_fullname">
               <label
                 htmlFor="RegistrationForm_fullname"
-                className="label_registration"
+                id="label_registration_fullname"
               >
                 Fullname
               </label>
@@ -137,7 +137,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_username">
               <label
                 htmlFor="RegistrationForm_username"
-                className="label_registration"
+                id="label_registration_username"
               >
                 Username
               </label>
@@ -154,7 +154,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_password">
               <label
                 htmlFor="RegistrationForm_password"
-                className="label_registration"
+                id="label_registration_password"
               >
                 Password
               </label>
@@ -172,7 +172,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_email">
               <label
                 htmlFor="RegistrationForm_email"
-                className="label_registration"
+                id="label_registration_email"
               >
                 Email
               </label>{" "}
@@ -189,7 +189,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_profile">
               <label
                 htmlFor="RegistrationForm_profile"
-                className="label_registration"
+                id="label_registration_profile"
               >
                 About Me
               </label>{" "}
@@ -206,7 +206,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_image_url">
               <label
                 htmlFor="RegistrationForm_image_url"
-                className="label_registration"
+                id="label_registration_image_url"
               >
                 Image Url
               </label>{" "}
@@ -228,7 +228,7 @@ class RegistrationForm extends Component {
               </button>
             </div>
             <div className="container_RegistrationForm_login_link">
-              <p className="message_redirect">
+              <p id="message_redirect">
                 Already a user?{" "}
                 <NavLink
                   to={"/login"}

@@ -43,8 +43,11 @@
   border: none;
   font-size: 16px;
   margin-bottom: 50px;
-  background-color: darkcyan;
+  background-color: rgb(51, 160, 255);
   padding: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .UserAccount_edit_btn:hover {

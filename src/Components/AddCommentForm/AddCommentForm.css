@@ -33,6 +33,10 @@
   min-width: 200px;
   padding: 6px;
   font-size: 16px;
+  background-color: rgb(51, 160, 255);
+  border: none;
+  color: white;
+  font-weight: bold;
 }
 
 .AddCommentForm_submit_btn:hover {

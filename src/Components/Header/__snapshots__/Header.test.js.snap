@@ -2,7 +2,7 @@
 
 exports[`Header Component renders Header component without issues 1`] = `
 <div
-  className="header"
+  className="header header_lights_off"
 >
   <div
     className="container_header_content"
@@ -22,10 +22,19 @@ exports[`Header Component renders Header component without issues 1`] = `
       className="navbar_links"
     >
       <div
+        className="container_moon"
+      >
+        <Moon
+          className="header_moon"
+          onClick={[Function]}
+        />
+      </div>
+      <div
         className="container_header_logged_out_links"
       >
         <NavLink
           className="navbar_link_login"
+          id="lights_off_text"
           role="navigation"
           to="/login"
         >
@@ -33,6 +42,7 @@ exports[`Header Component renders Header component without issues 1`] = `
         </NavLink>
         <NavLink
           className="navbar_link_signup"
+          id="lights_off_text"
           to="/signup"
         >
           Sign Up

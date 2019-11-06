@@ -6,6 +6,7 @@ const ArticleListContext = React.createContext({
   votes: [],
   comments: [],
   error: null,
+  lightsOff: false,
   setComments: () => {},
   addVote: () => {},
   deleteVote: () => {},
@@ -23,7 +24,12 @@ export class ArticleListProvider extends Component {
     categoriesList: [],
     comments: [],
     votes: [],
-    error: null
+    error: null,
+    lightsOff: false
+  };
+
+  toggleLights = () => {
+    this.setState({ lightsOff: !this.state.lightsOff });
   };
 
   setComments = comments => {
@@ -74,6 +80,7 @@ export class ArticleListProvider extends Component {
     const contextValue = {
       votes: this.state.votes,
       comments: this.state.comments,
+      lightsOff: this.state.lightsOff,
       deleteVote: this.deleteVote,
       addVote: this.addVote,
       setVotes: this.setVotes,
@@ -83,6 +90,7 @@ export class ArticleListProvider extends Component {
       setComments: this.setComments,
       setArticleList: this.setArticleList,
       setCategoriesList: this.setCategoriesList,
+      toggleLights: this.toggleLights,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError
