@@ -1,5 +1,5 @@
 .container_article_page_return_link {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: left;
   padding-left: 0;
@@ -11,6 +11,7 @@
   font-size: 20px;
   font-weight: bold;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 .article_page_return_link:hover {
@@ -19,4 +20,17 @@
 
 .lights_off_return_btn {
   color: white;
+}
+
+.container_ArticlePage {
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+.ArticlePage_lights_off {
+  background-color: rgb(0, 0, 0, 0.85);
+}
+
+.ArticlePage_lights_on {
+  background-color: rgb(215, 215, 215, 0.9);
 }

@@ -32,6 +32,14 @@ export class ArticleListProvider extends Component {
     this.setState({ lightsOff: !this.state.lightsOff });
   };
 
+  toggleLightOn = () => {
+    this.setState({ lightsOff: true });
+  };
+
+  toggleLightOff = () => {
+    this.setState({ lightsOff: false });
+  };
+
   setComments = comments => {
     this.setState({ comments });
   };
@@ -91,6 +99,8 @@ export class ArticleListProvider extends Component {
       setArticleList: this.setArticleList,
       setCategoriesList: this.setCategoriesList,
       toggleLights: this.toggleLights,
+      toggleLightOn: this.toggleLightOn,
+      toggleLightOff: this.toggleLightOff,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError

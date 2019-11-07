@@ -40,9 +40,7 @@ class Article extends Component {
         </p>
         <div className="article_content">
           {articleParagraphs &&
-            articleParagraphs.map((paragraph, i) => (
-              <p key={paragraph[i]}>{paragraph}</p>
-            ))}
+            articleParagraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
         </div>
         {token.user_id === article.author.id ? (
           <NavLink to={`/articles/${article.id}/edit_article`}>

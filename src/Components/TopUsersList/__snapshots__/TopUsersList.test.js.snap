@@ -1,59 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopUsersList Component renders TopUsersList component without issues 1`] = `
-<BrowserRouter>
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
-  >
-    <TopUsersList
-      comments={
-        Array [
-          Object {
-            "article_id": 1,
-            "content": "test comment content",
-            "date_created": "2019-10-14T21:49:20.570Z",
+  }
+>
+  <TopUsersList
+    comments={
+      Array [
+        Object {
+          "article_id": 1,
+          "content": "test comment content",
+          "date_created": "2019-10-14T21:49:20.570Z",
+          "id": 1,
+          "user": Object {
             "id": 1,
-            "user": Object {
-              "id": 1,
-              "username": "Pop123",
-            },
+            "username": "Pop123",
           },
-          Object {
-            "article_id": 2,
-            "content": "second test comment",
-            "date_created": "2019-10-14T21:49:20.570Z",
+        },
+        Object {
+          "article_id": 2,
+          "content": "second test comment",
+          "date_created": "2019-10-14T21:49:20.570Z",
+          "id": 2,
+          "user": Object {
             "id": 2,
-            "user": Object {
-              "id": 2,
-              "username": "Pop123",
-            },
+            "username": "Pop123",
           },
-        ]
-      }
-    >
-      <ul
-        className="top_users_list"
-      />
-    </TopUsersList>
-  </Router>
-</BrowserRouter>
+        },
+      ]
+    }
+  />
+</Router>
 `;

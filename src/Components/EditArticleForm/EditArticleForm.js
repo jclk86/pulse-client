@@ -111,10 +111,14 @@ class EditArticleForm extends Component {
   render() {
     const isValid = this.isFormValid();
     const { article_id } = this.props.match.params;
+    const { lightsOff } = this.props;
+
     const { title, image_url, content, category, categoriesList } = this.state;
     return (
       <Form
-        className="EditArticleForm"
+        className={`EditArticleForm + ${
+          lightsOff ? "EditArticleForm_lights_on" : "EditArticleForm_lights_off"
+        }`}
         onSubmit={event => this.handleSubmit(event)}
       >
         <div className="container_EditArticleForm_header">
@@ -124,7 +128,9 @@ class EditArticleForm extends Component {
           <Label
             htmlFor="EditArticleForm_article_title"
             className="label_edit_article_form"
-          ></Label>
+          >
+            Title
+          </Label>
           <Input
             value={title.value}
             placeholder="Top 5 Destinations for This Summer"
@@ -140,7 +146,9 @@ class EditArticleForm extends Component {
           <Label
             htmlFor="EditArticleForm_article_image_url"
             className="label_edit_article_form"
-          ></Label>
+          >
+            Image Url
+          </Label>
           <Input
             value={image_url.value}
             type="text"
@@ -153,7 +161,9 @@ class EditArticleForm extends Component {
         <Label
           htmlFor="EditArticleForm_article_content"
           className="label_edit_article_form"
-        ></Label>
+        >
+          Content
+        </Label>
         <div className="container_EditArticleForm_textarea">
           <Textarea
             value={content.value}

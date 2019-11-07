@@ -17,16 +17,6 @@ class UserAccount extends Component {
     const token = TokenService.readJwtToken();
     return (
       <div className="container_user_account">
-        <div className="container_return_link">
-          <NavLink
-            to="/articles"
-            role="navigation"
-            className="user_account_return_link"
-          >
-            {" "}
-            Return
-          </NavLink>
-        </div>
         <div className="container_UserAccount_profile">
           <div className="container_user_account_image">
             {" "}
@@ -38,7 +28,7 @@ class UserAccount extends Component {
           </div>
           <div className="container_user_account_info">
             <h1 className="user_account_header">{user.fullname}</h1>
-            <p>{user.profile}</p>
+            <p className="user_profile_text">{user.profile}</p>
           </div>
         </div>
         <div className="container_UserAccount_edit_btn">

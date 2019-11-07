@@ -78,12 +78,7 @@
 }
 
 .lights_on_bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../../images/paper.jpg") fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .lights_off_bg {

@@ -31,7 +31,7 @@ class TopUsersList extends Component {
           const userImage = imageLinks ? imageLinks.user.image_url : "";
           return (
             <li
-              key={user[i]}
+              key={i}
               className={`top_users_list_item + ${
                 lightsOff ? "" : "top_users_list_item_lights_off"
               }`}
@@ -47,7 +47,7 @@ class TopUsersList extends Component {
                 {" "}
                 <NavLink
                   to={`/profile/${user}`}
-                  key={user[i]}
+                  key={i}
                   className={`top_users_link + ${
                     lightsOff ? "" : "top_users_link_lights_off"
                   }`}

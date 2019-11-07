@@ -87,11 +87,13 @@ class AddArticleForm extends Component {
 
   render() {
     const { title, content, category } = this.state;
-    const { categoriesList } = this.context;
+    const { categoriesList, lightsOff } = this.context;
     const isValid = this.isFormValid();
     return (
       <Form
-        className="AddArticleForm"
+        className={`AddArticleForm + ${
+          lightsOff ? "AddArticleForm_lights_on" : "AddArticleForm_lights_off"
+        }`}
         onSubmit={event => this.handleSubmit(event)}
       >
         <div className="container_AddArticleForm_header">
@@ -102,7 +104,7 @@ class AddArticleForm extends Component {
             htmlFor="AddArticleForm_article_title"
             className="label_add_article_form"
           >
-            Title:
+            Title
           </Label>
           <input
             type="text"
@@ -120,7 +122,7 @@ class AddArticleForm extends Component {
             htmlFor="AddArticleForm_article_image_url"
             className="label_add_article_form"
           >
-            Image Url:
+            Image Url
           </Label>
           <input
             type="text"
@@ -134,7 +136,7 @@ class AddArticleForm extends Component {
           htmlFor="AddArticleForm_article_content"
           className="label_add_article_form"
         >
-          Share your thoughts:
+          Share your thoughts
         </Label>
         <div className="container_AddArticleForm_textarea">
           <Textarea

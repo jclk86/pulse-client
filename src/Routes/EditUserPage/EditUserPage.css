@@ -1,0 +1,13 @@
+.EditUserPage_lights_on {
+  background-image: linear-gradient(
+      rgba(220, 220, 220, 0.2),
+      rgba(220, 220, 220, 0.2)
+    ),
+    url("../../images/main_bg.jpeg");
+  border-radius: 5px;
+}
+
+.EditUserPage_lights_off {
+  background-color: rgb(0, 0, 0, 0.8);
+  border-radius: 5px;
+}

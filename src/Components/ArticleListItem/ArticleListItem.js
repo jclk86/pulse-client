@@ -92,6 +92,7 @@ class ArticleListItem extends Component {
                 <div className="article_attributes">
                   <div className="container_vote_count">
                     <p className="vote_count">
+                      <span>Vote Up </span>
                       <img
                         src={ThumbsUp}
                         alt="vote up"
@@ -107,6 +108,7 @@ class ArticleListItem extends Component {
                           this.handleClickVoteDown(votes, article.id, user_id)
                         }
                       ></img>
+                      <span> Vote Down</span>
                     </p>
                   </div>
                   <div className="voting_request_error">

@@ -1,0 +1,59 @@
+.container_UserProfilePage_lights_on {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgb(121, 121, 121);
+  border-radius: 5px;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.container_UserProfilePage_lights_off {
+  background-color: rgb(0, 0, 0, 0.8);
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 5px;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.container_user_profile_page_return_btn {
+  max-width: 1400px;
+  margin-bottom: 50px;
+}
+
+.user_profile_page_return_btn_lights_off {
+  display: block;
+  border: none;
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 20px;
+  background-color: inherit;
+  border: none;
+}
+
+.user_profile_page_return_btn_lights_on {
+  display: block;
+  border: none;
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 20px;
+  background-color: inherit;
+  border: none;
+}
+
+.user_profile_page_return_btn:focus {
+  outline: none;
+}
+
+.user_profile_page_return_btn_lights_off:active {
+  color: white;
+}
+
+.user_profile_page_return_btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

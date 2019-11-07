@@ -21,6 +21,14 @@ class Header extends Component {
     this.context.toggleLights();
   };
 
+  onLightClick = () => {
+    this.context.toggleLightOn();
+  };
+
+  onDarkClick = () => {
+    this.context.toggleLightOff();
+  };
+
   render() {
     const { lightsOff } = this.context;
     return (
@@ -29,9 +37,9 @@ class Header extends Component {
           <div className="container_logo">
             <NavLink to="/articles">
               {lightsOff ? (
-                <LogoWhite className="top_header_logo"></LogoWhite>
-              ) : (
                 <Logo className="top_header_logo"></Logo>
+              ) : (
+                <LogoWhite className="top_header_logo"></LogoWhite>
               )}
             </NavLink>
           </div>
@@ -48,7 +56,7 @@ class Header extends Component {
                   className="navbar_link_account"
                   id={`${lightsOff ? "" : "lights_off_text"}`}
                 >
-                  My Account
+                  Account
                 </NavLink>
                 <NavLink
                   to="/login"
@@ -79,6 +87,26 @@ class Header extends Component {
                 </NavLink>
               </div>
             )}
+            <div className="light_switch">
+              {lightsOff ? (
+                <div className="light_switch_off">
+                  <span onClick={this.onLightClick}>Light </span>|{" "}
+                  <span className="light_switch_on" onClick={this.onDarkClick}>
+                    Dark
+                  </span>
+                </div>
+              ) : (
+                <div className="light_switch_on">
+                  <span
+                    className="light_switch_off"
+                    onClick={this.onLightClick}
+                  >
+                    Light{" "}
+                  </span>
+                  | <span onClick={this.onDarkClick}>Dark</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

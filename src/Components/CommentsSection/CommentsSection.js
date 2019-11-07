@@ -18,7 +18,7 @@ class CommentsSection extends Component {
   };
 
   render() {
-    const { comments, lightOff } = this.props;
+    const { comments } = this.props;
 
     return (
       <div className="container_comments">
@@ -26,7 +26,7 @@ class CommentsSection extends Component {
           {comments.length ? (
             this.renderComments(comments)
           ) : (
-            <p>Add a comment!</p>
+            <label>Add a comment!</label>
           )}
         </ul>
       </div>

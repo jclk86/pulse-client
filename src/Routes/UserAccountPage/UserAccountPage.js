@@ -20,21 +20,45 @@ class UserAccountPage extends Component {
   };
 
   render() {
+    const { lightsOff } = this.context;
     const userArticles = this.getUserArticles();
-
     return (
-      <Section>
+      <Section
+        className={`${
+          lightsOff
+            ? "container_UserAccountPage_lights_on"
+            : "container_UserAccountPage_lights_off"
+        }`}
+      >
+        <div className="container_return_link">
+          <NavLink
+            to="/articles"
+            role="navigation"
+            className={`user_account_return_link + ${
+              lightsOff
+                ? "user_account_return_link_lights_on"
+                : "user_account_return_link_lights_off"
+            }`}
+          >
+            {" "}
+            Return
+          </NavLink>
+        </div>
         <UserAccount></UserAccount>
         <div className="container_user_articles">
           <h2>Your Posts</h2>
           <ul className="user_article_list">
-            {userArticles.map(article => (
-              <li key={article.author.id} className="user_article_list_item">
+            {userArticles.map((article, i) => (
+              <li key={i} className="user_article_list_item">
                 <NavLink
                   to={`/articles/${article.id}`}
-                  className="user_article_link"
+                  className={`${
+                    lightsOff
+                      ? "user_article_link_lights_on"
+                      : "user_article_link_lights_off"
+                  }`}
                 >
-                  <div className="user_article_title">{article.title}</div>
+                  <div id="user_article_title">{article.title}</div>
                   <div className="user_article_date">
                     {" "}
                     {DateFormatter(article.date_created)}

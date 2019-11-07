@@ -53,7 +53,6 @@ class LoginForm extends Component {
 
   render() {
     const { error, username, password } = this.state;
-    console.log(error);
     return (
       <div className="container_login_page">
         <div className="container_login_form mobile_view_bg_login_page">

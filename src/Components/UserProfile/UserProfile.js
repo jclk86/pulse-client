@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Button } from "../Utils/Utils";
 import UserApiService from "../../Services/user-api-service";
 import UserContext from "../../Context/UserContext";
 import "./UserProfile.css";
@@ -14,18 +13,8 @@ class UserProfile extends Component {
 
   render() {
     const { user } = this.context;
-
     return (
       <div className="container_user_profile">
-        <div className="container_home_btn">
-          <Button
-            role="navigation"
-            className="user_profile_home_btn"
-            onClick={this.props.history.goBack}
-          >
-            Return
-          </Button>
-        </div>
         <div className="container_user_profile_section">
           <div className="container_user_profile_image">
             <img

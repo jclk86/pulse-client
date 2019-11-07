@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ArticleContext from "../../Context/ArticleContext";
 import CommentService from "../../Services/comment-api-service";
+import {
+  ValidationError,
+  validateContent
+} from "../ValidationError/ValidationError";
 import "./EditCommentForm.css";
 import PropTypes from "prop-types";
 
@@ -55,7 +59,14 @@ class EditCommentForm extends Component {
     });
   };
 
+  isFormValid = () => {
+    const { content } = this.state;
+    return content.value;
+  };
+
   render() {
+    const { content } = this.state;
+    const isValid = this.isFormValid();
     return (
       <form
         className="EditCommentForm"
@@ -75,9 +86,25 @@ class EditCommentForm extends Component {
           onChange={e => this.updateContent(e.target.value)}
           value={this.state.content.value}
         ></textarea>
-        <button type="submit" className="EditCommentForm_submit_btn">
-          Edit
-        </button>
+        {content.touched && (
+          <ValidationError message={validateContent(content.value)} />
+        )}
+        <div className="container_EditCommentForm_btns">
+          <button
+            type="submit"
+            className="EditCommentForm_submit_btn"
+            disabled={!isValid}
+          >
+            Edit
+          </button>
+          <button
+            type="submit"
+            className="EditCommentForm_cancel_btn"
+            onClick={this.props.handleCancelClick}
+          >
+            cancel
+          </button>
+        </div>
       </form>
     );
   }

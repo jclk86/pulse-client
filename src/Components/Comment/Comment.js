@@ -21,6 +21,10 @@ class Comment extends Component {
     this.setState({ isEditing: !this.state.isEditing });
   };
 
+  handleCancelClick = () => {
+    this.setState({ isEditing: false });
+  };
+
   handleDeleteClick = comment_id => {
     CommentService.deleteComment(comment_id).then(() =>
       this.context.deleteComment(comment_id)
@@ -36,12 +40,13 @@ class Comment extends Component {
         {this.state.isEditing ? (
           <EditCommentForm
             comment={comment}
+            handleCancelClick={this.handleCancelClick}
             handleEditClick={this.handleEditClick}
           ></EditCommentForm>
         ) : (
           <div
             className={`container_comment_content + ${
-              lightsOff ? "" : "lights_off_comments_content"
+              lightsOff ? "" : "comments_content_lights_off"
             }`}
           >
             <p className="comment_author_info">

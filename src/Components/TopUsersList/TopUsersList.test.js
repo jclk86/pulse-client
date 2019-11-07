@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import AuthApiService from "../../Services/auth-api-service";
 import ArticleApiService from "../../Services/article-api-service";
@@ -20,7 +20,7 @@ describe(`TopUsersList Component`, () => {
   });
 
   it("renders TopUsersList component without issues", () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <BrowserRouter>
         <TopUsersList comments={mockComments}></TopUsersList>
       </BrowserRouter>

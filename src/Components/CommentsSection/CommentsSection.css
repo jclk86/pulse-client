@@ -2,3 +2,7 @@
   margin: 0 auto;
   padding-left: 0;
 }
+
+.label_add_comment {
+  font-weight: bold;
+}

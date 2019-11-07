@@ -74,8 +74,15 @@ class EditUserForm extends Component {
         this.setState({ error: res.error });
       });
   };
+
+  isFormValid = () => {
+    const { password, profile, image_url } = this.state;
+    return password.value && image_url.value && profile.value;
+  };
+
   render() {
     const { password, profile, image_url } = this.state;
+    const isValid = this.isFormValid();
     return (
       <Form onSubmit={this.handleSubmit} className="EditUserForm">
         <div className="container_EditUserForm_password">
@@ -136,7 +143,11 @@ class EditUserForm extends Component {
           >
             Cancel
           </button>
-          <button className="EditUserForm_submit_btn" type="submit">
+          <button
+            className="EditUserForm_submit_btn"
+            type="submit"
+            disabled={!isValid}
+          >
             Submit
           </button>
         </div>

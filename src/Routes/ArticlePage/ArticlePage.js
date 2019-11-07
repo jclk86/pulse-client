@@ -28,7 +28,11 @@ class ArticlePage extends Component {
     const { article_id } = this.props.match.params;
     const { lightsOff } = this.props;
     return (
-      <Section>
+      <Section
+        className={`container_ArticlePage + ${
+          lightsOff ? "ArticlePage_lights_on" : "ArticlePage_lights_off"
+        }`}
+      >
         <div className="container_article_page_return_link">
           <NavLink
             to="/articles"

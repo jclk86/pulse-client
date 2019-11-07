@@ -10,11 +10,8 @@
   margin: 0 auto;
   border-radius: 3px;
   width: 95%;
-  /* display: flex; */
-  /* justify-content: space-between; */
   box-shadow: 6px 6px 6px 1px rgb(15, 15, 15);
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../../images/paper.jpg") no-repeat center center fixed;
+  background-color: rgb(255, 255, 255, 0.9);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -30,7 +27,7 @@
 .article_list_item_image {
   width: 100%;
 }
-/* percentge is preventing size adjusting */
+
 .container_article_list_item_image {
   width: 100%;
   margin-left: 0;
@@ -44,6 +41,7 @@
 .article_list_item_title {
   margin-top: 10px;
   display: block;
+  margin-bottom: 5px;
 }
 
 .preview_text {
