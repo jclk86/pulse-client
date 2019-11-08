@@ -1,3 +1,7 @@
+.container_EditUserPage {
+  margin-bottom: 50px;
+}
+
 .EditUserPage_lights_on {
   background-image: linear-gradient(
       rgba(220, 220, 220, 0.2),

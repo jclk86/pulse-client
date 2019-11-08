@@ -14,7 +14,6 @@ class AddCommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article_id: this.props.article_id,
       comment: { value: "", touched: false }
     };
   }
@@ -25,17 +24,18 @@ class AddCommentForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { comment, article_id } = this.state;
+    const { comment } = this.state;
+
     const newComment = {
       content: comment.value,
-      article_id
+      article_id: this.props.article_id
     };
 
     CommentService.postComment(newComment)
       .then(this.context.addComment)
       .then(() => {
         this.setState({ comment: { value: "", touched: false } });
-        this.props.history.push(`/articles/${article_id}`);
+        this.props.history.push(`/articles/${this.props.article_id}`);
       });
   };
 

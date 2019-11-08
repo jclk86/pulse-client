@@ -131,6 +131,7 @@ export function renderCategories(categoriesList) {
   ));
 }
 
+// For top users list.
 export function sortByFrequencyAndRemoveDuplicates(array) {
   let frequency = {},
     value;

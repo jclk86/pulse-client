@@ -41,3 +41,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+.alert_text {
+  padding-bottom: 50px;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -21,6 +21,11 @@ class TopUsersList extends Component {
 
   render() {
     const { comments, lightsOff } = this.context;
+    // Top users list is based on how active they are commenting. Below totals
+    // user comments for top 10 users. Duplicates need to be removed because
+    // a user comments more than once and therefore in the array more than once. This counts up
+    // the frequency the names appear in array and places the total into an object to later be
+    // iterated through.
     const usersArray = comments.map(comment => comment.user.username);
     const topUsersList = sortByFrequencyAndRemoveDuplicates(usersArray);
     const topTenUsers = topUsersList.slice(0, 11);

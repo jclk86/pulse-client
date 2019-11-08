@@ -40,6 +40,7 @@ class EditArticleForm extends Component {
     };
   }
 
+  // Populates the edit form with current content
   componentDidMount() {
     const { article_id } = this.props.match.params;
     ArticleApiService.getArticleById(article_id)
@@ -91,6 +92,7 @@ class EditArticleForm extends Component {
     const updatedArticle = {
       author_id: token.user_id,
       title: title.value,
+      // Default image provided if no image.
       image_url: image_url.value
         ? image_url.value
         : "https://images.pexels.com/photos/1595/man-person-taking-photo-photographer.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -103,6 +105,7 @@ class EditArticleForm extends Component {
     });
   };
 
+  // Disables submit button if form is not filled out.
   isFormValid = () => {
     const { title, content, category } = this.state;
     return title.value && category.value && content.value;
@@ -112,7 +115,6 @@ class EditArticleForm extends Component {
     const isValid = this.isFormValid();
     const { article_id } = this.props.match.params;
     const { lightsOff } = this.props;
-
     const { title, image_url, content, category, categoriesList } = this.state;
     return (
       <Form

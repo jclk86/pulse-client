@@ -10,6 +10,7 @@ class Article extends Component {
   render() {
     const { article } = this.props;
     const token = TokenService.readJwtToken();
+    // Separates text into paragraphs.
     const articleParagraphs = article.content
       ? article.content.split(/\s\s+/)
       : null;

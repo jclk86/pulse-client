@@ -110,18 +110,20 @@
 
   .container_login_form {
     min-height: 100vh;
-    background-color: rgb(229, 226, 226);
+    background-color: rgb(211, 211, 211);
     width: 30%;
     padding-top: 40px;
   }
 
   .container_desktop_view_login_hero {
     color: white;
+    width: 80%;
+    padding-top: 250px;
   }
 
   .bg_desktop_view_login_image {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("../../images/friends.jpeg") no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../images/japan_night.jpeg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

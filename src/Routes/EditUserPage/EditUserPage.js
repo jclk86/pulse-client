@@ -13,7 +13,7 @@ class EditUserPage extends Component {
 
     return (
       <Section
-        className={`${
+        className={`container_EditUserPage + ${
           lightsOff ? "EditUserPage_lights_on" : "EditUserPage_lights_off"
         }`}
       >

@@ -131,6 +131,14 @@
   color: black;
 }
 @media only screen and (min-width: 1024px) {
+  .container_desktop_view_registration_hero {
+    display: block;
+    font-size: 30px;
+    padding-top: 250px;
+    width: 75%;
+    margin: 0 auto;
+  }
+
   .container_registration_page {
     display: flex;
     min-height: 100vh;
@@ -144,11 +152,19 @@
   .RegistrationForm {
     background-image: none;
     height: 100vh;
-    background-color: rgb(229, 226, 226);
+    background-color: rgb(211, 211, 211);
   }
 
   .bg_desktop_view_registration_page {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../images/celebration.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    overflow: hidden;
     width: 70%;
-    background-color: red;
   }
 }

@@ -1,3 +1,8 @@
+.ticker_title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 @keyframes ticker {
   0% {
     transform: translate3d(0, 0, 0);

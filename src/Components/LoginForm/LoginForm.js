@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Input, Logo } from "../Utils/Utils";
 import { withRouter, NavLink } from "react-router-dom";
-import "./LoginForm.css";
 import AuthApiService from "../../Services/auth-api-service";
 import TokenService from "../../Services/token-service";
 import {
@@ -9,6 +8,7 @@ import {
   validatePassword,
   ValidationError
 } from "../ValidationError/ValidationError";
+import "./LoginForm.css";
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -110,7 +110,9 @@ class LoginForm extends Component {
         <div className="bg_desktop_view_login_image">
           {" "}
           <div className="container_desktop_view_login_hero">
-            <h3>Explore. Discover. Share. The modern travelers' hub.</h3>
+            <h2>
+              Explore. Discover. Share. <br></br>The modern travelers' hub.
+            </h2>
           </div>
         </div>
       </div>

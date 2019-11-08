@@ -8,6 +8,7 @@ class RegistrationPage extends Component {
     }
   };
 
+  // User must sign in after registration completion.
   handleRegistrationSuccess = user => {
     const { history } = this.props;
     history.push("/login");

@@ -33,6 +33,7 @@ class ArticleListItem extends Component {
     }
   }
 
+  // Adds vote to article in DB.
   handleClickVoteUp(article_id) {
     this.context.clearError();
     VoteApiService.addVoteForArticle(article_id)
@@ -40,6 +41,7 @@ class ArticleListItem extends Component {
       .catch(this.context.setError);
   }
 
+  // Deletes vote from DB based on user id and article id.
   handleClickVoteDown(votes, article_id, user_id) {
     this.context.clearError();
     VoteApiService.deleteVote(article_id).catch(this.context.setError);
@@ -50,9 +52,12 @@ class ArticleListItem extends Component {
     const { article } = this.props;
     const { comments, votes, error, lightsOff } = this.context;
     const numOfComments = this.getTotalComments(article.id, comments);
+    // Shows beginning of article text.
     const previewText = this.ellipsify(article.content);
     const totalVotes = this.filterTotalVotes(article.id, votes);
+    // Assigns 0 to articles without votes, and assigns total vote to articles with votes.
     const numOfVotes = totalVotes.length ? totalVotes.length : 0;
+    // Signed-in user's id is used for voting identity.
     const token = TokenService.readJwtToken();
     const user_id = token.user_id;
     return (
@@ -92,7 +97,7 @@ class ArticleListItem extends Component {
                 <div className="article_attributes">
                   <div className="container_vote_count">
                     <p className="vote_count">
-                      <span>Vote Up </span>
+                      <span>Upvote </span>
                       <img
                         src={ThumbsUp}
                         alt="vote up"
@@ -108,7 +113,7 @@ class ArticleListItem extends Component {
                           this.handleClickVoteDown(votes, article.id, user_id)
                         }
                       ></img>
-                      <span> Vote Down</span>
+                      <span> Downvote</span>
                     </p>
                   </div>
                   <div className="voting_request_error">
@@ -156,32 +161,3 @@ ArticleListItem.propTypes = {
 };
 
 export default withRouter(ArticleListItem);
-
-// <div
-//   className={`container_vote_arrows + ${
-//     lightsOff ? "" : "lights_off_container_vote_arrows"
-//     }`}
-// >
-//   <div className="container_arrow_up">
-//     <span className="voting_request_error">
-//       {error && error.article_id === article.id && error.message}
-//     </span>
-//     <div
-//       className={`arrow_up + ${lightsOff ? "" : "lightsOff_arrow"}`}
-//       onClick={() => this.handleClickUpArrow(article.id)}
-//     ></div>
-//   </div>
-//   <div className="container_vote_count">
-//     <p className="vote_count">{numOfVotes}</p>
-//   </div>
-//   <div className="container_arrow_down">
-//     <div
-//       className={`arrow_down + ${
-//         lightsOff ? "" : "lightsOff_arrow"
-//         }`}
-//       onClick={() =>
-//         this.handleClickDownArrow(votes, article.id, user_id)
-//       }
-//     ></div>
-//   </div>
-// </div>

@@ -52,12 +52,13 @@ class ArticleListPage extends Component {
       articleList,
       category_name
     );
-
     const filteredArticles = articlesForCategory.filter(article => {
       return article.title
         .toLowerCase()
         .includes(this.state.search.toLowerCase());
     });
+    // Date is the default ordering. It is applied even when a category is clicked, unless that category
+    // is "popularity".
     const articlesSortedByDateOrVote = filteredArticles.sort(function(a, b) {
       if (currentPath.includes("/Popularity")) {
         return b.num_of_votes - a.num_of_votes;

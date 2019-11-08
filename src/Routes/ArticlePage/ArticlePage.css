@@ -25,6 +25,8 @@
 .container_ArticlePage {
   padding-top: 20px;
   border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .ArticlePage_lights_off {

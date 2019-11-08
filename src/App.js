@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Header from "./Components/Header/Header";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import TokenService from "./Services/token-service";
@@ -17,10 +16,13 @@ import UserProfilePage from "./Routes/UserProfilePage/UserProfilePage";
 import PublicOnlyRoute from "./Components/Utils/PublicOnlyRoute";
 import PrivateOnlyRoute from "./Components/Utils/PrivateOnlyRoute";
 import ArticleListContext from "./Context/ArticleListContext";
+import NotFoundPage from "./Routes/NotFoundPage/NotFoundPage";
+
+import "./App.css";
 
 class App extends Component {
   static contextType = ArticleListContext;
-  state = { hasError: false };
+  state = { hasError: false, loggedOut: false };
 
   static getDerivedStateFromError(error) {
     console.error(error);
@@ -28,6 +30,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.setState({ loggedOut: false });
     IdleService.setIdleCallback(this.logoutFromIdle);
     if (TokenService.hasAuthToken()) {
       IdleService.registerIdleTimerResets();
@@ -47,6 +50,7 @@ class App extends Component {
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
     this.forceUpdate();
+    this.setState({ loggedOut: true });
   };
 
   render() {
@@ -65,6 +69,9 @@ class App extends Component {
               ></Header>
             )}
         </header>
+        {this.state.loggedOut && (
+          <p className="alert_text">You are not logged in.</p>
+        )}
         <Switch>
           <PublicOnlyRoute
             exact
@@ -109,6 +116,7 @@ class App extends Component {
             path={"/profile/:username"}
             component={UserProfilePage}
           ></Route>
+          <Route component={NotFoundPage}></Route>
           <Redirect from="/" to="/login"></Redirect>
         </Switch>
       </div>

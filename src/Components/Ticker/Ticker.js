@@ -35,6 +35,7 @@ class Ticker extends Component {
     const { lightsOff } = this.context;
     return (
       <div className="tcontainer">
+        <h4 className="ticker_title">Trending News</h4>
         <div
           className={`ticker-wrap + ${
             lightsOff ? "" : "ticker-wrap-lights-off"

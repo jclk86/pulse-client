@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import { Logo, LogoWhite, Moon } from "../Utils/Utils";
 import TokenService from "../../Services/token-service";
 import IdleService from "../../Services/idle-service";
-import "./Header.css";
 import PropTypes from "prop-types";
 import ArticleListContext from "../../Context/ArticleListContext";
+import "./Header.css";
 
 class Header extends Component {
   static contextType = ArticleListContext;
@@ -17,6 +17,8 @@ class Header extends Component {
     IdleService.unRegisterIdleResets();
   };
 
+  // Below 3 functions all control light/dark theme of app. The latter 2
+  // are for mobile view.
   onMoonClick = () => {
     this.context.toggleLights();
   };

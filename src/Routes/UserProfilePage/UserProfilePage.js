@@ -24,7 +24,7 @@ class UserProfilePage extends Component {
     const userArticles = this.getUserArticles();
     return (
       <Section
-        className={`${
+        className={`container_UserProfilePage + ${
           lightsOff
             ? "container_UserProfilePage_lights_on"
             : "container_UserProfilePage_lights_off"
@@ -60,15 +60,13 @@ class UserProfilePage extends Component {
               >
                 <NavLink
                   to={`/articles/${article.id}`}
-                  className={`${
+                  className={`user_article_link + ${
                     lightsOff
                       ? "user_article_link_lights_on"
                       : "user_article_link_lights_off"
                   }`}
                 >
-                  <div className="user_article_title_lights">
-                    {article.title}
-                  </div>
+                  <div className="user_article_title">{article.title}</div>
                   <div className="user_article_date">
                     {" "}
                     {DateFormatter(article.date_created)}

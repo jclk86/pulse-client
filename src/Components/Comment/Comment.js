@@ -16,7 +16,7 @@ class Comment extends Component {
       isEditing: false
     };
   }
-
+  // Ensures edit comment form is showing/hidden.
   handleEditClick = () => {
     this.setState({ isEditing: !this.state.isEditing });
   };

@@ -245,7 +245,7 @@ class RegistrationForm extends Component {
           {" "}
           <div className="container_desktop_view_registration_hero">
             <h3>
-              Become a part of our community with a simple up for a free
+              Become a part of our community with a simple sign-up for a free
               account.
             </h3>
           </div>

@@ -6,10 +6,8 @@ import {
   ValidationError,
   validateContent
 } from "../ValidationError/ValidationError";
-import "./EditCommentForm.css";
 import PropTypes from "prop-types";
-
-// if button clicked, replace comment block with edit form
+import "./EditCommentForm.css";
 
 class EditCommentForm extends Component {
   static contextType = ArticleContext;

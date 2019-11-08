@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./CategoriesListItem.css";
 import ArticleListContext from "../../Context/ArticleListContext";
+import "./CategoriesListItem.css";
 
 class CategoriesListItem extends Component {
   static contextType = ArticleListContext;

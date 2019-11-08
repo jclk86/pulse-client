@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Form, Label, Textarea, Select, Button } from "../Utils/Utils";
 import ArticleListContext from "../../Context/ArticleListContext";
-import "./AddArticleForm.css";
 import ArticleApiService from "../../Services/article-api-service";
 import CategoryApiService from "../../Services/category-api-service";
 import { renderCategories } from "../Utils/Utils";
@@ -12,6 +11,7 @@ import {
   validateTitle,
   validateContent
 } from "../ValidationError/ValidationError";
+import "./AddArticleForm.css";
 
 class AddArticleForm extends Component {
   static contextType = ArticleListContext;

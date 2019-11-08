@@ -1,7 +1,7 @@
 .EditUserForm {
   padding-top: 50px;
   border-radius: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .container_EditUserForm_password,
@@ -27,6 +27,7 @@
   width: 100%;
   border-radius: 10px;
   resize: none;
+  height: 150px;
 }
 
 .EditUserForm_password,

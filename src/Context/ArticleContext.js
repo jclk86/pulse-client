@@ -4,7 +4,7 @@ export const nullArticle = {
   author: {},
   category: []
 };
-// removes votes?
+
 const ArticleContext = React.createContext({
   article: nullArticle,
   comments: [],

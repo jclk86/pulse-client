@@ -4,6 +4,7 @@
   border-radius: 5px;
   font-size: 16px;
   padding-top: 15px;
+  margin-bottom: 20px;
 }
 
 .container_UserProfilePage_lights_off {
@@ -12,11 +13,16 @@
   border-radius: 5px;
   font-size: 16px;
   padding-top: 15px;
+  margin-bottom: 20px;
 }
 
 .container_user_profile_page_return_btn {
   max-width: 1400px;
   margin-bottom: 50px;
+}
+
+.user_profile_page_return_btn {
+  margin-bottom: 20px;
 }
 
 .user_profile_page_return_btn_lights_off {
@@ -27,7 +33,7 @@
   text-align: left;
   font-weight: bold;
   font-size: 16px;
-  margin-left: 20px;
+  margin-left: 2px;
   background-color: inherit;
   border: none;
 }
@@ -40,7 +46,7 @@
   text-align: left;
   font-weight: bold;
   font-size: 16px;
-  margin-left: 20px;
+  margin-left: 2px;
   background-color: inherit;
   border: none;
 }
@@ -56,4 +62,14 @@
 .user_profile_page_return_btn:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.user_article_title {
+  color: rgb(51, 160, 255);
+}
+
+@media only screen and (max-width: 450px) {
+  .user_article_link {
+    font-size: 16px;
+  }
 }

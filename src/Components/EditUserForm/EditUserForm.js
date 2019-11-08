@@ -11,9 +11,7 @@ import {
 import UserContext from "../../Context/UserContext";
 import "./EditUserForm.css";
 
-// add user context, isvalid, mount current user info
 class EditUserForm extends Component {
-  // registration form recieves a registration success redirect
   static contextType = UserContext;
   constructor(props) {
     super(props);
@@ -25,6 +23,7 @@ class EditUserForm extends Component {
     };
   }
 
+  // Populates form with current content.
   componentDidMount() {
     UserApiService.getUserAccount().then(user => {
       this.context.setUser(user);
