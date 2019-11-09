@@ -8,6 +8,14 @@
       "dest": "/static/$1"
     },
     {
+      "src": "^/favicon.ico$",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "^/site.webmanifest.json$",
+      "dest": "/site.webmanifest.json"
+    },
+    {
       "src": ".*",
       "dest": "/index.html"
     }
