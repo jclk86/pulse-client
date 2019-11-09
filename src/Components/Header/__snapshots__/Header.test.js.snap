@@ -13,7 +13,7 @@ exports[`Header Component renders Header component without issues 1`] = `
       <NavLink
         to="/articles"
       >
-        <Logo
+        <LogoWhite
           className="top_header_logo"
         />
       </NavLink>
@@ -47,6 +47,27 @@ exports[`Header Component renders Header component without issues 1`] = `
         >
           Sign Up
         </NavLink>
+      </div>
+      <div
+        className="light_switch"
+      >
+        <div
+          className="light_switch_on"
+        >
+          <span
+            className="light_switch_off"
+            onClick={[Function]}
+          >
+            Light
+             
+          </span>
+          | 
+          <span
+            onClick={[Function]}
+          >
+            Dark
+          </span>
+        </div>
       </div>
     </div>
   </div>

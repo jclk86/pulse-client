@@ -93,7 +93,7 @@ exports[`Comment Component renders Comment component without issues 1`] = `
           key="1"
         >
           <div
-            className="container_comment_content + lights_off_comments_content"
+            className="container_comment_content + comments_content_lights_off"
           >
             <p
               className="comment_author_info"

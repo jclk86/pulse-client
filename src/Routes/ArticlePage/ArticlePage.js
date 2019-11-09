@@ -16,17 +16,21 @@ class ArticlePage extends Component {
   };
 
   componentDidMount() {
+    this.context.clearError();
     const { article_id } = this.props.match.params;
-    ArticleApiService.getArticleById(article_id).then(this.context.setArticle);
+    ArticleApiService.getArticleById(article_id)
+      .then(this.context.setArticle)
+      .catch(this.context.setError);
     ArticleApiService.getCommentsForArticle(article_id).then(
       this.context.setComments
     );
   }
 
   render() {
-    const { article, comments } = this.context;
+    const { article, comments, error } = this.context;
     const { article_id } = this.props.match.params;
     const { lightsOff } = this.props;
+    console.log(error);
     return (
       <Section
         className={`container_ArticlePage + ${
@@ -43,7 +47,11 @@ class ArticlePage extends Component {
             Return
           </NavLink>
         </div>
-        <Article article={article} lightsOff={lightsOff}></Article>
+        {error ? (
+          <p className="error_message_no_article">{error.error}</p>
+        ) : (
+          <Article article={article} lightsOff={lightsOff}></Article>
+        )}
         <div className="container_header_comments">
           <h3>{comments.length} Comments </h3>
         </div>

@@ -293,6 +293,9 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                             <p
                               className="vote_count"
                             >
+                              <span>
+                                Upvote 
+                              </span>
                               <img
                                 alt="vote up"
                                 className="thumbs_up"
@@ -306,6 +309,9 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                                 onClick={[Function]}
                                 src="thumbs-down.png"
                               />
+                              <span>
+                                 Downvote
+                              </span>
                             </p>
                           </div>
                           <div
@@ -580,6 +586,9 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                             <p
                               className="vote_count"
                             >
+                              <span>
+                                Upvote 
+                              </span>
                               <img
                                 alt="vote up"
                                 className="thumbs_up"
@@ -593,6 +602,9 @@ exports[`ArticlesList Component renders ArticlesList component without issues 1`
                                 onClick={[Function]}
                                 src="thumbs-down.png"
                               />
+                              <span>
+                                 Downvote
+                              </span>
                             </p>
                           </div>
                           <div

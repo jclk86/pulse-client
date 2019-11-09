@@ -160,7 +160,7 @@ exports[`Registration Form Component renders registration form without issues 1`
       className="container_desktop_view_registration_hero"
     >
       <h3>
-        Become a part of our community with a simple up for a free account.
+        Become a part of our community with a simple sign-up for a free account.
       </h3>
     </div>
   </div>

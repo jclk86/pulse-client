@@ -116,8 +116,8 @@ class App extends Component {
             path={"/profile/:username"}
             component={UserProfilePage}
           ></Route>
+          <Redirect exact from="/" to="/login"></Redirect>
           <Route component={NotFoundPage}></Route>
-          <Redirect from="/" to="/login"></Redirect>
         </Switch>
       </div>
     );

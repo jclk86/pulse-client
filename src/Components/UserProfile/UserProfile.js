@@ -7,27 +7,34 @@ import "./UserProfile.css";
 class UserProfile extends Component {
   static contextType = UserContext;
   componentDidMount() {
+    this.context.clearError();
     const { username } = this.props.match.params;
-    UserApiService.getUserProfile(username).then(this.context.setUser);
+    UserApiService.getUserProfile(username)
+      .then(this.context.setUser)
+      .catch(this.context.setError);
   }
 
   render() {
-    const { user } = this.context;
+    const { user, error } = this.context;
     return (
       <div className="container_user_profile">
-        <div className="container_user_profile_section">
-          <div className="container_user_profile_image">
-            <img
-              src={user.image_url}
-              alt={user.fullname}
-              className="profile_image"
-            ></img>
+        {error ? (
+          <p className="error_message_no_user">{error.error}</p>
+        ) : (
+          <div className="container_user_profile_section">
+            <div className="container_user_profile_image">
+              <img
+                src={user.image_url}
+                alt={user.fullname}
+                className="profile_image"
+              ></img>
+            </div>
+            <div className="container_user_profile_info">
+              <h1 className="user_profile_header">{user.fullname}</h1>
+              <p>{user.profile}</p>
+            </div>
           </div>
-          <div className="container_user_profile_info">
-            <h1 className="user_profile_header">{user.fullname}</h1>
-            <p>{user.profile}</p>
-          </div>
-        </div>
+        )}
       </div>
     );
   }

@@ -42,6 +42,7 @@ class EditArticleForm extends Component {
 
   // Populates the edit form with current content
   componentDidMount() {
+    this.context.clearError();
     const { article_id } = this.props.match.params;
     ArticleApiService.getArticleById(article_id)
       .then(data => {
@@ -54,7 +55,8 @@ class EditArticleForm extends Component {
           content: { value: article.content, touched: true },
           category: { value: article.article_category, touched: true }
         });
-      });
+      })
+      .catch(this.context.setError);
     CategoryApiService.getAllCategories().then(categories => {
       this.setState({ categoriesList: categories });
     });
@@ -115,109 +117,120 @@ class EditArticleForm extends Component {
     const isValid = this.isFormValid();
     const { article_id } = this.props.match.params;
     const { lightsOff } = this.props;
+    const { error } = this.context;
     const { title, image_url, content, category, categoriesList } = this.state;
     return (
-      <Form
-        className={`EditArticleForm + ${
-          lightsOff ? "EditArticleForm_lights_on" : "EditArticleForm_lights_off"
-        }`}
-        onSubmit={event => this.handleSubmit(event)}
-      >
-        <div className="container_EditArticleForm_header">
-          <h2>Edit Post</h2>
-        </div>
-        <div className="container_EditArticleForm_title">
-          <Label
-            htmlFor="EditArticleForm_article_title"
-            className="label_edit_article_form"
+      <div className="container_EditArticleForm">
+        {error ? (
+          <p className="error_message_no_article">{error.error}</p>
+        ) : (
+          <Form
+            className={`EditArticleForm + ${
+              lightsOff
+                ? "EditArticleForm_lights_on"
+                : "EditArticleForm_lights_off"
+            }`}
+            onSubmit={event => this.handleSubmit(event)}
           >
-            Title
-          </Label>
-          <Input
-            value={title.value}
-            placeholder="Top 5 Destinations for This Summer"
-            name="title"
-            className="EditArticleForm_article_title"
-            onChange={e => this.updateTitle(e.target.value)}
-          ></Input>
-          {title.touched && (
-            <ValidationError message={validateTitle(title.value)} />
-          )}
-        </div>
-        <div className="container_EditArticleForm_image_url">
-          <Label
-            htmlFor="EditArticleForm_article_image_url"
-            className="label_edit_article_form"
-          >
-            Image Url
-          </Label>
-          <Input
-            value={image_url.value}
-            type="text"
-            placeholder="image url"
-            name="image_url"
-            className="EditArticleForm_article_image_url"
-            onChange={e => this.updateImage_Url(e.target.value)}
-          ></Input>
-        </div>
-        <Label
-          htmlFor="EditArticleForm_article_content"
-          className="label_edit_article_form"
-        >
-          Content
-        </Label>
-        <div className="container_EditArticleForm_textarea">
-          <Textarea
-            value={content.value}
-            placeholder="For the past two years I've traveled to..."
-            name="content"
-            className="EditArticleForm_article_content"
-            onChange={e => this.updateContent(e.target.value)}
-          ></Textarea>
-          {content.touched && (
-            <ValidationError message={validateContent(content.value)} />
-          )}
-        </div>
-        <div className="container_EditArticleForm_select">
-          <Select
-            className="EditArticleForm_select"
-            value={category.value}
-            name="category"
-            onChange={e => this.updateCategory(e.target.value)}
-          >
-            {renderCategories(categoriesList)}
-          </Select>
-          {category.touched && (
-            <ValidationError message={validateCategory(category.value)} />
-          )}
-        </div>
-        <div className="container_EditArticleForm_btn">
-          <Button
-            role="button"
-            type="submit"
-            disabled={!isValid}
-            className="EditArticleForm_edit_btn"
-          >
-            Edit
-          </Button>
-          <Button
-            role="button"
-            type="button"
-            onClick={() => this.handleDelete(article_id)}
-            className="EditArticleForm_delete_btn"
-          >
-            Delete
-          </Button>
-          <Button
-            role="button"
-            type="button"
-            onClick={() => this.props.history.push(`/articles/${article_id}`)}
-            className="EditArticleForm_cancel_btn"
-          >
-            Cancel
-          </Button>
-        </div>
-      </Form>
+            <div className="container_EditArticleForm_header">
+              <h2>Edit Post</h2>
+            </div>
+            <div className="container_EditArticleForm_title">
+              <Label
+                htmlFor="EditArticleForm_article_title"
+                className="label_edit_article_form"
+              >
+                Title
+              </Label>
+              <Input
+                value={title.value}
+                placeholder="Top 5 Destinations for This Summer"
+                name="title"
+                className="EditArticleForm_article_title"
+                onChange={e => this.updateTitle(e.target.value)}
+              ></Input>
+              {title.touched && (
+                <ValidationError message={validateTitle(title.value)} />
+              )}
+            </div>
+            <div className="container_EditArticleForm_image_url">
+              <Label
+                htmlFor="EditArticleForm_article_image_url"
+                className="label_edit_article_form"
+              >
+                Image Url
+              </Label>
+              <Input
+                value={image_url.value}
+                type="text"
+                placeholder="image url"
+                name="image_url"
+                className="EditArticleForm_article_image_url"
+                onChange={e => this.updateImage_Url(e.target.value)}
+              ></Input>
+            </div>
+            <Label
+              htmlFor="EditArticleForm_article_content"
+              className="label_edit_article_form"
+            >
+              Content
+            </Label>
+            <div className="container_EditArticleForm_textarea">
+              <Textarea
+                value={content.value}
+                placeholder="For the past two years I've traveled to..."
+                name="content"
+                className="EditArticleForm_article_content"
+                onChange={e => this.updateContent(e.target.value)}
+              ></Textarea>
+              {content.touched && (
+                <ValidationError message={validateContent(content.value)} />
+              )}
+            </div>
+            <div className="container_EditArticleForm_select">
+              <Select
+                className="EditArticleForm_select"
+                value={category.value}
+                name="category"
+                onChange={e => this.updateCategory(e.target.value)}
+              >
+                {renderCategories(categoriesList)}
+              </Select>
+              {category.touched && (
+                <ValidationError message={validateCategory(category.value)} />
+              )}
+            </div>
+            <div className="container_EditArticleForm_btn">
+              <Button
+                role="button"
+                type="submit"
+                disabled={!isValid}
+                className="EditArticleForm_edit_btn"
+              >
+                Edit
+              </Button>
+              <Button
+                role="button"
+                type="button"
+                onClick={() => this.handleDelete(article_id)}
+                className="EditArticleForm_delete_btn"
+              >
+                Delete
+              </Button>
+              <Button
+                role="button"
+                type="button"
+                onClick={() =>
+                  this.props.history.push(`/articles/${article_id}`)
+                }
+                className="EditArticleForm_cancel_btn"
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>
+        )}
+      </div>
     );
   }
 }

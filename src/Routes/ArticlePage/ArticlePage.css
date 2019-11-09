@@ -36,3 +36,7 @@
 .ArticlePage_lights_on {
   background-color: rgb(215, 215, 215, 0.9);
 }
+
+.error_message_no_article {
+  color: red;
+}

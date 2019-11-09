@@ -201,6 +201,9 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                       <p
                         className="vote_count"
                       >
+                        <span>
+                          Upvote 
+                        </span>
                         <img
                           alt="vote up"
                           className="thumbs_up"
@@ -214,6 +217,9 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                           onClick={[Function]}
                           src="thumbs-down.png"
                         />
+                        <span>
+                           Downvote
+                        </span>
                       </p>
                     </div>
                     <div

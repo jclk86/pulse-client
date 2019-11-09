@@ -29,7 +29,6 @@ export class ArticleProvider extends Component {
   };
 
   setError = error => {
-    console.error(error);
     this.setState({ error });
   };
 

@@ -4,6 +4,11 @@ exports[`Ticker Component renders Ticker component without issues 1`] = `
 <div
   className="tcontainer"
 >
+  <h4
+    className="ticker_title"
+  >
+    Trending News
+  </h4>
   <div
     className="ticker-wrap + ticker-wrap-lights-off"
   >

@@ -154,7 +154,7 @@ exports[`Article Component renders Article component without issues 1`] = `
             className="article_content"
           >
             <p
-              key="t"
+              key="0"
             >
               test content
             </p>

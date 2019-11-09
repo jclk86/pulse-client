@@ -27,6 +27,10 @@
   margin-top: 0;
 }
 
+.error_message_no_user {
+  color: red;
+}
+
 @media only screen and (min-width: 568px) {
   .container_user_profile {
     max-width: 800px;
