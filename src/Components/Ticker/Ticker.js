@@ -19,6 +19,7 @@ class Ticker extends Component {
     return articles.map((article, i) => (
       <div className="ticker-item" key={i}>
         <a
+          role="navigation"
           href={article.url}
           className={`ticker_links + ${
             this.context.lightsOff ? "" : "ticker_links_lights_off"
@@ -34,14 +35,16 @@ class Ticker extends Component {
     const { news } = this.state;
     const { lightsOff } = this.context;
     return (
-      <div className="tcontainer">
+      <div className="tcontainer" role="complementary">
         <h4 className="ticker_title">Trending News</h4>
         <div
           className={`ticker-wrap + ${
             lightsOff ? "" : "ticker-wrap-lights-off"
           }`}
         >
-          <div className="ticker-move">{this.renderNewsTitles(news)}</div>
+          <div className="ticker-move" role="navigation">
+            {this.renderNewsTitles(news)}
+          </div>
         </div>
       </div>
     );

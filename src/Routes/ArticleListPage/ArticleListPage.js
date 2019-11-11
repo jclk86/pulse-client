@@ -71,6 +71,7 @@ class ArticleListPage extends Component {
         <Ticker></Ticker>
         <div className="container_search_box hide_topbar_menu">
           <SearchBox
+            role="search"
             placeholder="type here to search"
             name="search filter"
             onChange={e => this.updateSearch(e.target.value)}
@@ -88,7 +89,7 @@ class ArticleListPage extends Component {
             </CreatePostButton>
           </div>
         </div>
-        <div className="flex_container">
+        <div className="flex_container" role="complementary">
           <div
             className={`container_top_users_list hide_top_users_list + ${
               lightsOff ? "lights_on_bg" : "container_top_users_list_lights_off"
@@ -101,18 +102,20 @@ class ArticleListPage extends Component {
             </h4>
             <TopUsersList></TopUsersList>
           </div>
-          <div className="container_articles_section">
+          <div className="container_articles_section" role="main">
             <ArticlesList
               sortedArticles={articlesSortedByDateOrVote}
               votes={votes}
             ></ArticlesList>
           </div>
           <div
+            role="complementary"
             className={`right_sidebar_menu hide_sidebar_menu + ${
               lightsOff ? "lights_on_bg" : "lights_off_bg_shadow"
             }`}
           >
             <SearchBox
+              role="search"
               placeholder="type here to search"
               name="search filter"
               onChange={e => this.updateSearch(e.target.value)}

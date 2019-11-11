@@ -33,6 +33,7 @@ class ArticlePage extends Component {
     console.log(error);
     return (
       <Section
+        role="article"
         className={`container_ArticlePage + ${
           lightsOff ? "ArticlePage_lights_on" : "ArticlePage_lights_off"
         }`}
@@ -58,6 +59,7 @@ class ArticlePage extends Component {
         <CommentsSection
           comments={comments}
           lightsOff={lightsOff}
+          role="complementary"
         ></CommentsSection>
         <AddCommentForm
           article_id={article_id}

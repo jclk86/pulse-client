@@ -15,6 +15,7 @@ class DropDownMenu extends Component {
     return (
       <select
         className="select_menu"
+        role="navigation"
         name="category"
         onChange={e => this.handleSelectedCategory(e.target.value)}
       >

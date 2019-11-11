@@ -29,7 +29,7 @@ class UserProfile extends Component {
                 className="profile_image"
               ></img>
             </div>
-            <div className="container_user_profile_info">
+            <div className="container_user_profile_info" role="main">
               <h1 className="user_profile_header">{user.fullname}</h1>
               <p>{user.profile}</p>
             </div>

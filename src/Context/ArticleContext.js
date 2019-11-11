@@ -28,6 +28,7 @@ export class ArticleProvider extends Component {
     error: null
   };
 
+  // The error functions below allows rendering of error messages from backend.
   setError = error => {
     this.setState({ error });
   };

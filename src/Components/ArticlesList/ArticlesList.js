@@ -8,7 +8,7 @@ class ArticlesList extends Component {
     const { sortedArticles } = this.props;
 
     return (
-      <div className="container_article_list">
+      <div className="container_article_list" role="navigation">
         {sortedArticles.map(article => (
           <ArticleListItem article={article} key={article.id}></ArticleListItem>
         ))}

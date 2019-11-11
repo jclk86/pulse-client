@@ -96,7 +96,7 @@ class EditCommentForm extends Component {
             Edit
           </button>
           <button
-            type="submit"
+            type="button"
             className="EditCommentForm_cancel_btn"
             onClick={this.props.handleCancelClick}
           >

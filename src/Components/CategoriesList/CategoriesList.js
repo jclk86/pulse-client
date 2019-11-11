@@ -15,6 +15,7 @@ class CategoriesList extends Component {
         className={`container_categories_list + ${
           lightsOff ? "" : "lights_off_bg"
         }`}
+        role="navigation"
       >
         <div className="container_categories_list_header">
           <h4>Select a Category</h4>

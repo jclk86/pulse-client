@@ -67,7 +67,7 @@ class ArticleListItem extends Component {
             lightsOff ? "" : "article_list_item_lightsOff"
           }`}
         >
-          <NavLink to={`/articles/${article.id}`} role="navigation">
+          <NavLink to={`/articles/${article.id}`}>
             <div className="container_article_list_item_image hide_image">
               <img
                 src={`${article.image_url}`}
@@ -79,7 +79,6 @@ class ArticleListItem extends Component {
           <div className="container_article_text_preview">
             <div className="container_article_list_item_info">
               <NavLink
-                role="navigation"
                 to={`/articles/${article.id}`}
                 className="article_list_item_title_link"
               >
@@ -92,7 +91,9 @@ class ArticleListItem extends Component {
                   {article.title}
                 </h4>{" "}
               </NavLink>
-              <p className="preview_text">{previewText}</p>
+              <p className="preview_text" role="contentinfo">
+                {previewText}
+              </p>
               <div className="container_article_attributes">
                 <div className="article_attributes">
                   <div className="container_vote_count">
@@ -100,6 +101,7 @@ class ArticleListItem extends Component {
                       <span>Upvote </span>
                       <img
                         src={ThumbsUp}
+                        role="button"
                         alt="vote up"
                         className="thumbs_up"
                         onClick={() => this.handleClickVoteUp(article.id)}
@@ -107,6 +109,7 @@ class ArticleListItem extends Component {
                       {numOfVotes}
                       <img
                         src={ThumbsDown}
+                        role="button"
                         alt="vote up"
                         className="thumbs_down"
                         onClick={() =>

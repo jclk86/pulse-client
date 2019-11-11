@@ -190,6 +190,7 @@ class EditArticleForm extends Component {
             <div className="container_EditArticleForm_select">
               <Select
                 className="EditArticleForm_select"
+                role="menu"
                 value={category.value}
                 name="category"
                 onChange={e => this.updateCategory(e.target.value)}

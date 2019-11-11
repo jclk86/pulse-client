@@ -110,7 +110,7 @@ class LoginForm extends Component {
         <div className="bg_desktop_view_login_image">
           {" "}
           <div className="container_desktop_view_login_hero">
-            <h2>
+            <h2 role="banner">
               Explore. Discover. Share. <br></br>The modern travelers' hub.
             </h2>
           </div>

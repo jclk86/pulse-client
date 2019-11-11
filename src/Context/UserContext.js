@@ -22,6 +22,7 @@ export class UserProvider extends Component {
     error: null
   };
 
+  // The error functions below allows rendering of error messages from backend.
   setError = error => {
     console.error(error);
     this.setState({ error });

@@ -17,11 +17,7 @@ class Article extends Component {
     return (
       <div className="container_article">
         <div className=".container_article_image">
-          <img
-            src={article.image_url}
-            alt="user posted"
-            className="article_image"
-          ></img>
+          <img src={article.image_url} alt="" className="article_image"></img>
         </div>
         <h2 className="article_title">{article.title}</h2>
         <p className="article_date">{DateFormatter(article.date_created)}</p>

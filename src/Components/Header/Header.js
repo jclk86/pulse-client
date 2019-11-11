@@ -34,7 +34,11 @@ class Header extends Component {
   render() {
     const { lightsOff } = this.context;
     return (
-      <div className={`header ${lightsOff ? "" : "header_lights_off"}`}>
+      <div
+        className={`header ${lightsOff ? "" : "header_lights_off"}`}
+        role="heading"
+        aria-level="1"
+      >
         <div className="container_header_content">
           <div className="container_logo">
             <NavLink to="/articles">
@@ -48,7 +52,12 @@ class Header extends Component {
 
           <div className="navbar_links">
             <div className="container_moon">
-              <Moon className="header_moon" onClick={this.onMoonClick}></Moon>
+              <Moon
+                aria-pressed
+                role="button"
+                className="header_moon"
+                onClick={this.onMoonClick}
+              ></Moon>
             </div>
             {TokenService.getAuthToken() ? (
               <div className="container_header_logged_in_links">
@@ -93,13 +102,20 @@ class Header extends Component {
               {lightsOff ? (
                 <div className="light_switch_off">
                   <span onClick={this.onLightClick}>Light </span>|{" "}
-                  <span className="light_switch_on" onClick={this.onDarkClick}>
+                  <span
+                    role="button"
+                    aria-pressed="true"
+                    className="light_switch_on"
+                    onClick={this.onDarkClick}
+                  >
                     Dark
                   </span>
                 </div>
               ) : (
                 <div className="light_switch_on">
                   <span
+                    role="button"
+                    aria-pressed="false"
                     className="light_switch_off"
                     onClick={this.onLightClick}
                   >

@@ -230,11 +230,7 @@ class RegistrationForm extends Component {
             <div className="container_RegistrationForm_login_link">
               <p id="message_redirect">
                 Already a user?{" "}
-                <NavLink
-                  to={"/login"}
-                  role="navigation"
-                  className="RegistrationForm_login_link"
-                >
+                <NavLink to={"/login"} className="RegistrationForm_login_link">
                   Login
                 </NavLink>
               </p>
@@ -244,7 +240,7 @@ class RegistrationForm extends Component {
         <div className="bg_desktop_view_registration_page">
           {" "}
           <div className="container_desktop_view_registration_hero">
-            <h3>
+            <h3 role="banner">
               Become a part of our community with a simple sign-up for a free
               account.
             </h3>

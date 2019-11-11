@@ -28,6 +28,16 @@ export class ArticleListProvider extends Component {
     lightsOff: false
   };
 
+  // The error functions below allows rendering of error messages from backend.
+  setError = error => {
+    console.error(error);
+    this.setState({ error });
+  };
+
+  clearError = () => {
+    this.setState({ error: null });
+  };
+
   toggleLights = () => {
     this.setState({ lightsOff: !this.state.lightsOff });
   };
@@ -48,6 +58,7 @@ export class ArticleListProvider extends Component {
     this.setState({ votes });
   };
 
+  // Searches for matching user id for existing article id to delete.
   deleteVote = (votes, article_id, user_id) => {
     let filter = { article_id: article_id, user_id: user_id };
     const result = votes.filter(vote => {
@@ -73,15 +84,6 @@ export class ArticleListProvider extends Component {
 
   addArticle = article => {
     this.setState({ inventoryList: [...this.state.articleList, article] });
-  };
-
-  setError = error => {
-    console.error(error);
-    this.setState({ error });
-  };
-
-  clearError = () => {
-    this.setState({ error: null });
   };
 
   render() {
