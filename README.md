@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Travelist
 
-## Available Scripts
+A source for the travel community to create blog articles and to connect with one another.
 
-In the project directory, you can run:
+Live link: https://jclk86-travelist.now.sh
 
-### `npm start`
+## Login
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You may choose to login with the account below or simply create one via registration.
 
-The page will reload if you make edits.<br>
+Username: CNorris
+Password: Password123!
+
+## Getting Started
+
+This project was bootstrapped with Create React App.
+
+### npm install
+
+There a number of dependencies that need to be installed.
+
+### npm start
+
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
+### npm test
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
-### `npm run build`
+## Motivation
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This app was created for travelers who want to share their tips and guides with fellow travel lovers.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Challenges
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+From the outset of building any application, organization always poses itself as one of the main challenges. Considering this application involved many components relying on states and that different components required interaction between data and how the data is rendered, it was important to use React's Context feature to prevent excessive prop drilling and create a more centralized source of truth for all the components.
 
-### `npm run eject`
+Another challenge dealt with security. With a login feature, it was important that certain CRUD operations on user-owned items are only accessible to the user who is logged in. This solution required the use of JSON Web Tokens, and more specifically, accessing the payload to serve as a an indentifier for the user who is logged in. Individuals working under their account are presented options to edit and delete their own articles and comments. Included in the login feature are services that use APIs to ensure that the site logs out a user due to long inactivity. This solution required constant generating of web tokens with the use of encryption, and the use of session storage to track those valid tokens.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Design was also another aspect of the application that presented its own challenges. Since this application is a travel-themed, it did mean it had to be more visually stimulating. Apart from using background images, a dark and light themed option was implemented. Clicking on the moon icon or the 'light' and 'dark' text toggles the application between day time and night time.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<p align="left">
+  <p>Login:</p>
+  <img src="screenshots/LoginForm.png">
+</p>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p align="left">
+  <p>Registration:</p>
+  <img src="screenshots/RegistrationForm.png">
+</p>
 
-## Learn More
+<p align="left">
+  <p>Main Article Page:</p>
+  <img src="screenshots/ArticleList.png">
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="left">
+  <p>Add Article Form:</p>
+  <img src="screenshots/AddArticleForm.png">
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="left">
+  <p>Edit Article Form:</p>
+  <img src="screenshots/EditArticleForm.png">
+</p>
 
-### Code Splitting
+<p align="left">
+  <p>Article:</p>
+  <img src="screenshots/Article.png">
+</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<p align="left">
+  <p>Comments:</p>
+  <img src="screenshots/Comments.png">
+</p>
 
-### Analyzing the Bundle Size
+<p align="left">
+  <p>User Account:</p>
+  <img src="screenshots/UserAccount.png">
+</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<p align="left">
+  <p>Profiles:</p>
+  <img src="screenshots/Profiles.png">
+</p>
 
-### Making a Progressive Web App
+<p align="left">
+  <p>The app's theme can be adjusted from dark to light</p>
+  <img src="screenshots/Light.png">
+</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Built With
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+React, Node.js, Express, JavaScript, and PostgreSQL. And Jest, Enzyme, Mocha, and Chai were all utilized in testing.

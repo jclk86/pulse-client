@@ -68,10 +68,12 @@ class App extends Component {
                 lightsOff={this.state.lightsOff}
               ></Header>
             )}
+          {this.state.loggedOut &&
+            !currentPath.includes("login") &&
+            !currentPath.includes("registration") && (
+              <p className="alert_text">You are not logged in.</p>
+            )}
         </header>
-        {this.state.loggedOut && (
-          <p className="alert_text">You are not logged in.</p>
-        )}
         <Switch>
           <PublicOnlyRoute
             exact
