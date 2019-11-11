@@ -2,7 +2,9 @@
 
 exports[`Header Component renders Header component without issues 1`] = `
 <div
+  aria-level="1"
   className="header header_lights_off"
+  role="heading"
 >
   <div
     className="container_header_content"
@@ -25,8 +27,10 @@ exports[`Header Component renders Header component without issues 1`] = `
         className="container_moon"
       >
         <Moon
+          aria-pressed={true}
           className="header_moon"
           onClick={[Function]}
+          role="button"
         />
       </div>
       <div
@@ -55,8 +59,10 @@ exports[`Header Component renders Header component without issues 1`] = `
           className="light_switch_on"
         >
           <span
+            aria-pressed="false"
             className="light_switch_off"
             onClick={[Function]}
+            role="button"
           >
             Light
              

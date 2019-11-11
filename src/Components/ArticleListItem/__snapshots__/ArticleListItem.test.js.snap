@@ -95,12 +95,10 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
             className="container_article_preview +  + article_list_item_lightsOff"
           >
             <NavLink
-              role="navigation"
               to="/articles/1"
             >
               <Link
                 aria-current={null}
-                role="navigation"
                 to={
                   Object {
                     "hash": "",
@@ -114,13 +112,11 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                   aria-current={null}
                   href="/articles/1"
                   navigate={[Function]}
-                  role="navigation"
                 >
                   <a
                     aria-current={null}
                     href="/articles/1"
                     onClick={[Function]}
-                    role="navigation"
                   >
                     <div
                       className="container_article_list_item_image hide_image"
@@ -143,13 +139,11 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
               >
                 <NavLink
                   className="article_list_item_title_link"
-                  role="navigation"
                   to="/articles/1"
                 >
                   <Link
                     aria-current={null}
                     className="article_list_item_title_link"
-                    role="navigation"
                     to={
                       Object {
                         "hash": "",
@@ -164,14 +158,12 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                       className="article_list_item_title_link"
                       href="/articles/1"
                       navigate={[Function]}
-                      role="navigation"
                     >
                       <a
                         aria-current={null}
                         className="article_list_item_title_link"
                         href="/articles/1"
                         onClick={[Function]}
-                        role="navigation"
                       >
                          
                         <h4
@@ -186,6 +178,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                 </NavLink>
                 <p
                   className="preview_text"
+                  role="contentinfo"
                 >
                   test content
                 </p>
@@ -208,6 +201,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                           alt="vote up"
                           className="thumbs_up"
                           onClick={[Function]}
+                          role="button"
                           src="thumbs-up.png"
                         />
                         0
@@ -215,6 +209,7 @@ exports[`ArticleListItem Component renders ArticleListItem component without iss
                           alt="vote up"
                           className="thumbs_down"
                           onClick={[Function]}
+                          role="button"
                           src="thumbs-down.png"
                         />
                         <span>

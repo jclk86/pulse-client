@@ -95,7 +95,7 @@ exports[`Article Component renders Article component without issues 1`] = `
             className=".container_article_image"
           >
             <img
-              alt="user posted"
+              alt=""
               className="article_image"
             />
           </div>

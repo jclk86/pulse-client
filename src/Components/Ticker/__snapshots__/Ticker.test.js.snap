@@ -3,6 +3,7 @@
 exports[`Ticker Component renders Ticker component without issues 1`] = `
 <div
   className="tcontainer"
+  role="complementary"
 >
   <h4
     className="ticker_title"
@@ -14,6 +15,7 @@ exports[`Ticker Component renders Ticker component without issues 1`] = `
   >
     <div
       className="ticker-move"
+      role="navigation"
     />
   </div>
 </div>
