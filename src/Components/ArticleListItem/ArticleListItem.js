@@ -5,6 +5,7 @@ import ThumbsUp from "../../images/thumbs-up.png";
 import ThumbsDown from "../../images/thumbs-down.png";
 import CommentApiService from "../../Services/comment-api-service";
 import VoteApiService from "../../Services/vote-api-service";
+import ArticleApiService from "../../Services/article-api-service";
 import TokenService from "../../Services/token-service";
 import ArticleListContext from "../../Context/ArticleListContext";
 import PropTypes from "prop-types";
@@ -38,14 +39,19 @@ class ArticleListItem extends Component {
     this.context.clearError();
     VoteApiService.addVoteForArticle(article_id)
       .then(this.context.addVote)
+      .then(() => ArticleApiService.getAllArticles())
+      .then(this.context.setArticleList)
       .catch(this.context.setError);
   }
 
   // Deletes vote from DB based on user id and article id.
   handleClickVoteDown(votes, article_id, user_id) {
     this.context.clearError();
-    VoteApiService.deleteVote(article_id).catch(this.context.setError);
-    this.context.deleteVote(votes, article_id, user_id);
+    VoteApiService.deleteVote(article_id)
+      .then(() => this.context.deleteVote(votes, article_id, user_id))
+      .then(() => ArticleApiService.getAllArticles())
+      .then(this.context.setArticleList)
+      .catch(this.context.setError);
   }
 
   render() {

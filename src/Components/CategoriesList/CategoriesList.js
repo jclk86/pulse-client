@@ -30,7 +30,7 @@ class CategoriesList extends Component {
             <li>All</li>
           </NavLink>
           <NavLink
-            to={`/Popularity`}
+            to={`/articles/categories/Popularity`}
             className={`categories_popularity_link + ${
               lightsOff ? "" : "lights_off_link_bg"
             }`}

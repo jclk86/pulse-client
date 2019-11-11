@@ -86,7 +86,11 @@ class App extends Component {
             component={LoginPage}
           ></PublicOnlyRoute>
           <Route exact path={"/articles"} component={ArticleListPage}></Route>
-          <Route exact path={"/Popularity"} component={ArticleListPage}></Route>
+          <Route
+            exact
+            path={"/articles/categories/Popularity"}
+            component={ArticleListPage}
+          ></Route>
           <Route
             exact
             path={"/articles/categories/:category_name"}

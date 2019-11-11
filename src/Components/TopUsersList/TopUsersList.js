@@ -48,6 +48,13 @@ class TopUsersList extends Component {
                   className="top_user_image"
                 ></img>
               </div>
+              <div className="container_top_user_chatbox">
+                <img
+                  src={ChatBox}
+                  alt="top user icon"
+                  className="top_user_chatbox"
+                ></img>
+              </div>
               <div className="container_top_user_username">
                 {" "}
                 <NavLink
@@ -59,13 +66,6 @@ class TopUsersList extends Component {
                 >
                   {user}
                 </NavLink>
-              </div>
-              <div className="container_top_user_chatbox">
-                <img
-                  src={ChatBox}
-                  alt="top user icon"
-                  className="top_user_chatbox"
-                ></img>
               </div>
             </li>
           );

@@ -45,7 +45,7 @@ class ArticleListPage extends Component {
   };
 
   render() {
-    const currentPath = window.location.pathname;
+    const currentPath = this.props.location.pathname;
     const { articleList, categoriesList, votes, lightsOff } = this.context;
     const { category_name } = this.props.match.params;
     const articlesForCategory = this.getArticlesForCategory(
@@ -60,7 +60,7 @@ class ArticleListPage extends Component {
     // Date is the default ordering. It is applied even when a category is clicked, unless that category
     // is "popularity".
     const articlesSortedByDateOrVote = filteredArticles.sort(function(a, b) {
-      if (currentPath.includes("/Popularity")) {
+      if (currentPath.includes("/articles/categories/Popularity")) {
         return b.num_of_votes - a.num_of_votes;
       } else {
         return new Date(b.date_created) - new Date(a.date_created);
