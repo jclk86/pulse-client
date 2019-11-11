@@ -114,7 +114,11 @@ class RegistrationForm extends Component {
     return (
       <div className="container_registration_page">
         <div className="container_registration_form">
-          <Form onSubmit={this.handleSubmit} className="RegistrationForm">
+          <Form
+            onSubmit={this.handleSubmit}
+            className="RegistrationForm"
+            id="no_radius"
+          >
             <Logo className="logo_registration"></Logo>
             <h2 id="header_registration_form">Registration</h2>
             <div className="container_RegistrationForm_fullname">
