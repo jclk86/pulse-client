@@ -9,6 +9,7 @@ exports[`Registration Form Component renders registration form without issues 1`
   >
     <Form
       className="RegistrationForm"
+      id="no_radius"
       onSubmit={[Function]}
     >
       <Logo
