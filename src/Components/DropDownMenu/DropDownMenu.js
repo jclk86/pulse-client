@@ -5,9 +5,13 @@ import "./DropDownMenu.css";
 
 class DropDownMenu extends Component {
   handleSelectedCategory = category => {
-    category === "all"
-      ? this.props.history.push(`/articles`)
-      : this.props.history.push(`/articles/categories/${category}`);
+    if (category === "all") {
+      this.props.history.push(`/articles`);
+    } else if (category === "popularity") {
+      this.props.history.push(`/articles/categories/Popularity`);
+    } else {
+      this.props.history.push(`/articles/categories/${category}`);
+    }
   };
 
   render() {
@@ -21,6 +25,9 @@ class DropDownMenu extends Component {
       >
         <option value="all" key="all">
           All
+        </option>
+        <option value="popularity" key="popularity">
+          Popularity
         </option>
         {categories.map(category => (
           <option value={category.name} key={category.name}>
