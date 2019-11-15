@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Input, Logo } from "../Utils/Utils";
 import { withRouter, NavLink } from "react-router-dom";
 import AuthApiService from "../../Services/auth-api-service";
+import IdleService from "../../Services/idle-service";
 import TokenService from "../../Services/token-service";
 import {
   validateUsername,
@@ -41,9 +42,17 @@ class LoginForm extends Component {
       password: password.value
     })
       .then(res => {
+        // Saves encrypted token in session storage.
+        TokenService.saveAuthToken(res.authToken);
+        IdleService.registerIdleTimerResets();
+        TokenService.queueCallbackBeforeExpiry(() => {
+          AuthApiService.postRefreshToken();
+        });
+        return res;
+      })
+      .then(res => {
         username.value = "";
         password.value = "";
-        TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess();
       })
       .catch(res => {

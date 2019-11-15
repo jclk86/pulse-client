@@ -10,19 +10,18 @@ const AuthApiService = {
         "content-type": "application/json"
       },
       body: JSON.stringify({ username, password })
-    })
-      .then(res =>
-        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-      )
-      .then(res => {
-        // Saves encrypted token in session storage.
-        TokenService.saveAuthToken(res.authToken);
-        IdleService.registerIdleTimerResets();
-        TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.postRefreshToken();
-        });
-        return res;
-      });
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+    // .then(res => {
+    //   // Saves encrypted token in session storage.
+    //   TokenService.saveAuthToken(res.authToken);
+    //   IdleService.registerIdleTimerResets();
+    //   TokenService.queueCallbackBeforeExpiry(() => {
+    //     AuthApiService.postRefreshToken();
+    //   });
+    //   return res;
+    // });
   },
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/user`, {
