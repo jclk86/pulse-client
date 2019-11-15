@@ -22,8 +22,7 @@ const AuthApiService = {
           AuthApiService.postRefreshToken();
         });
         return res;
-      })
-      .catch(error => console.error(error));
+      });
   },
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/user`, {
