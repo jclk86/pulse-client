@@ -89,6 +89,14 @@ class ArticleListPage extends Component {
             </CreatePostButton>
           </div>
         </div>
+        <div
+          className={`container_mobile_view_top_users hide_top_users + ${
+            lightsOff ? "lights_on_bg" : "lights_off_bg"
+          }`}
+        >
+          <h3 className="mobile_top_users_title">Top Three Commenters</h3>
+          <TopUsersList></TopUsersList>
+        </div>
         <div className="flex_container" role="complementary">
           <div
             className={`container_top_users_list hide_top_users_list + ${
@@ -96,9 +104,17 @@ class ArticleListPage extends Component {
             }`}
           >
             <h4 className="top_users_title">
-              <img src={flash} className="flash_icon" alt="flash icon"></img>Top
-              Commenters
-              <img src={flash} className="flash_icon" alt="flash icon"></img>
+              <img
+                src={flash}
+                className="flash_icon hide_icon"
+                alt="flash icon"
+              ></img>
+              Top Commenters
+              <img
+                src={flash}
+                className="flash_icon hide_icon"
+                alt="flash icon"
+              ></img>
             </h4>
             <TopUsersList></TopUsersList>
           </div>

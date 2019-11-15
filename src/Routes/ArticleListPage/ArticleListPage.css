@@ -107,10 +107,36 @@
   .container_articles_section {
     width: 100%;
   }
+
+  .lights_on_bg {
+    padding-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    box-shadow: 6px 6px 6px 1px rgb(0, 0, 0);
+    border-radius: 2px;
+  }
+
+  .lights_off_bg {
+    background-color: rgb(0, 0, 0, 0.7);
+    padding-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    box-shadow: 6px 6px 6px 1px rgb(0, 0, 0);
+    border-radius: 2px;
+  }
+
+  .mobile_top_users_title {
+    padding-top: 10px;
+    text-decoration: underline;
+  }
 }
 
 @media only screen and (min-width: 769px) {
   .hide_topbar_menu {
+    display: none;
+  }
+
+  .hide_top_users {
     display: none;
   }
 

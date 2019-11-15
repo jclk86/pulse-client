@@ -8,9 +8,17 @@ import "./TopUsersList.css";
 
 class TopUsersList extends Component {
   static contextType = ArticleListContext;
+  state = {
+    browserWidth: ""
+  };
 
   componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
     CommentApiService.getAllComments().then(this.context.setComments);
+  }
+
+  componentWillUnmount() {
+    window.addEventListener("resize", null);
   }
 
   getImagesForUsers = (comments, username) => {
@@ -19,8 +27,13 @@ class TopUsersList extends Component {
     });
   };
 
+  handleResize = (browserWidth, event) => {
+    this.setState({ browserWidth: window.innerWidth });
+  };
+
   render() {
     const { comments, lightsOff } = this.context;
+    const browserMaxWidth = this.state.browserWidth;
     // Top users list is based on how active they are commenting. Below totals
     // user comments for top 10 users. Duplicates need to be removed because
     // a user comments more than once and therefore in the array more than once. This counts up
@@ -28,10 +41,13 @@ class TopUsersList extends Component {
     // iterated through.
     const usersArray = comments.map(comment => comment.user.username);
     const topUsersList = sortByFrequencyAndRemoveDuplicates(usersArray);
-    const topTenUsers = topUsersList.slice(0, 11);
+    const topUsers =
+      browserMaxWidth <= 768
+        ? topUsersList.slice(0, 3)
+        : topUsersList.slice(0, 11);
     return (
       <ul className="top_users_list">
-        {topTenUsers.map((user, i) => {
+        {topUsers.map((user, i) => {
           const imageLinks = this.getImagesForUsers(comments, user);
           const userImage = imageLinks ? imageLinks.user.image_url : "";
           return (
@@ -48,7 +64,7 @@ class TopUsersList extends Component {
                   className="top_user_image"
                 ></img>
               </div>
-              <div className="container_top_user_chatbox">
+              <div className="container_top_user_chatbox hide_icons">
                 <img
                   src={ChatBox}
                   alt="top user icon"
