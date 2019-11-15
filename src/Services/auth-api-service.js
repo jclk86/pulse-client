@@ -11,7 +11,9 @@ const AuthApiService = {
       },
       body: JSON.stringify({ username, password })
     })
-      .then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res))
+      .then(res =>
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      )
       .then(res => {
         // Saves encrypted token in session storage.
         TokenService.saveAuthToken(res.authToken);

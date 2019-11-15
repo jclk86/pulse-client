@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, Button, Input, Logo } from "../Utils/Utils";
 import { withRouter, NavLink } from "react-router-dom";
 import AuthApiService from "../../Services/auth-api-service";
-import TokenService from "../../Services/token-service";
 import {
   validateUsername,
   validatePassword,

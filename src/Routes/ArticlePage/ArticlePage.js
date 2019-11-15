@@ -30,7 +30,6 @@ class ArticlePage extends Component {
     const { article, comments, error } = this.context;
     const { article_id } = this.props.match.params;
     const { lightsOff } = this.props;
-    console.log(error);
     return (
       <Section
         role="article"
