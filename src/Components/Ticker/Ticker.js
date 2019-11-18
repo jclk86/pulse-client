@@ -21,6 +21,8 @@ class Ticker extends Component {
         <a
           role="navigation"
           href={article.url}
+          rel="noopener noreferrer"
+          target="_blank"
           className={`ticker_links + ${
             this.context.lightsOff ? "" : "ticker_links_lights_off"
           }`}
