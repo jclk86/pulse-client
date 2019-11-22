@@ -12,8 +12,8 @@
       "dest": "/favicon.ico"
     },
     {
-      "src": "^/site.webmanifest.json$",
-      "dest": "/site.webmanifest.json"
+      "src": "^/manifest.json$",
+      "dest": "/webmanifest.json"
     },
     {
       "src": ".*",
