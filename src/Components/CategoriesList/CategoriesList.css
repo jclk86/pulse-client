@@ -1,6 +1,6 @@
 .container_categories_list {
   text-align: center;
-  background-color: rgb(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
 }
 .categories_list {
   list-style: none;
@@ -17,7 +17,7 @@
   display: block;
   text-decoration: none;
   color: black;
-  background-color: rgb(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   padding-top: 5px;
   padding-bottom: 5px;
   display: block;
@@ -27,7 +27,7 @@
   display: block;
   text-decoration: none;
   color: black;
-  background-color: rgb(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   padding-top: 5px;
   padding-bottom: 5px;
   display: block;
@@ -61,10 +61,10 @@
 }
 
 .lights_off_link_bg {
-  background-color: rgb(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   color: white;
 }
 
 .lights_off_link_bg:focus {
-  background-color: rgb(214, 214, 214, 0.2);
+  background-color: rgba(214, 214, 214, 0.2);
 }

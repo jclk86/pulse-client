@@ -30,11 +30,11 @@
 }
 
 .ArticlePage_lights_off {
-  background-color: rgb(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .ArticlePage_lights_on {
-  background-color: rgb(215, 215, 215, 0.9);
+  background-color: rgba(215, 215, 215, 0.9);
 }
 
 .error_message_no_article {
