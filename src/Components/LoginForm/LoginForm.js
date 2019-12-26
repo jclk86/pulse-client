@@ -8,6 +8,7 @@ import {
   ValidationError
 } from "../ValidationError/ValidationError";
 import "./LoginForm.css";
+import loader from "../../images/6.gif";
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -17,6 +18,7 @@ class LoginForm extends Component {
     super(props);
     this.state = {
       error: null,
+      isLoading: false,
       username: { value: "", touched: false },
       password: { value: "", touched: false }
     };
@@ -32,7 +34,7 @@ class LoginForm extends Component {
 
   handleSubmitJwtAuth = event => {
     event.preventDefault();
-    this.setState({ error: null });
+    this.setState({ error: null, isLoading: true });
     const { username, password } = event.target;
 
     AuthApiService.postLogin({
@@ -42,6 +44,7 @@ class LoginForm extends Component {
       .then(res => {
         username.value = "";
         password.value = "";
+        this.setState({ isLoading: false });
         this.props.onLoginSuccess();
       })
       .catch(res => {
@@ -50,7 +53,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { error, username, password } = this.state;
+    const { error, username, password, isLoading } = this.state;
     return (
       <div className="container_login_page">
         <div className="container_login_form mobile_view_bg_login_page">
@@ -58,6 +61,15 @@ class LoginForm extends Component {
             <div className="container_login_logo">
               <Logo id="logo_login"></Logo>
             </div>
+            {isLoading && (
+              <div className="container_loader">
+                <img
+                  src={loader}
+                  alt="loading gif"
+                  className="loading_gif"
+                ></img>
+              </div>
+            )}
             <div className="container_LoginForm_username">
               <label htmlFor="label__username" id="label_login_username">
                 Username
