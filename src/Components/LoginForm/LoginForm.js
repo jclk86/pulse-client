@@ -8,7 +8,7 @@ import {
   ValidationError
 } from "../ValidationError/ValidationError";
 import "./LoginForm.css";
-import loader from "../../images/6.gif";
+import loader from "../../images/loading.gif";
 
 class LoginForm extends Component {
   static defaultProps = {
