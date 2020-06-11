@@ -20,7 +20,7 @@ class Ticker extends Component {
       <div className="ticker-item" key={i}>
         <a
           role="navigation"
-          href={article.url}
+          href={article.source.url}
           rel="noopener noreferrer"
           target="_blank"
           className={`ticker_links + ${
