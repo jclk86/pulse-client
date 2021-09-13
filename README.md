@@ -29,7 +29,7 @@ You will also see any lint errors in the console.
 
 ### npm test
 
-Launches the test runner in the interactive watch mode.
+This will launch the test runner in the interactive watch mode.
 
 ## Motivation
 
