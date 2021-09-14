@@ -4,7 +4,7 @@ import IdleService from "./idle-service";
 
 const AuthApiService = {
   postLogin({ username, password }) {
-    return fetch(`${config.API_ENDPOINT}/auth/login`, {
+    return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
