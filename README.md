@@ -17,7 +17,7 @@ This project was bootstrapped with Create React App.
 
 ### npm install
 
-There a number of dependencies that need to be installed.
+There are a number of dependencies that need to be installed.
 
 ### npm start
 
